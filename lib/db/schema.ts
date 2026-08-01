@@ -1,14 +1,14 @@
-// סכימת Drizzle (דיאלקט SQLite / libSQL).
-import { sqliteTable, integer, text } from "drizzle-orm/sqlite-core";
+// סכימת Drizzle (Postgres / Supabase).
+import { pgTable, serial, integer, text, boolean, bigint } from "drizzle-orm/pg-core";
 
-export const weeks = sqliteTable("weeks", {
-  id: integer("id").primaryKey({ autoIncrement: true }),
-  meetingDate: text("meeting_date").notNull(), // YYYY-MM-DD, ייחודי בפועל
-  createdAt: integer("created_at").notNull(),
+export const weeks = pgTable("weeks", {
+  id: serial("id").primaryKey(),
+  meetingDate: text("meeting_date").notNull().unique(), // YYYY-MM-DD
+  createdAt: bigint("created_at", { mode: "number" }).notNull(),
 });
 
-export const visitors = sqliteTable("visitors", {
-  id: integer("id").primaryKey({ autoIncrement: true }),
+export const visitors = pgTable("visitors", {
+  id: serial("id").primaryKey(),
   weekId: integer("week_id").notNull(),
   position: integer("position").notNull(),
   first: text("first").notNull(),
@@ -19,5 +19,5 @@ export const visitors = sqliteTable("visitors", {
   email: text("email").notNull().default(""),
   type: text("type").notNull().default("guest"),
   gender: text("gender").notNull().default("m"),
-  bniMember: integer("bni_member").notNull().default(0),
+  bniMember: boolean("bni_member").notNull().default(false),
 });

@@ -14,7 +14,7 @@ function rowToVisitor(r: typeof schema.visitors.$inferSelect): Visitor {
     email: r.email,
     type: r.type as Visitor["type"],
     gender: r.gender as Visitor["gender"],
-    bniMember: r.bniMember === 1,
+    bniMember: r.bniMember,
   };
 }
 
@@ -86,7 +86,7 @@ export async function saveWeek(meetingDate: string, visitors: Visitor[]): Promis
         email: v.email,
         type: v.type,
         gender: v.gender,
-        bniMember: v.bniMember ? 1 : 0,
+        bniMember: v.bniMember,
       }))
     );
   }

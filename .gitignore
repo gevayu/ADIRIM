@@ -8,9 +8,6 @@
 # production
 /build
 
-# local database (libSQL file)
-/data/*.db
-/data/*.db-*
 
 # env
 .env
@@ -23,3 +20,7 @@
 npm-debug.log*
 next-env.d.ts
 *.tsbuildinfo
+
+# stray local sqlite files (project uses Postgres/Supabase)
+*.db
+*.db-*

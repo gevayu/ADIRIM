@@ -10,10 +10,10 @@
     "seed": "tsx data/seed.ts"
   },
   "dependencies": {
-    "@libsql/client": "^0.14.0",
     "drizzle-orm": "^0.36.4",
     "next": "14.2.15",
     "papaparse": "^5.4.1",
+    "postgres": "^3.4.5",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "xlsx": "^0.18.5"

@@ -1,13 +1,19 @@
-// לקוח libSQL + Drizzle. עובד מקומית מול קובץ, ובוורסל מול Turso.
+// לקוח Postgres (Supabase) + Drizzle.
 // אין שלב מיגרציה נפרד: ensureSchema יוצר את הטבלאות אם חסרות (idempotent).
-import { createClient, type Client } from "@libsql/client";
-import { drizzle } from "drizzle-orm/libsql";
+import { drizzle } from "drizzle-orm/postgres-js";
+import postgres from "postgres";
 import * as schema from "./schema";
 
-const url = process.env.DATABASE_URL || "file:./data/local.db";
-const authToken = process.env.DATABASE_AUTH_TOKEN;
+const url = process.env.DATABASE_URL;
+if (!url) {
+  throw new Error(
+    "DATABASE_URL is not set. Use the Supabase Postgres connection string " +
+      "(Connection Pooler / Transaction, port 6543)."
+  );
+}
 
-const client: Client = createClient({ url, authToken });
+// prepare:false נדרש מול ה-pooler של Supabase (Supavisor) במצב transaction.
+const client = postgres(url, { prepare: false });
 
 export const db = drizzle(client, { schema });
 
@@ -16,36 +22,26 @@ let schemaReady: Promise<void> | null = null;
 export function ensureSchema(): Promise<void> {
   if (!schemaReady) {
     schemaReady = (async () => {
-      // קשיחות מול גישה מרובת-תהליכים לקובץ מקומי (WAL + המתנה על נעילה).
-      // בענן (Turso) אלה מנוהלים ממילא ואין להם השפעה.
-      if (url.startsWith("file:")) {
-        try {
-          await client.execute("PRAGMA journal_mode=WAL");
-          await client.execute("PRAGMA busy_timeout=5000");
-        } catch {
-          /* לא קריטי */
-        }
-      }
-      await client.execute(`
+      await client.unsafe(`
         CREATE TABLE IF NOT EXISTS weeks (
-          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          id SERIAL PRIMARY KEY,
           meeting_date TEXT NOT NULL UNIQUE,
-          created_at INTEGER NOT NULL
+          created_at BIGINT NOT NULL
         )`);
-      await client.execute(`
+      await client.unsafe(`
         CREATE TABLE IF NOT EXISTS visitors (
-          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          id SERIAL PRIMARY KEY,
           week_id INTEGER NOT NULL REFERENCES weeks(id) ON DELETE CASCADE,
           position INTEGER NOT NULL,
-          first TEXT NOT NULL,
-          last TEXT NOT NULL,
+          "first" TEXT NOT NULL,
+          "last" TEXT NOT NULL,
           company TEXT NOT NULL DEFAULT '',
           inviter TEXT NOT NULL DEFAULT '',
           phone TEXT NOT NULL DEFAULT '',
           email TEXT NOT NULL DEFAULT '',
-          type TEXT NOT NULL DEFAULT 'guest',
+          "type" TEXT NOT NULL DEFAULT 'guest',
           gender TEXT NOT NULL DEFAULT 'm',
-          bni_member INTEGER NOT NULL DEFAULT 0
+          bni_member BOOLEAN NOT NULL DEFAULT FALSE
         )`);
     })();
   }
