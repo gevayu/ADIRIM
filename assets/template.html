@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=YouTube+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<title>רשימת אורחים אדירים - {DATE_SLASH}</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'YouTube Sans', 'Segoe UI', Arial, sans-serif; background: linear-gradient(135deg, #fff0f0 0%, #ffd5d5 40%, #ffb3b3 100%); direction: rtl; overflow-x: hidden; }
+  #bulbs-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+  .container { position: relative; z-index: 1; max-width: 1150px; margin: 0 auto; padding: 20px; }
+  .header { background: linear-gradient(135deg, #cc0000, #990000); color: white; padding: 30px; border-radius: 12px; margin-bottom: 24px; text-align: center; }
+  .header h1 { font-size: 2em; margin-bottom: 6px; }
+  .header p { font-size: 1.1em; opacity: 0.9; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+  .stat-card { background: white; border-radius: 10px; padding: 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-top: 4px solid #cc0000; }
+  .stat-card .number { font-size: 2.4em; font-weight: bold; color: #cc0000; }
+  .stat-card .label { color: #666; font-size: 0.95em; margin-top: 4px; }
+  @media (max-width: 768px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+  }
+  .section { background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 24px; overflow: hidden; }
+  .section-header { background: linear-gradient(90deg, #cc0000 0%, #ff4444 60%, #cc0000 100%); color: white; padding: 14px 20px; font-size: 1.1em; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
+  .export-btn { background: white; color: #cc0000; border: none; border-radius: 8px; padding: 6px 16px; font-family: inherit; font-weight: bold; font-size: 0.85em; cursor: pointer; transition: background 0.2s; }
+  .export-btn:hover { background: #ffe0e0; }
+  .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table { width: 100%; border-collapse: collapse; }
+  @media (max-width: 768px) {
+    .table-wrap table { min-width: 720px; }
+    th, td { white-space: nowrap; }
+  }
+  th { background: linear-gradient(180deg, #fff5f5 0%, #ffe5e5 100%); padding: 12px 14px; text-align: right; font-size: 0.85em; color: #aa0000; border-bottom: 2px solid #ffcccc; font-weight: 700; }
+  th.sortable { cursor: pointer; user-select: none; transition: background 0.15s; }
+  th.sortable:hover { background: linear-gradient(180deg, #ffe5e5 0%, #ffd0d0 100%); }
+  th.sortable::after { content: ' ⇅'; opacity: 0.35; font-size: 0.9em; }
+  th.sort-asc::after { content: ' ▲'; opacity: 1; color: #cc0000; }
+  th.sort-desc::after { content: ' ▼'; opacity: 1; color: #cc0000; }
+  td { padding: 11px 14px; border-bottom: 1px solid #f0f0f0; font-size: 0.9em; vertical-align: middle; }
+  tr:hover td { background: #fff5f5; }
+  tr:last-child td { border-bottom: none; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.78em; font-weight: bold; }
+  .badge-guest { background: #e8f5e9; color: #2e7d32; }
+  .badge-sub { background: #fff3e0; color: #e65100; }
+  .badge-candidate { background: #e3f2fd; color: #1565c0; }
+  .badge-visitor { background: #fce4ec; color: #c2185b; }
+  .bni-logo { display: inline-block; background: #cc0000; color: white; font-size: 0.62em; font-weight: 900; padding: 1px 5px; border-radius: 3px; margin-right: 6px; vertical-align: middle; letter-spacing: 0.5px; }
+  .inviter-name { color: #cc0000; font-weight: bold; }
+  .footer { text-align: center; color: #fff; font-size: 0.85em; margin-top: 20px; padding-bottom: 20px; }
+  .note { padding: 10px 16px; font-size: 0.8em; color: #888; border-top: 1px solid #f0f0f0; }
+  a.email-link { color: #cc0000; text-decoration: none; }
+  a.email-link:hover { text-decoration: underline; }
+  .wa-btn { display: inline-flex; align-items: center; vertical-align: middle; margin-inline-start: 6px; padding: 2px; border-radius: 4px; transition: background 0.15s; text-decoration: none; }
+  .wa-btn:hover { background: #e8f5e9; }
+  .wa-btn svg { display: block; }
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .header { animation: fadeInUp 0.5s ease-out both; }
+  .stat-card { animation: fadeInUp 0.45s ease-out both; }
+  .stat-card:nth-child(1) { animation-delay: 0.08s; }
+  .stat-card:nth-child(2) { animation-delay: 0.16s; }
+  .stat-card:nth-child(3) { animation-delay: 0.24s; }
+  .stat-card:nth-child(4) { animation-delay: 0.32s; }
+  .section { animation: fadeInUp 0.5s ease-out both; }
+  .section:nth-of-type(1) { animation-delay: 0.4s; }
+  .section:nth-of-type(2) { animation-delay: 0.48s; }
+  .footer { animation: fadeIn 0.6s ease-out 0.9s both; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-delay: 0ms !important; }
+  }
+</style>
+</head>
+<body>
+<canvas id="bulbs-canvas"></canvas>
+<div class="container">
+  <div class="header">
+    <h1>רשימת אורחים אדירים</h1>
+    <p>פגישה שבועית | {DATE_HEB}</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat-card"><div class="number">0</div><div class="label">סה"כ מבקרים</div></div>
+    <div class="stat-card"><div class="number">0</div><div class="label">אורחים</div></div>
+    <div class="stat-card"><div class="number">0</div><div class="label">ממלאי מקום</div></div>
+    <div class="stat-card"><div class="number">0</div><div class="label">מבקרים</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span id="ranking-title">🏆 דירוג מזמינים (אורחים בלבד)</span>
+    </div>
+    <div id="ranking-podium" style="display:flex;gap:12px;padding:20px;justify-content:center;flex-wrap:wrap;"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <span>📋 רשימת מבקרים מלאה (לפי מזמין)</span>
+      <button class="export-btn" onclick="exportVisitors()">📥 ייצוא לאקסל</button>
+    </div>
+    <div class="table-wrap">
+    <table id="visitors-table">
+      <thead>
+        <tr>
+          <th class="wa-col" style="text-align:center;width:50px;">ווטסאפ</th>
+          <th class="sortable" data-key="first">שם פרטי</th>
+          <th class="sortable" data-key="last">שם משפחה</th>
+          <th class="sortable" data-key="company">שם חברה/מומחיות</th>
+          <th class="sortable" data-key="inviter">הוזמן ע"י</th>
+          <th class="sortable" data-key="phone">טלפון</th>
+          <th class="sortable" data-key="email">אימייל</th>
+          <th class="sortable" data-key="type">סוג</th>
+        </tr>
+      </thead>
+      <tbody id="visitors-body"></tbody>
+    </table>
+    </div>
+    <div class="note">* ממלאי מקום ומבקרים אינם נספרים בדירוג הרשמי של מזמינים</div>
+  </div>
+
+  <div class="footer">BNI Israel | דוח שבועי מבקרים | {DATE_SLASH}</div>
+</div>
+
+<script>
+const visitors = [
+  // {DATA_ROWS}
+];
+
+const femaleNames = new Set(['יהודית','דיקלה','אילנה','שרי','שירי','אורית','גלית','שיר','דגנית','יערה','אור','ד"ר ענת','שרון','אלינה','ויקטוריה','הילה','אורלי','מיה','מיטל','נופר','סתו','ציפי','ליזה','איילת','שרית','קטי']);
+function checkFemale(v) {
+  if (v.gender === 'f') return true;
+  if (v.gender === 'm') return false;
+  return femaleNames.has(v.first) || (v.first === 'דניאל' && v.last === 'כהן');
+}
+
+const rankColors = ['#2e7d32','#6ab04c','#f9ca24','#f0932b','#cc0000'];
+function getRankColor(rank) { return rankColors[Math.min(rank - 1, rankColors.length - 1)]; }
+
+const counts = {};
+visitors.filter(v => v.type === 'guest' && v.inviter).forEach(v => {
+  counts[v.inviter] = (counts[v.inviter] || 0) + 1;
+});
+const ranking = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+
+let rankArr = [];
+let curRank = 1;
+ranking.forEach((entry, i) => {
+  if (i > 0 && entry[1] < ranking[i-1][1]) curRank = i + 1;
+  rankArr.push(curRank);
+});
+
+const rb = document.getElementById('ranking-podium');
+const rank3Count = rankArr.filter(r => r === 3).length;
+const maxRank = rank3Count <= 2 ? 3 : 2;
+const titleEl = document.getElementById('ranking-title');
+if (titleEl) titleEl.textContent = `🏆 דירוג מזמינים (אורחים בלבד) - טופ ${maxRank}`;
+const top3 = [];
+for (let i = 0; i < ranking.length; i++) {
+  if (rankArr[i] <= maxRank) top3.push({ name: ranking[i][0], count: ranking[i][1], rank: rankArr[i] });
+}
+
+top3.forEach(({ name, count, rank }, i) => {
+  const color = getRankColor(rank);
+  const card = document.createElement('div');
+  card.style.cssText = `flex:1;min-width:180px;max-width:280px;background:linear-gradient(135deg,${color}15,${color}05);border:2px solid ${color};border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px;animation:fadeInUp 0.45s ease-out ${0.5 + i * 0.08}s both;${rank===1?'cursor:pointer;':''}`;
+  if (rank === 1) card.onclick = () => launchConfetti();
+  card.innerHTML = `
+    <div style="background:${color};color:white;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:1.2em;flex-shrink:0;">${rank}</div>
+    <div style="flex:1;">
+      <div style="font-weight:bold;color:${color};font-size:1.05em;">${name}${rank===1?' 🏆':''}</div>
+      <div style="color:#666;font-size:0.85em;margin-top:2px;">${count} אורחים</div>
+    </div>
+  `;
+  rb.appendChild(card);
+});
+
+const vb = document.getElementById('visitors-body');
+let sortKey = null, sortDir = 1;
+let firstRender = true;
+
+const WA_ICON = '<svg viewBox="0 0 24 24" fill="#25D366" width="16" height="16"><path d="M17.498 14.382c-.301-.15-1.767-.867-2.04-.966-.273-.099-.473-.149-.673.15-.198.297-.771.964-.945 1.162-.174.198-.347.223-.646.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>';
+
+function waLink(phone) {
+  let d = String(phone || '').replace(/\D/g, '');
+  if (d.startsWith('00')) d = d.substring(2);
+  if (d.startsWith('972')) {
+    // Strip an accidental trunk zero right after the country code (e.g. 9720521234567)
+    if (d.charAt(3) === '0') d = '972' + d.substring(4);
+  } else if (d.startsWith('0')) {
+    d = '972' + d.substring(1);
+  }
+  return 'https://wa.me/' + d;
+}
+
+function renderVisitors(list) {
+  vb.innerHTML = '';
+  list.forEach((v, i) => {
+    const tr = document.createElement('tr');
+    if (firstRender) {
+      tr.style.animation = `fadeInUp 0.35s ease-out ${0.6 + i * 0.018}s both`;
+    }
+    const isFemale = checkFemale(v);
+    let typeLabel, badgeClass;
+    if (v.type === 'guest') { typeLabel = isFemale ? 'אורחת' : 'אורח'; badgeClass = 'badge-guest'; }
+    else if (v.type === 'sub') { typeLabel = isFemale ? 'ממלאת מקום' : 'ממלא מקום'; badgeClass = 'badge-sub'; }
+    else if (v.type === 'candidate') { typeLabel = isFemale ? 'מועמדת' : 'מועמד'; badgeClass = 'badge-candidate'; }
+    else if (v.type === 'visitor') { typeLabel = isFemale ? 'מבקרת' : 'מבקר'; badgeClass = 'badge-visitor'; }
+    const bniBadge = v.bniMember ? '<span class="bni-logo">BNI</span>' : '';
+    const waBtn = v.phone ? `<a href="${waLink(v.phone)}" target="_blank" rel="noopener" class="wa-btn" title="שלח ווטסאפ" aria-label="ווטסאפ">${WA_ICON}</a>` : '';
+    tr.innerHTML = `
+      <td class="wa-col" style="text-align:center;">${waBtn}</td>
+      <td><strong>${v.first}</strong></td>
+      <td><strong>${v.last}</strong>${bniBadge}</td>
+      <td>${v.company}</td>
+      <td class="inviter-name">${v.inviter || ''}</td>
+      <td>${v.phone || ''}</td>
+      <td>${v.email ? `<a class="email-link" href="mailto:${v.email}">${v.email}</a>` : ''}</td>
+      <td><span class="badge ${badgeClass}">${typeLabel}</span></td>
+    `;
+    vb.appendChild(tr);
+  });
+}
+
+renderVisitors(visitors);
+firstRender = false;
+
+document.querySelectorAll('#visitors-table th.sortable').forEach(th => {
+  th.addEventListener('click', () => {
+    const key = th.dataset.key;
+    if (sortKey === key) sortDir = -sortDir;
+    else { sortKey = key; sortDir = 1; }
+    document.querySelectorAll('#visitors-table th.sortable').forEach(h => h.classList.remove('sort-asc','sort-desc'));
+    th.classList.add(sortDir === 1 ? 'sort-asc' : 'sort-desc');
+    const sorted = [...visitors].sort((a, b) => {
+      const av = (a[key] || '').toString();
+      const bv = (b[key] || '').toString();
+      return sortDir * av.localeCompare(bv, 'he');
+    });
+    renderVisitors(sorted);
+  });
+});
+
+function exportVisitors() {
+  const table = document.getElementById('visitors-table');
+  const allThs = Array.from(table.querySelectorAll('thead th'));
+  const exportIdx = allThs.map((th, i) => th.classList.contains('wa-col') ? -1 : i).filter(i => i !== -1);
+  const headers = exportIdx.map(i => allThs[i].textContent.trim());
+  headers.splice(2, 0, 'חבר BNI');
+  const rows = [headers];
+  table.querySelectorAll('tbody tr').forEach(tr => {
+    const cells = tr.querySelectorAll('td');
+    const row = exportIdx.map(i => {
+      const td = cells[i];
+      if (i === 2) {
+        const strong = td.querySelector('strong');
+        return strong ? strong.textContent.trim() : td.textContent.trim();
+      }
+      return td.textContent.trim();
+    });
+    const hasBni = tr.querySelector('.bni-logo') !== null;
+    row.splice(2, 0, hasBni ? 'כן' : '');
+    rows.push(row);
+  });
+  const ws = XLSX.utils.aoa_to_sheet(rows);
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, 'נתונים');
+  XLSX.writeFile(wb, 'אורחים אדירים_{DATE_FILE}.xlsx');
+}
+
+let confettiCanvas, confettiCtx;
+function initConfettiCanvas() {
+  confettiCanvas = document.createElement('canvas');
+  confettiCanvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;pointer-events:none;';
+  confettiCanvas.width = window.innerWidth;
+  confettiCanvas.height = window.innerHeight;
+  document.body.appendChild(confettiCanvas);
+  confettiCtx = confettiCanvas.getContext('2d');
+}
+
+function launchConfetti() {
+  if (!confettiCanvas) initConfettiCanvas();
+  confettiCanvas.width = window.innerWidth;
+  confettiCanvas.height = window.innerHeight;
+  const colors = ['#ff0000','#ff6666','#ffcc00','#00cc44','#3399ff','#ff66cc','#ffffff','#ff9900','#cc00ff','#00ffcc'];
+  const pieces = 540;
+  const cx = confettiCtx;
+  const particles = [];
+  for (let i = 0; i < pieces; i++) {
+    const fromLeft = i < pieces / 2;
+    particles.push({
+      x: fromLeft ? 0 : confettiCanvas.width,
+      y: confettiCanvas.height * 0.3 + Math.random() * confettiCanvas.height * 0.4,
+      vx: (fromLeft ? 1 : -1) * (8 + Math.random() * 14),
+      vy: -(4 + Math.random() * 12),
+      color: colors[Math.floor(Math.random() * colors.length)],
+      gravity: 0.32, spin: (Math.random() - 0.5) * 0.35,
+      angle: Math.random() * Math.PI * 2,
+      shape: Math.random() < 0.5 ? 'rect' : 'circle',
+      w: 8 + Math.random() * 10, h: 4 + Math.random() * 6, alpha: 1,
+    });
+  }
+  function drawConfetti() {
+    cx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+    particles.forEach(p => {
+      cx.save(); cx.globalAlpha = p.alpha;
+      cx.translate(p.x, p.y); cx.rotate(p.angle);
+      cx.fillStyle = p.color;
+      if (p.shape === 'rect') cx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+      else { cx.beginPath(); cx.ellipse(0, 0, p.w/2, p.h/2, 0, 0, Math.PI*2); cx.fill(); }
+      cx.restore();
+      p.x += p.vx; p.y += p.vy;
+      p.vy += p.gravity; p.vx *= 0.99;
+      p.angle += p.spin; p.alpha -= 0.006;
+    });
+    particles.splice(0, particles.length, ...particles.filter(p => p.alpha > 0));
+    if (particles.length > 0) requestAnimationFrame(drawConfetti);
+    else cx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+  }
+  drawConfetti();
+}
+
+const canvas = document.getElementById('bulbs-canvas');
+const ctx = canvas.getContext('2d');
+let bulbs = [], mouse = {x:0,y:0}, bulbPos = {x:0,y:0};
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  if (!bulbPos.x) { bulbPos.x = canvas.width/2; bulbPos.y = canvas.height/2; }
+}
+
+function createBulbs(n) {
+  bulbs = [];
+  for (let i = 0; i < n; i++) bulbs.push({
+    x: Math.random()*canvas.width, y: Math.random()*canvas.height,
+    r: 80+Math.random()*180, vx:(Math.random()-.5)*.4, vy:(Math.random()-.5)*.4,
+    alpha:.25+Math.random()*.4, hue:Math.random()<.5?0:10
+  });
+}
+
+window.addEventListener('mousemove', e => { mouse.x=e.clientX; mouse.y=e.clientY; });
+
+function draw() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  bulbPos.x += (mouse.x-bulbPos.x)*.04;
+  bulbPos.y += (mouse.y-bulbPos.y)*.04;
+  const mg = ctx.createRadialGradient(bulbPos.x,bulbPos.y,0,bulbPos.x,bulbPos.y,220);
+  mg.addColorStop(0,'hsla(0,100%,80%,0.45)');
+  mg.addColorStop(1,'hsla(0,100%,60%,0)');
+  ctx.beginPath(); ctx.arc(bulbPos.x,bulbPos.y,220,0,Math.PI*2);
+  ctx.fillStyle=mg; ctx.fill();
+  bulbs.forEach(b => {
+    const g=ctx.createRadialGradient(b.x,b.y,0,b.x,b.y,b.r);
+    g.addColorStop(0,`hsla(${b.hue},100%,70%,${b.alpha})`);
+    g.addColorStop(1,`hsla(${b.hue},100%,40%,0)`);
+    ctx.beginPath(); ctx.arc(b.x,b.y,b.r,0,Math.PI*2);
+    ctx.fillStyle=g; ctx.fill();
+    b.x+=b.vx; b.y+=b.vy;
+    if(b.x<-b.r) b.x=canvas.width+b.r;
+    if(b.x>canvas.width+b.r) b.x=-b.r;
+    if(b.y<-b.r) b.y=canvas.height+b.r;
+    if(b.y>canvas.height+b.r) b.y=-b.r;
+  });
+  requestAnimationFrame(draw);
+}
+
+resize(); createBulbs(18); draw();
+window.addEventListener('resize',()=>{ resize(); createBulbs(18); });
+</script>
+</body>
+</html>
