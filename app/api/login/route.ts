@@ -1,23 +1,27 @@
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
-import { ADMIN_COOKIE, adminPassword } from "@/lib/auth";
+import { ADMIN_COOKIE, checkCredentials, credentialsConfigured, sessionToken } from "@/lib/auth";
 
 export const dynamic = "force-dynamic";
 
-// כניסת עורך: בודק סיסמה מול ADMIN_PASSWORD ומגדיר עוגייה httpOnly.
+// כניסת עורך: בודק יוזר+סיסמה מול ה-env ומגדיר עוגייה httpOnly עם טוקן הפעלה.
 export async function POST(req: Request) {
+  let user = "";
   let password = "";
   try {
-    ({ password } = await req.json());
+    ({ user, password } = await req.json());
   } catch {
     return NextResponse.json({ error: "בקשה לא תקינה" }, { status: 400 });
   }
 
-  const pw = adminPassword();
-  if (!pw) return NextResponse.json({ error: "לא הוגדרה סיסמת עורך בשרת" }, { status: 500 });
-  if (password !== pw) return NextResponse.json({ error: "סיסמה שגויה" }, { status: 401 });
+  if (!credentialsConfigured()) {
+    return NextResponse.json({ error: "לא הוגדרו פרטי עורך בשרת" }, { status: 500 });
+  }
+  if (!checkCredentials(user, password)) {
+    return NextResponse.json({ error: "יוזר או סיסמה שגויים" }, { status: 401 });
+  }
 
-  cookies().set(ADMIN_COOKIE, password, {
+  cookies().set(ADMIN_COOKIE, sessionToken(), {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",

@@ -64,6 +64,16 @@ Import (paste/CSV/Excel) ──parse──> Review grid (edit every field) ─�
   gender, bni_member)`. `bni_member` is stored `0/1`; `repo.ts` maps it to the boolean
   `bniMember`. Visitor order is preserved via `position`.
 
+### Editor gate (`lib/auth.ts`)
+
+Editing is password-gated; the public view is read-only. Login (`/login` → `POST
+/api/login`) checks `ADMIN_USER` (case-insensitive) + `ADMIN_PASSWORD` and sets an httpOnly
+cookie holding `sessionToken()` — a SHA-256 of `user:password`, not the raw password.
+`isAdmin()` (used by `app/page.tsx` and guarding `POST /api/weeks`) recomputes that token and
+compares. **If either env var is unset, editing is locked for everyone** (fail-safe). Changing
+either env value rotates the token and invalidates existing sessions. The gate is enforced
+server-side on the write API, so hiding the button is not the security boundary.
+
 ### Domain logic (ported from the skill, shared client/server)
 
 - `lib/classify.ts` — gender inference and the guest/sub/visitor/candidate labels. **The
@@ -91,9 +101,9 @@ is a variable font capped at weight 700, so `font-weight: 900` (e.g. `.bni-logo`
 ## Deployment (GitHub + Vercel)
 
 `data/local.db` is gitignored and won't deploy. On Vercel, set `DATABASE_URL` (Turso
-`libsql://…`) and `DATABASE_AUTH_TOKEN`; the app starts with an empty-state and the first
-import creates the first week. To preload the sample week against a remote DB, run
-`npm run seed` with those env vars set. See `README.md`.
+`libsql://…`), `DATABASE_AUTH_TOKEN`, and the editor login `ADMIN_USER` + `ADMIN_PASSWORD`;
+the app starts with an empty-state and the first import creates the first week. To preload the
+sample week against a remote DB, run `npm run seed` with those env vars set. See `README.md`.
 
 ## The original skill (offline verification)
 

@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
   const router = useRouter();
+  const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
@@ -16,7 +17,7 @@ export default function LoginPage() {
       const res = await fetch("/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password }),
+        body: JSON.stringify({ user, password }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "כניסה נכשלה");
@@ -35,8 +36,18 @@ export default function LoginPage() {
         <p className="sub">הזן סיסמה כדי לפתוח עריכה. הצפייה ברשימה פתוחה לכולם ללא סיסמה.</p>
         <form onSubmit={submit}>
           <input
-            type="password"
+            type="text"
             autoFocus
+            autoComplete="username"
+            dir="ltr"
+            value={user}
+            onChange={(e) => setUser(e.target.value)}
+            placeholder="יוזר (אימייל)"
+            style={{ width: "100%", border: "2px solid #ffcccc", borderRadius: 8, padding: "10px 12px", fontFamily: "inherit", fontSize: "1em", marginBottom: 10, textAlign: "right" }}
+          />
+          <input
+            type="password"
+            autoComplete="current-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="סיסמה"
