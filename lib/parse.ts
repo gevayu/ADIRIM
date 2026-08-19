@@ -9,11 +9,12 @@ import { inferGender } from "./classify";
 const FIELD_ALIASES: Record<string, string[]> = {
   first: ["שם פרטי", "שם", "first", "firstname", "first name"],
   last: ["שם משפחה", "משפחה", "last", "lastname", "last name"],
-  company: ["שם חברה", "חברה", "עיסוק", "מומחיות", "שם חברה/מומחיות", "עיסוק/חברה", "company", "business"],
+  company: ["שם חברה", "חברה", "עיסוק", "מקצוע", "מומחיות", "שם חברה/מומחיות", "עיסוק/חברה", "company", "business"],
   inviter: ['הוזמן ע"י', "מזמין", "מי הזמין", "הוזמן על ידי", "inviter", "host"],
   phone: ["טלפון", "נייד", "פלאפון", "phone", "mobile", "tel"],
   email: ['דוא"ל', "דואל", "אימייל", "מייל", "email", "e-mail", "mail"],
   sourceType: ["סוג", "סיווג", "type", "category"],
+  title: ["תואר", "title"],
   bni: ["חבר bni", "bni", "חבר"],
 };
 
@@ -43,25 +44,45 @@ function hebrewPart(s: string): string {
   return v;
 }
 
+// נרמול כותרת להשוואה: הסרת גרשיים/נקודתיים/פיסוק ואיחוד רווחים.
+// חשוב לדוחות BNI שבהם הכותרות מסתיימות בנקודתיים ("הוזמן על ידי:").
+function normHeader(s: string): string {
+  return s
+    .trim()
+    .toLowerCase()
+    .replace(/[:"'.,״׳]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function canonicalKey(header: string): string | null {
-  const h = header.trim().toLowerCase().replace(/["'.״׳]/g, "");
+  const h = normHeader(header);
   for (const [field, aliases] of Object.entries(FIELD_ALIASES)) {
-    if (aliases.some((a) => a.toLowerCase().replace(/["'.״׳]/g, "") === h)) return field;
+    if (aliases.some((a) => normHeader(a) === h)) return field;
   }
   return null;
 }
 
 // ממיר רשומת אובייקט (מפתחות = כותרות) לרשומת מבקר מנורמלת.
 function rowToVisitor(obj: Record<string, string>): ParsedRow {
+  // מחזיר את הערך הראשון הלא-ריק מבין העמודות שממופות לשדה.
+  // (למשל חברה: "שם חברה" ואם ריק נופל ל"מומחיות".)
   const get = (field: string): string => {
+    let firstSeen = "";
+    let seen = false;
     for (const [k, v] of Object.entries(obj)) {
-      if (canonicalKey(k) === field) return String(v ?? "").trim();
+      if (canonicalKey(k) === field) {
+        const val = String(v ?? "").trim().replace(/\s+/g, " ");
+        if (val) return val;
+        if (!seen) { firstSeen = val; seen = true; }
+      }
     }
-    return "";
+    return firstSeen;
   };
   const first = hebrewPart(get("first"));
   const last = hebrewPart(get("last"));
   const source = get("sourceType");
+  const title = get("title");
   return {
     first,
     last,
@@ -70,7 +91,7 @@ function rowToVisitor(obj: Record<string, string>): ParsedRow {
     phone: get("phone"),
     email: get("email"),
     type: mapSourceType(source),
-    gender: inferGender(first, source),
+    gender: inferGender(first, `${title} ${source}`),
     bniMember: truthy(get("bni")),
   };
 }
