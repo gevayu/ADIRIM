@@ -11,7 +11,7 @@ export async function GET() {
 }
 
 export async function POST(req: Request) {
-  if (!isAdmin()) {
+  if (!(await isAdmin())) {
     return NextResponse.json({ error: "אין הרשאת עריכה" }, { status: 401 });
   }
 

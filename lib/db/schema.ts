@@ -7,6 +7,12 @@ export const weeks = pgTable("weeks", {
   createdAt: bigint("created_at", { mode: "number" }).notNull(),
 });
 
+// אדמינים לעריכה. token = sha256(email:password). אין שמירת סיסמה בטקסט גלוי.
+export const admins = pgTable("admins", {
+  email: text("email").primaryKey(),
+  token: text("token").notNull().unique(),
+});
+
 export const visitors = pgTable("visitors", {
   id: serial("id").primaryKey(),
   weekId: integer("week_id").notNull(),

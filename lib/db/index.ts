@@ -4,16 +4,14 @@ import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
 import * as schema from "./schema";
 
-const url = process.env.DATABASE_URL;
-if (!url) {
-  throw new Error(
-    "DATABASE_URL is not set. Use the Supabase Postgres connection string " +
-      "(Connection Pooler / Transaction, port 6543)."
-  );
-}
+const url = process.env.DATABASE_URL || "";
 
+// הלקוח נוצר תמיד ומתחבר רק בעת שאילתה (עצל), כדי שייבוא המודול בזמן build
+// לא ייכשל כשאין DATABASE_URL. אם חסר — ensureSchema יזרוק שגיאה ברורה בזמן ריצה.
 // prepare:false נדרש מול ה-pooler של Supabase (Supavisor) במצב transaction.
-const client = postgres(url, { prepare: false });
+const client = postgres(url || "postgresql://placeholder:placeholder@127.0.0.1:5432/placeholder", {
+  prepare: false,
+});
 
 export const db = drizzle(client, { schema });
 
@@ -22,11 +20,22 @@ let schemaReady: Promise<void> | null = null;
 export function ensureSchema(): Promise<void> {
   if (!schemaReady) {
     schemaReady = (async () => {
+      if (!url) {
+        throw new Error(
+          "DATABASE_URL is not set. Use the Supabase Postgres connection string " +
+            "(Connection Pooler / Transaction, port 6543)."
+        );
+      }
       await client.unsafe(`
         CREATE TABLE IF NOT EXISTS weeks (
           id SERIAL PRIMARY KEY,
           meeting_date TEXT NOT NULL UNIQUE,
           created_at BIGINT NOT NULL
+        )`);
+      await client.unsafe(`
+        CREATE TABLE IF NOT EXISTS admins (
+          email TEXT PRIMARY KEY,
+          token TEXT NOT NULL UNIQUE
         )`);
       await client.unsafe(`
         CREATE TABLE IF NOT EXISTS visitors (

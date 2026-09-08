@@ -6,5 +6,5 @@ export const dynamic = "force-dynamic";
 
 export default async function Page() {
   const week = await getCurrentWeek();
-  return <GuestsApp initialWeek={week} isAdmin={isAdmin()} />;
+  return <GuestsApp initialWeek={week} isAdmin={await isAdmin()} />;
 }
