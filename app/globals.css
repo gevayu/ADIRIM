@@ -56,6 +56,11 @@ a.email-link:hover { text-decoration: underline; }
 .btn-ghost:hover { background: white; }
 .btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
+/* --- בורר מפגשים לפי תאריך --- */
+.week-select { display: flex; align-items: center; gap: 8px; color: #aa0000; font-weight: bold; font-size: 0.9em; }
+.week-select select { border: 2px solid #cc0000; border-radius: 8px; padding: 8px 12px; font-family: inherit; font-weight: bold; font-size: 0.9em; color: #cc0000; background: rgba(255,255,255,0.9); cursor: pointer; direction: ltr; }
+.week-select select:hover { background: #fff; }
+
 /* --- אזור עדכון: ייבוא + ביקורת --- */
 .panel { background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.12); padding: 22px; margin-bottom: 24px; }
 .panel h2 { color: #cc0000; font-size: 1.3em; margin-bottom: 6px; }

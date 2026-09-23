@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { listWeeks, saveWeek } from "@/lib/repo";
+import { deleteWeek, listWeeks, saveWeek } from "@/lib/repo";
 import { isAdmin } from "@/lib/auth";
 import type { Visitor } from "@/lib/types";
 
@@ -30,4 +30,16 @@ export async function POST(req: Request) {
 
   const week = await saveWeek(meetingDate, visitors);
   return NextResponse.json({ week });
+}
+
+export async function DELETE(req: Request) {
+  if (!(await isAdmin())) {
+    return NextResponse.json({ error: "אין הרשאת עריכה" }, { status: 401 });
+  }
+  const date = (new URL(req.url).searchParams.get("date") || "").trim();
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+    return NextResponse.json({ error: "date must be YYYY-MM-DD" }, { status: 400 });
+  }
+  await deleteWeek(date);
+  return NextResponse.json({ ok: true });
 }

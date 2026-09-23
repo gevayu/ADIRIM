@@ -28,14 +28,20 @@ const SORT_COLS: { key: keyof Visitor; label: string }[] = [
 export default function GuestsBoard({
   visitors,
   meetingDate,
+  weeks,
   isAdmin,
   onUpdateClick,
+  onSelectWeek,
+  onDeleteWeek,
   onLogout,
 }: {
   visitors: Visitor[];
   meetingDate: string;
+  weeks: { meetingDate: string }[];
   isAdmin: boolean;
   onUpdateClick: () => void;
+  onSelectWeek: (date: string) => void;
+  onDeleteWeek: (date: string) => void;
   onLogout: () => void;
 }) {
   const [sortKey, setSortKey] = useState<keyof Visitor | null>(null);
@@ -107,10 +113,25 @@ export default function GuestsBoard({
         <p>פגישה שבועית | {dateHeb(meetingDate)}</p>
       </div>
 
-      {isAdmin && (
+      {(weeks.length > 1 || isAdmin) && (
         <div className="toolbar">
-          <button className="btn btn-primary" onClick={onUpdateClick}>✏️ עדכן רשימה</button>
-          <button className="btn btn-ghost" onClick={onLogout}>יציאה</button>
+          {weeks.length > 1 && (
+            <label className="week-select" style={{ marginInlineEnd: "auto" }}>
+              מפגש:
+              <select value={meetingDate} onChange={(e) => onSelectWeek(e.target.value)}>
+                {weeks.map((w) => (
+                  <option key={w.meetingDate} value={w.meetingDate}>{dateSlash(w.meetingDate)}</option>
+                ))}
+              </select>
+            </label>
+          )}
+          {isAdmin && (
+            <>
+              <button className="btn btn-primary" onClick={onUpdateClick}>✏️ עדכן רשימה</button>
+              <button className="btn btn-ghost" onClick={() => onDeleteWeek(meetingDate)}>🗑 מחק מפגש</button>
+              <button className="btn btn-ghost" onClick={onLogout}>יציאה</button>
+            </>
+          )}
         </div>
       )}
 

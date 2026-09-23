@@ -18,11 +18,25 @@ function rowToVisitor(r: typeof schema.visitors.$inferSelect): Visitor {
   };
 }
 
-// השבוע הנוכחי = התאריך המאוחר ביותר.
+// התאריך של היום בישראל בפורמט YYYY-MM-DD.
+function israelToday(): string {
+  return new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Jerusalem" });
+}
+
+// השבוע הנוכחי = המפגש הקרוב ביותר להיום (בעבר או בעתיד), לא הרחוק ביותר.
+// כך תאריך-עתיד שגוי לא "חוטף" את התצוגה, ומפגש שנשמר להיום מוצג מיד.
 export async function getCurrentWeek(): Promise<Week | null> {
   await ensureSchema();
-  const [w] = await db.select().from(schema.weeks).orderBy(desc(schema.weeks.meetingDate)).limit(1);
-  if (!w) return null;
+  const weeks = await db.select().from(schema.weeks);
+  if (!weeks.length) return null;
+  const t = Date.parse(israelToday());
+  weeks.sort((a, b) => {
+    const da = Math.abs(Date.parse(a.meetingDate) - t);
+    const db2 = Math.abs(Date.parse(b.meetingDate) - t);
+    if (da !== db2) return da - db2; // הקרוב ביותר
+    return b.meetingDate.localeCompare(a.meetingDate); // תיקו: מעדיפים את העתידי
+  });
+  const w = weeks[0];
   return loadWeek(w.id, w.meetingDate);
 }
 
@@ -92,4 +106,17 @@ export async function saveWeek(meetingDate: string, visitors: Visitor[]): Promis
   }
 
   return loadWeek(weekId, meetingDate);
+}
+
+// מחיקת מפגש שלם לפי תאריך (כולל המבקרים שלו).
+export async function deleteWeek(meetingDate: string): Promise<void> {
+  await ensureSchema();
+  const [w] = await db
+    .select({ id: schema.weeks.id })
+    .from(schema.weeks)
+    .where(eq(schema.weeks.meetingDate, meetingDate))
+    .limit(1);
+  if (!w) return;
+  await db.delete(schema.visitors).where(eq(schema.visitors.weekId, w.id));
+  await db.delete(schema.weeks).where(eq(schema.weeks.id, w.id));
 }
