@@ -25,9 +25,15 @@ On a machine low on memory, the bundler can crash during "bundling dependencies"
 
 ## Deploy (Cloudflare)
 
-One-time, in the Cloudflare account: enable R2 (Dashboard › R2; free tier, asks for a payment method), and the
-Workers Paid plan ($5/month). Paid is required: the Worker is 5.4 MB gzipped (measured with `wrangler deploy --dry-run`),
-over the free plan's 3 MB limit; the free plan's 10 ms CPU per request would also be tight for server rendering.
+One-time, in the Cloudflare account: enable R2 (Dashboard › R2; free tier, asks for a payment method).
+
+Worker size: 1.86 MB gzipped, under the free plan's 3 MB (measure with `npx wrangler deploy --dry-run`). Two things in
+`astro.config.mjs` keep it there: server code is minified (Astro leaves it readable), and the admin keeps only its
+Hebrew and English interface catalogs (other languages fall back to English); together they cut 5.4 MB to 1.86 MB.
+The free plan also limits CPU to 10 ms per request; if `wrangler tail` shows "exceeded CPU" errors, move to Workers Paid.
+
+The build copies `.env` into `dist/server/.dev.vars` for local previews. `wrangler deploy` doesn't upload it, and
+`dist/` is git-ignored; don't publish the build folder any other way.
 
 ```bash
 npx wrangler login

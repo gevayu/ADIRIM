@@ -1,7 +1,6 @@
 // Content queries shared by the layout, the pages and /shared/data.js.
 import { env } from "cloudflare:workers";
 import { getEmDashCollection, getEmDashEntry, getSiteSettings } from "emdash";
-import seed from "../../seed/snapshot.json";
 
 const all = { limit: 500 } as const;
 
@@ -30,10 +29,9 @@ export async function getPagesByTemplate(template: string) {
 	return entries;
 }
 
-// ponytail: circle order comes from the seed's select options, because the schema's options
-// aren't exposed to site code. A circle added in the admin still shows, appended at the end.
-const seedCircles: string[] =
-	(seed as any).collections.find((c: any) => c.slug === "members").fields.find((f: any) => f.slug === "circle").validation.options;
+// Circle display order. ponytail: mirrors the options of the members' "מעגל כוח" select field, which site code
+// can't read at runtime; a circle added in the admin still shows (appended) until it's added here.
+const seedCircles: string[] = ["B2B", "שיווק ודיגיטל", "ייעוץ אסטרטגי לעסקים", "משפחה", "בית ונדל״ן", "בריאות וזכויות", "אירועים וחוויות"];
 export function circleOrder(used: string[]) {
 	return [...seedCircles.filter((c) => used.includes(c)), ...used.filter((c) => !seedCircles.includes(c))];
 }
