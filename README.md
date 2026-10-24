@@ -25,9 +25,9 @@ On a machine low on memory, the bundler can crash during "bundling dependencies"
 
 ## Deploy (Cloudflare)
 
-One-time, in the Cloudflare account: enable R2 (Dashboard › R2; free tier, asks for a payment method). The Workers
-Paid plan ($5/month) is recommended: the free plan allows 10 ms of CPU per request, which server rendering, the
-first-request migrations and the import are likely to exceed. Not measured yet; check `wrangler tail` after deploy.
+One-time, in the Cloudflare account: enable R2 (Dashboard › R2; free tier, asks for a payment method), and the
+Workers Paid plan ($5/month). Paid is required: the Worker is 5.4 MB gzipped (measured with `wrangler deploy --dry-run`),
+over the free plan's 3 MB limit; the free plan's 10 ms CPU per request would also be tight for server rendering.
 
 ```bash
 npx wrangler login
@@ -37,8 +37,9 @@ npm run deploy                                  # build + wrangler deploy; creat
 npx emdash doctor --url https://<worker>.workers.dev
 ```
 
-Then, before anyone sets up the admin: set `EMDASH_SITE_URL` in `wrangler.jsonc` to the final domain
-(passkeys bind to the address where setup runs) and deploy again. In the admin's first-run setup choose
+`EMDASH_SITE_URL` in `wrangler.jsonc` is the final domain, https://bni-adirim.co.il (passkeys bind to the address
+where setup runs), so the admin setup happens only after the domain points at the Worker. Locally, `.env` sets it
+back to http://localhost:4321. In the admin's first-run setup choose
 "Import an existing EmDash site" and upload the newest `backups/*.emdash`, or run `emdash site import`
 against the live URL with an API token.
 

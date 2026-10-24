@@ -1,5 +1,6 @@
 // Content queries shared by the layout, the pages and /shared/data.js.
-import { getEmDashCollection, getEmDashEntry } from "emdash";
+import { env } from "cloudflare:workers";
+import { getEmDashCollection, getEmDashEntry, getSiteSettings } from "emdash";
 import seed from "../../seed/snapshot.json";
 
 const all = { limit: 500 } as const;
@@ -48,3 +49,10 @@ export const publicRole = (role: string) => {
 	const [first, ...rest] = role.split(" · ");
 	return rest.length && CHAPTER_TITLE.test(first) && !SHOWN_TITLE.test(first) ? rest.join(" · ") : role;
 };
+
+// The public address for canonical links, the sitemap and structured data: the admin's "Site URL" setting,
+// else EMDASH_SITE_URL (wrangler.jsonc), else the address of this request (local dev, previews).
+export async function publicOrigin(requestUrl: URL) {
+	const url = (await getSiteSettings()).url || ((env as any).EMDASH_SITE_URL as string | undefined) || requestUrl.origin;
+	return url.replace(/\/$/, "");
+}

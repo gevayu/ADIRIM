@@ -15,6 +15,9 @@
 	"triggers": { "crons": ["* * * * *"] },
 	// Secrets, set once with `npx wrangler secret put <NAME>` (never in this file):
 	//   EMDASH_ENCRYPTION_KEY, ANTHROPIC_API_KEY
-	// The public address, before the first admin setup (passkeys bind to it):
-	// "vars": { "EMDASH_SITE_URL": "https://bni-adirim.co.il" }
+	// The public address. Set before the first admin setup: passkeys bind to it, and canonical links,
+	// the sitemap and structured data use it.
+	"vars": { "EMDASH_SITE_URL": "https://bni-adirim.co.il" },
+	// Serve the site on the domain. Replaces the current site on bni-adirim.co.il, so enable only when switching:
+	// "routes": [{ "pattern": "bni-adirim.co.il", "custom_domain": true }]
 }

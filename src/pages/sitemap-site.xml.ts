@@ -1,13 +1,13 @@
 // Sitemap: every indexable page plus every member card, served at /sitemap.xml by src/middleware.ts.
 import type { APIRoute } from "astro";
-import { getEmDashCollection, getSiteSettings } from "emdash";
-import { getMembers, pagePath } from "../lib/site";
+import { getEmDashCollection } from "emdash";
+import { getMembers, pagePath, publicOrigin } from "../lib/site";
 
 const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
 const day = (d: any) => (d ? new Date(d).toISOString().slice(0, 10) : undefined);
 
 export const GET: APIRoute = async ({ url }) => {
-	const origin = ((await getSiteSettings()).url || url.origin).replace(/\/$/, "");
+	const origin = await publicOrigin(url);
 	const [{ entries: pages }, members] = await Promise.all([getEmDashCollection("pages", { limit: 500 }), getMembers()]);
 	const urls: { loc: string; lastmod?: string }[] = [];
 	for (const p of pages as any[]) {
