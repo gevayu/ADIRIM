@@ -226,3 +226,7 @@ details.qa .a p { margin: 0; }
 @media print { .gal-nav { display: none; } }
 .gal-fig { margin: 32px 0; }
 .gal-fits .gal-nav { display: none; }
+/* A single photo in a page or chapter: natural proportions, capped height */
+.photo { margin: 32px 0; }
+.photo img { display: block; max-width: 100%; width: auto; height: auto; max-height: min(560px, 75vh); border-radius: var(--radius); }
+.photo.wide img { width: 100%; height: clamp(260px, 40vw, 520px); max-height: none; object-fit: cover; }

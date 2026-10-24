@@ -1716,7 +1716,7 @@
       {
        "_type": "htmlBlock",
        "_key": "gallery-what-we-are-not",
-       "html": "<section aria-labelledby=\"out-h\" class=\"section\">\n<div class=\"wrap\">\n<div class=\"sec-head\"><div><p class=\"kicker\">מחוץ לחמישי בבוקר</p><h2 id=\"out-h\">גם בלי שולחן ומצגת.</h2></div><p>סיור בדרום וארוחה אחריו, עם חברי הקבוצה.</p></div>\n<div class=\"gal\">\n<div class=\"gal-track\" role=\"region\" aria-label=\"גם בלי שולחן ומצגת.\" tabindex=\"0\">\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3F800VMS1B77XBAP5VHQG.jpg\" alt=\"חברי הקבוצה בסיור בדרום\" width=\"1200\" height=\"1600\" loading=\"lazy\" decoding=\"async\"/></figure>\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3FHRG8VTXPBB343JZ4SF5.jpg\" alt=\"חברי הקבוצה מקשיבים להסבר בסיור בדרום\" width=\"1600\" height=\"1200\" loading=\"lazy\" decoding=\"async\"/></figure>\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3FKRJXXZ6C81E5SNP81JN.jpg\" alt=\"חברת קבוצה מביטה במשקפת בסיור בדרום\" width=\"1200\" height=\"1600\" loading=\"lazy\" decoding=\"async\"/></figure>\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3FNS5SRWBRC1059B7VG4Y.jpg\" alt=\"ארבעה חברים מצטלמים בסיור בדרום\" width=\"1200\" height=\"1600\" loading=\"lazy\" decoding=\"async\"/></figure>\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3FQYF5PK28ZPPHR6N0V3S.jpg\" alt=\"חברי הקבוצה סביב שולחן בארוחה אחרי הסיור\" width=\"1600\" height=\"1200\" loading=\"lazy\" decoding=\"async\"/></figure>\n</div>\n<div class=\"gal-nav\"><button class=\"gal-prev\" type=\"button\" aria-label=\"התמונה הקודמת\">→</button><button class=\"gal-next\" type=\"button\" aria-label=\"התמונה הבאה\">←</button></div>\n</div>\n</div>\n</section>"
+       "html": "<section aria-labelledby=\"out-h\" class=\"section\">\n<div class=\"wrap\">\n<div class=\"sec-head\"><div><p class=\"kicker\">מחוץ לחמישי בבוקר</p><h2 id=\"out-h\">גם בלי שולחן ומצגת.</h2></div><p>סיור של חברי הקבוצה בדרום.</p></div>\n<div class=\"gal\">\n<div class=\"gal-track\" role=\"region\" aria-label=\"גם בלי שולחן ומצגת.\" tabindex=\"0\">\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3F800VMS1B77XBAP5VHQG.jpg\" alt=\"חברי הקבוצה בסיור בדרום\" width=\"1200\" height=\"1600\" loading=\"lazy\" decoding=\"async\"/></figure>\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3FHRG8VTXPBB343JZ4SF5.jpg\" alt=\"חברי הקבוצה מקשיבים להסבר בסיור בדרום\" width=\"1600\" height=\"1200\" loading=\"lazy\" decoding=\"async\"/></figure>\n</div>\n<div class=\"gal-nav\"><button class=\"gal-prev\" type=\"button\" aria-label=\"התמונה הקודמת\">→</button><button class=\"gal-next\" type=\"button\" aria-label=\"התמונה הבאה\">←</button></div>\n</div>\n</div>\n</section>"
       },
       {
        "_type": "htmlBlock",
@@ -3637,6 +3637,11 @@
       },
       {
        "_type": "htmlBlock",
+       "_key": "gallery-guide",
+       "html": "<section class=\"section\" style=\"padding-top:0\">\n<div class=\"wrap\">\n<figure class=\"photo wide\"><img src=\"/_emdash/api/media/file/01M5Q3FQYF5PK28ZPPHR6N0V3S.jpg\" alt=\"חברי הקבוצה סביב שולחן בארוחה אחרי הסיור\" width=\"1600\" height=\"1200\" loading=\"lazy\" decoding=\"async\"/><figcaption class=\"gal-cap\">חברי הקבוצה, בארוחה משותפת.</figcaption></figure>\n</div>\n</section>"
+      },
+      {
+       "_type": "htmlBlock",
        "_key": "0fd0de9bcc64",
        "html": "<section aria-labelledby=\"paths-h\" class=\"section soft\">\n<div class=\"wrap\">\n<div class=\"sec-head\"><div><p class=\"kicker\">קצר בזמן?</p><h2 id=\"paths-h\">מסלולי קריאה מקוצרים</h2></div><p>לפי מי שאתה ולמה הגעת. כל מסלול הוא רצף של פרקים שמרכיב סיפור שלם.</p></div>\n<div class=\"paths\">\n<div class=\"card path\"><h3>מסלול למבקר חדש לגמרי</h3><p>אם הגעת מגוגל ולא יודע מאיפה להתחיל</p><div class=\"chips\"><a href=\"/guide-what-is-bni\"><span>01</span>מה זה BNI, במשפט אחד</a><a href=\"/guide-how-it-works\"><span>02</span>איך עובד נטוורקינג מובנה</a><a href=\"/guide-why-it-works\"><span>03</span>הפסיכולוגיה והסטטיסטיקה</a><a href=\"/guide-not-networking-but\"><span>04</span>זה לא נטוורקינג. זה משהו אחר.</a><a href=\"/guide-first-visit-visual\"><span>05</span>סיור וירטואלי במפגש</a><a href=\"/guide-before-you-decide\"><span>09</span>רשימת בדיקה לפני שמחליטים</a></div></div>\n<div class=\"card path\"><h3>מסלול לעצמאי או עסק קטן</h3><p>אם אתה מתלבט אם BNI מתאים לך</p><div class=\"chips\"><a href=\"/guide-small-business-primer\"><span>06</span>בעל עסק קטן? למה זה רלוונטי לך</a><a href=\"/guide-how-it-works\"><span>02</span>איך עובד נטוורקינג מובנה</a><a href=\"/guide-timeline-first-year\"><span>08</span>השנה הראשונה שלך, חודש אחר חודש</a><a href=\"/guide-before-you-decide\"><span>09</span>רשימת בדיקה לפני שמחליטים</a></div></div>\n<div class=\"card path\"><h3>מסלול לספקנים</h3><p>אם אתה צריך לראות שזה אמיתי</p><div class=\"chips\"><a href=\"/guide-not-networking-but\"><span>04</span>זה לא נטוורקינג. זה משהו אחר.</a><a href=\"/guide-why-it-works\"><span>03</span>הפסיכולוגיה והסטטיסטיקה</a><a href=\"/guide-behind-the-scenes\"><span>10</span>מאחורי הקלעים, בלי פילטר</a><a href=\"/guide-before-you-decide\"><span>09</span>רשימת בדיקה לפני שמחליטים</a></div></div>\n</div>\n</div>\n</section>"
       },
@@ -3852,6 +3857,11 @@
        "html": "<p class=\"src\">מקור: <a href=\"https://en.wikipedia.org/wiki/Pygmalion_in_the_Classroom\" rel=\"noopener\" target=\"_blank\">Rosenthal &amp; Jacobson, \"Pygmalion in the Classroom\", 1968 ↗</a></p>"
       },
       {
+       "_type": "htmlBlock",
+       "_key": "gallery-guide-why-it-works",
+       "html": "<figure class=\"gal-fig\">\n<div class=\"gal\">\n<div class=\"gal-track\" role=\"region\" aria-label=\"חברים בקבוצה, בפגישות מחוץ למפגש.\" tabindex=\"0\">\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3F9YJ4YG7CKPA66JS4F0V.jpg\" alt=\"שתי חברות קבוצה בארוחת צהריים\" width=\"1600\" height=\"901\" loading=\"lazy\" decoding=\"async\"/></figure>\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3EGBR7S50YA4WGM5H3A7A.jpg\" alt=\"שלושה חברי קבוצה בסלפי במרכז קניות\" width=\"1200\" height=\"1600\" loading=\"lazy\" decoding=\"async\"/></figure>\n</div>\n<div class=\"gal-nav\"><button class=\"gal-prev\" type=\"button\" aria-label=\"התמונה הקודמת\">→</button><button class=\"gal-next\" type=\"button\" aria-label=\"התמונה הבאה\">←</button></div>\n</div>\n<figcaption class=\"gal-cap\">חברים בקבוצה, בפגישות מחוץ למפגש.</figcaption>\n</figure>"
+      },
+      {
        "_type": "block",
        "_key": "a0e9fa7aae6f",
        "style": "h2",
@@ -4038,6 +4048,11 @@
          "marks": []
         }
        ]
+      },
+      {
+       "_type": "htmlBlock",
+       "_key": "gallery-guide-what-is-bni",
+       "html": "<figure class=\"photo\"><img src=\"/_emdash/api/media/file/01M5Q3EW9G7J12HH6PKMDG5SYH.jpg\" alt=\"שני חברי קבוצה עם תגי שם של BNI אדירים, בחדר ישיבות\" width=\"1200\" height=\"1600\" loading=\"lazy\" decoding=\"async\"/><figcaption class=\"gal-cap\">שני חברים בקבוצה, עם תגי השם של אדירים.</figcaption></figure>"
       },
       {
        "_type": "block",
@@ -4257,7 +4272,7 @@
       {
        "_type": "htmlBlock",
        "_key": "gallery-guide-timeline-first-year",
-       "html": "<figure class=\"gal-fig\">\n<div class=\"gal\">\n<div class=\"gal-track\" role=\"region\" aria-label=\"חברים בקבוצה, בין המפגשים.\" tabindex=\"0\">\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3EPC6PE17RKKY1W8A1NWR.jpg\" alt=\"שני חברי קבוצה בסלפי במשרד\" width=\"1600\" height=\"900\" loading=\"lazy\" decoding=\"async\"/></figure>\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3ESAZR47BQWVB3VM4NJV5.jpg\" alt=\"שתי חברות קבוצה בסלפי\" width=\"1224\" height=\"1600\" loading=\"lazy\" decoding=\"async\"/></figure>\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3EGBR7S50YA4WGM5H3A7A.jpg\" alt=\"שלושה חברי קבוצה בסלפי במרכז קניות\" width=\"1200\" height=\"1600\" loading=\"lazy\" decoding=\"async\"/></figure>\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3F9YJ4YG7CKPA66JS4F0V.jpg\" alt=\"שתי חברות קבוצה בארוחת צהריים\" width=\"1600\" height=\"901\" loading=\"lazy\" decoding=\"async\"/></figure>\n</div>\n<div class=\"gal-nav\"><button class=\"gal-prev\" type=\"button\" aria-label=\"התמונה הקודמת\">→</button><button class=\"gal-next\" type=\"button\" aria-label=\"התמונה הבאה\">←</button></div>\n</div>\n<figcaption class=\"gal-cap\">חברים בקבוצה, בין המפגשים.</figcaption>\n</figure>"
+       "html": "<figure class=\"gal-fig\">\n<div class=\"gal\">\n<div class=\"gal-track\" role=\"region\" aria-label=\"חברים בקבוצה, בין המפגשים.\" tabindex=\"0\">\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3EPC6PE17RKKY1W8A1NWR.jpg\" alt=\"שני חברי קבוצה בסלפי במשרד\" width=\"1600\" height=\"900\" loading=\"lazy\" decoding=\"async\"/></figure>\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3ESAZR47BQWVB3VM4NJV5.jpg\" alt=\"שתי חברות קבוצה בסלפי\" width=\"1224\" height=\"1600\" loading=\"lazy\" decoding=\"async\"/></figure>\n</div>\n<div class=\"gal-nav\"><button class=\"gal-prev\" type=\"button\" aria-label=\"התמונה הקודמת\">→</button><button class=\"gal-next\" type=\"button\" aria-label=\"התמונה הבאה\">←</button></div>\n</div>\n<figcaption class=\"gal-cap\">חברים בקבוצה, בין המפגשים.</figcaption>\n</figure>"
       },
       {
        "_type": "block",
@@ -4646,6 +4661,11 @@
        ]
       },
       {
+       "_type": "htmlBlock",
+       "_key": "gallery-guide-small-business-primer",
+       "html": "<figure class=\"photo\"><img src=\"/_emdash/api/media/file/01M5Q3FFRZNEJ4BQB0D40X55YQ.jpg\" alt=\"קבלת פנים לחברה חדשה, עם מתנה מהקבוצה\" width=\"1200\" height=\"1600\" loading=\"lazy\" decoding=\"async\"/><figcaption class=\"gal-cap\">קבלת פנים לחברה חדשה בקבוצה.</figcaption></figure>"
+      },
+      {
        "_type": "block",
        "_key": "7f9a9acb5ded",
        "style": "h2",
@@ -4897,6 +4917,11 @@
       },
       {
        "_type": "htmlBlock",
+       "_key": "gallery-guide-not-networking-but",
+       "html": "<figure class=\"photo\"><img src=\"/_emdash/api/media/file/01M5Q3FNS5SRWBRC1059B7VG4Y.jpg\" alt=\"ארבעה חברים מצטלמים בסיור בדרום\" width=\"1200\" height=\"1600\" loading=\"lazy\" decoding=\"async\"/><figcaption class=\"gal-cap\">חברים בקבוצה, בסיור בדרום.</figcaption></figure>"
+      },
+      {
+       "_type": "htmlBlock",
        "_key": "3c1f0f72c1dc",
        "html": "<aside class=\"callout red\">\n<p class=\"ttl\">בשורה התחתונה</p>\n<p>אדירים לא מתחרה על הזמן שלך עם מפגש עם חבר. היא מתחרה על הזמן שלך עם פרסום ב-Google Ads.</p>\n<p>זה לא נטוורקינג במובן המסורתי. זה ערוץ רכישת לקוחות אלטרנטיבי, עם שיעור המרה גבוה במיוחד, שדורש השקעת זמן במקום השקעת כסף.</p>\n</aside>"
       }
@@ -4978,6 +5003,11 @@
        "_type": "htmlBlock",
        "_key": "33475e64e060",
        "html": "<p class=\"note\">דוגמה להמחשה: יובל, רונן ודליה הם שמות לצורך הדוגמה.</p>\n<ol class=\"steps\">\n<li><span class=\"n\">01</span><h3>זיהוי הצורך</h3><p>יובל, חבר בקבוצה, הוא גרפיקאי. הוא מקבל שיחה משכנה. השכנה אומרת שהיא חושבת לפתוח עסק חדש והיא צריכה עורך דין עסקי. יובל שומע את זה.</p></li>\n<li><span class=\"n\">02</span><h3>החיבור הפנימי</h3><p>יובל נזכר שבאדירים יש עורך דין עסקי, רונן. הוא מכיר את רונן כבר שנה, עשה איתו שלוש פגישות 1:1, יודע שרונן מתמחה דווקא בפתיחות עסקים חדשים של עצמאים. זו התאמה מדויקת.</p></li>\n<li><span class=\"n\">03</span><h3>ההעברה</h3><p>יובל שולח לרונן הודעת WhatsApp: \"יש לי שכנה, דליה, שפותחת עסק חדש של ייעוץ זוגי. צריכה עו\"ד עסקי. אמרתי לה שאתה הכתובת. היא תתקשר אליך בימים הקרובים.\"</p></li>\n<li><span class=\"n\">04</span><h3>המפגש</h3><p>דליה מתקשרת לרונן. זה לא Call קר, זו שיחה \"מיובל\". רונן כבר יודע למה היא מתקשרת. דליה כבר יודעת שרונן מומלץ. אחוזי ההמרה של שיחה כזו גבוהים בסדר גודל מכל שיחה קרה.</p></li>\n<li><span class=\"n\">05</span><h3>הדיווח והחזרה</h3><p>בשבוע הבא במפגש, רונן מדווח: \"דליה מיובל הפכה ללקוחה, 12,000 שקל. תודה יובל\". הקבוצה שומעת. יובל מקבל הכרה. רונן עכשיו בחוב החברתי של יובל, וההדדיות היא המנוע.</p></li>\n</ol>"
+      },
+      {
+       "_type": "htmlBlock",
+       "_key": "gallery-guide-how-it-works",
+       "html": "<figure class=\"photo\"><img src=\"/_emdash/api/media/file/01M5Q3ED7GF1F3V6X6DGRZEPWZ.jpg\" alt=\"חלוקת תעודות הוקרה לצוות ההנהגה במפגש\" width=\"1200\" height=\"1600\" loading=\"lazy\" decoding=\"async\"/><figcaption class=\"gal-cap\">חלוקת תעודות הוקרה לצוות ההנהגה של הקבוצה.</figcaption></figure>"
       },
       {
        "_type": "block",
@@ -5244,6 +5274,11 @@
        "_type": "htmlBlock",
        "_key": "c45abad92eef",
        "html": "<div class=\"gl-search\">\n<label for=\"gl-q\">חיפוש מונח</label>\n<input autocomplete=\"off\" id=\"gl-q\" placeholder=\"למשל: הפניה, 1:1, PALMS\" type=\"search\"/>\n</div>\n<p aria-live=\"polite\" class=\"sr\" id=\"gl-count\"></p>\n<dl class=\"gl\" id=\"gl\">\n<div><dt>אורח <span dir=\"ltr\" lang=\"en\">Visitor</span></dt><dd>אדם שהוזמן למפגש אחד או שניים כדי להכיר את הקבוצה. לא חבר. משלם סכום חד פעמי של 70 ₪ לכיסוי ארוחת הבוקר. אורח יכול להגיע פעמיים בקבוצה אחת לפני שהוא נדרש להחליט.</dd></div>\n<div><dt>אלבאטור <span dir=\"ltr\" lang=\"en\">Elevator Speech</span></dt><dd>הצגה של שתי דקות שכל חבר נותן במפגש השבועי. שם, תחום, מה העסק, איזו הפניה מחפש השבוע.</dd></div>\n<div><dt>דיווח PALMS</dt><dd>הטופס השבועי שכל חבר ממלא: נוכחות, היעדרות, איחור, השלמה, מחליף. המערכת מודדת בדיוק את הנוכחות.</dd></div>\n<div><dt>הנהגת קבוצה <span dir=\"ltr\" lang=\"en\">Leadership Team</span></dt><dd>6-8 חברים שממלאים תפקידים ניהוליים בקבוצה: יו\"ר, סגן יו\"ר, גזבר ועוד. התפקידים מתחלפים פעם בשנה.</dd></div>\n<div><dt>הפניה <span dir=\"ltr\" lang=\"en\">Referral</span></dt><dd>חיבור בין לקוח פוטנציאלי לחבר בקבוצה. דוגמה: \"חברה שלי מחפשת עורך דין למשפחה. נתתי לה את הכרטיס של אורית\". הפניה חמה: הלקוח יודע שמצפים לשיחתו. הפניה קרה: החבר הוא שיוזם.</dd></div>\n<div><dt>השורה התחתונה</dt><dd>חמש הדקות האחרונות של כל מפגש. כל חבר מדווח על הפניות שנתן, קיבל, ועסקאות שנסגרו. מדידה שקופה, שבועית.</dd></div>\n<div><dt>חבר <span dir=\"ltr\" lang=\"en\">Member</span></dt><dd>אדם שעבר תהליך קבלה, שילם דמי חברות שנתיים, ומחויב לנוכחות, הפניות, ופגישות. מחזיק בלעדיות על התחום שלו.</dd></div>\n<div><dt>חבר מחליף <span dir=\"ltr\" lang=\"en\">Substitute</span></dt><dd>אדם שחבר קבוע שולח להחליף אותו במפגש שבו לא יכול להגיע. בדרך כלל עובד בעסק של החבר.</dd></div>\n<div><dt>חונך <span dir=\"ltr\" lang=\"en\">Mentor</span></dt><dd>חבר ותיק שמלווה חבר חדש בחודשיים הראשונים. עוזר לו לקבוע 1:1, להבין את הקבוצה, ולהגיע לקצב.</dd></div>\n<div><dt>יו\"ר הקבוצה <span dir=\"ltr\" lang=\"en\">Chapter President</span></dt><dd>החבר שמוביל את הקבוצה, מנהל את המפגש השבועי, ואחראי לבריאות הקבוצה. תפקיד של שנה.</dd></div>\n<div><dt>יו\"ר אירוח <span dir=\"ltr\" lang=\"en\">Visitor Host</span></dt><dd>החבר שמנהל את תהליך האורחים. באדירים, הקשר עם אורחים פוטנציאליים: <a data-member-name=\"יובל גבע\" href=\"/#people\">יובל גבע</a>, אחראי קשר עם האורחים.</dd></div>\n<div><dt>פגישה 1:1 <span dir=\"ltr\" lang=\"en\">One-on-One</span></dt><dd>פגישה אישית של 30-45 דקות בין שני חברים, כדי להכיר לעומק את העסק זה של זה. הרכיב החשוב ביותר בבניית היכולת לתת הפניות מדויקות.</dd></div>\n<div><dt>מעגל השפעה <span dir=\"ltr\" lang=\"en\">Contact Sphere</span></dt><dd>קבוצת תת-חברים שהעסקים שלהם משלימים ונוגעים באותו לקוח. ההפניות בתוך מעגל טבעיות וזורמות. דוגמה מלאה בפרק <a href=\"/guide-how-it-works\">איך עובד נטוורקינג מובנה</a>.</dd></div>\n<div><dt>מפגש <span dir=\"ltr\" lang=\"en\">Chapter Meeting</span></dt><dd>המפגש השבועי. באדירים: יום חמישי, 7:30 עד 9:30, מגדל אדגר 360, אולם מרצדס. מבנה קבוע: קפה, סבב היכרויות, מצגת, דיווח.</dd></div>\n<div><dt>מצגת עשר דקות <span dir=\"ltr\" lang=\"en\">10-Minute Presentation</span></dt><dd>כל חבר מקבל פעם בשנה בערך 10 דקות להציג לעומק את העסק שלו לקבוצה.</dd></div>\n<div><dt>משווק חיצוני</dt><dd>מושג פנימי: כל חבר בקבוצה הוא משווק חיצוני של כל חבר אחר. <span data-calc=\"minus1\"></span> משווקים שכל אחד מהם מכיר 400 אנשים.</dd></div>\n<div><dt>סגירה <span dir=\"ltr\" lang=\"en\">Closed Business</span></dt><dd>עסקה שנסגרה בפועל שהגיעה דרך הפניה. מדד מרכזי להצלחת הקבוצה.</dd></div>\n<div><dt>פרק <span dir=\"ltr\" lang=\"en\">Chapter</span></dt><dd>השם הרשמי של קבוצה מקומית ב-BNI. אדירים היא Chapter. רוב החברים פשוט אומרים \"קבוצה\".</dd></div>\n<div><dt>Givers Gain</dt><dd>הערך המרכזי של BNI: מי שנותן, מקבל. חבר שנותן הכי הרבה הפניות הוא שמקבל הכי הרבה.</dd></div>\n<div><dt>BNI Connect</dt><dd>הפלטפורמה הפנימית של BNI. מאפשרת לחפש חברים בקבוצות אחרות ברחבי הארץ והעולם לפי תחום, לתעד הפניות, ולעקוב אחרי ביצועים.</dd></div>\n<div><dt>MSP <span dir=\"ltr\" lang=\"en\">Member Success Program</span></dt><dd>תוכנית פיתוח של חבר שמתקשה בהשגת יעדי הפניות. ליווי צמוד של 3 חודשים. ראו גם <a href=\"/guide-timeline-first-year\">השנה הראשונה שלך</a>.</dd></div>\n</dl>\n<p class=\"gl-none\" hidden=\"\" id=\"gl-none\">לא מצאנו מונח כזה. נסו מילה אחרת.</p>"
+      },
+      {
+       "_type": "htmlBlock",
+       "_key": "gallery-guide-glossary",
+       "html": "<figure class=\"photo\"><img src=\"/_emdash/api/media/file/01M5Q3EKCF2PVX0VN363ZMTVZP.jpg\" alt=\"קבלת פנים לחברה חדשה בקבוצה, ליד מסך Welcome\" width=\"720\" height=\"1600\" loading=\"lazy\" decoding=\"async\"/><figcaption class=\"gal-cap\">קבלת פנים לחברה חדשה. Welcome על המסך.</figcaption></figure>"
       }
      ],
      "after": [
@@ -5309,6 +5344,11 @@
        "_type": "htmlBlock",
        "_key": "9b5e875fdc76",
        "html": "<ol class=\"tour\">\n<li><b>מגדל אדגר 360 מהרחוב</b>כך תראה אותו כשתגיע</li>\n<li><b>החניון</b>חניון מנורה מבטחים, צמוד לבניין</li>\n<li><b>הלובי ב-7:20</b>שקט, קפה, זמן לנשימה</li>\n<li><b>כניסה A</b>אולם מרצדס נמצא בקומת הקרקע</li>\n<li><b>חדר המפגש ריק</b>מזווית הכניסה</li>\n<li><b>השולחן ערוך</b>ארוחת בוקר, קפה, מחברות</li>\n<li><b>מינגלינג ב-7:30</b>אנשים נכנסים, מדברים</li>\n<li><b>תחילת המפגש</b>כולם יושבים</li>\n<li><b>סבב ההיכרויות</b>חבר מציג את עצמו</li>\n<li><b>המצגת השבועית</b>חבר מציג לעומק</li>\n<li><b>הסיום</b>אנשים קמים, ממשיכים שיחות בחוץ</li>\n</ol>\n<div class=\"pending\"><span class=\"tag\">ממתין לתוכן</span><p>תמונות אמיתיות לכל תחנה במסלול: הבניין מהרחוב, החניון, כניסה A, אולם מרצדס והשולחן הערוך.</p></div>"
+      },
+      {
+       "_type": "htmlBlock",
+       "_key": "gallery-guide-first-visit-visual",
+       "html": "<figure class=\"photo\"><img src=\"/_emdash/api/media/file/01M5Q3F61250J6H9NZP9RQ36HW.jpg\" alt=\"שני חברים מול הקבוצה, אחד מהם מחזיק פסלון הוקרה\" width=\"1200\" height=\"1600\" loading=\"lazy\" decoding=\"async\"/><figcaption class=\"gal-cap\">רגע מתוך מפגש: הוקרה מול כל הקבוצה.</figcaption></figure>"
       },
       {
        "_type": "block",
@@ -5625,7 +5665,7 @@
       {
        "_type": "htmlBlock",
        "_key": "gallery-guide-behind-the-scenes",
-       "html": "<figure class=\"gal-fig\">\n<div class=\"gal\">\n<div class=\"gal-track\" role=\"region\" aria-label=\"רגעים מהקבוצה, גם מחוץ לבוקר של חמישי.\" tabindex=\"0\">\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3F61250J6H9NZP9RQ36HW.jpg\" alt=\"שני חברים מול הקבוצה, אחד מהם מחזיק פסלון הוקרה\" width=\"1200\" height=\"1600\" loading=\"lazy\" decoding=\"async\"/></figure>\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3FBZ8H17BVXSX1WYH869H.jpg\" alt=\"שלושה חברים בתחפושות צבעוניות במסיבה על גג\" width=\"1122\" height=\"1402\" loading=\"lazy\" decoding=\"async\"/></figure>\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3FDVCKKX83A3E4JDXNV9M.jpg\" alt=\"חבר קבוצה יושב לצד מופע דראג במסיבה על גג\" width=\"1122\" height=\"1402\" loading=\"lazy\" decoding=\"async\"/></figure>\n</div>\n<div class=\"gal-nav\"><button class=\"gal-prev\" type=\"button\" aria-label=\"התמונה הקודמת\">→</button><button class=\"gal-next\" type=\"button\" aria-label=\"התמונה הבאה\">←</button></div>\n</div>\n<figcaption class=\"gal-cap\">רגעים מהקבוצה, גם מחוץ לבוקר של חמישי.</figcaption>\n</figure>"
+       "html": "<figure class=\"gal-fig\">\n<div class=\"gal\">\n<div class=\"gal-track\" role=\"region\" aria-label=\"רגעים מהקבוצה, גם מחוץ לבוקר של חמישי.\" tabindex=\"0\">\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3FBZ8H17BVXSX1WYH869H.jpg\" alt=\"שלושה חברים בתחפושות צבעוניות במסיבה על גג\" width=\"1122\" height=\"1402\" loading=\"lazy\" decoding=\"async\"/></figure>\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3FDVCKKX83A3E4JDXNV9M.jpg\" alt=\"חבר קבוצה יושב לצד מופע דראג במסיבה על גג\" width=\"1122\" height=\"1402\" loading=\"lazy\" decoding=\"async\"/></figure>\n</div>\n<div class=\"gal-nav\"><button class=\"gal-prev\" type=\"button\" aria-label=\"התמונה הקודמת\">→</button><button class=\"gal-next\" type=\"button\" aria-label=\"התמונה הבאה\">←</button></div>\n</div>\n<figcaption class=\"gal-cap\">רגעים מהקבוצה, גם מחוץ לבוקר של חמישי.</figcaption>\n</figure>"
       },
       {
        "_type": "htmlBlock",
@@ -5858,6 +5898,11 @@
        ]
       },
       {
+       "_type": "htmlBlock",
+       "_key": "gallery-guide-before-you-decide",
+       "html": "<figure class=\"photo\"><img src=\"/_emdash/api/media/file/01M5Q3FKRJXXZ6C81E5SNP81JN.jpg\" alt=\"חברת קבוצה מביטה במשקפת בסיור בדרום\" width=\"1200\" height=\"1600\" loading=\"lazy\" decoding=\"async\"/><figcaption class=\"gal-cap\">בסיור של חברי הקבוצה בדרום.</figcaption></figure>"
+      },
+      {
        "_type": "block",
        "_key": "97724331d2e3",
        "style": "h2",
@@ -5969,7 +6014,7 @@
       {
        "_type": "htmlBlock",
        "_key": "gallery-first-meeting",
-       "html": "<section aria-labelledby=\"look-h\" class=\"section soft\">\n<div class=\"wrap\">\n<div class=\"sec-head\"><div><p class=\"kicker\">מהמפגשים</p><h2 id=\"look-h\">ככה זה נראה מקרוב.</h2></div><p>תגי שם, קפה ושיחות לפני שהמפגש נפתח.</p></div>\n<div class=\"gal\">\n<div class=\"gal-track\" role=\"region\" aria-label=\"ככה זה נראה מקרוב.\" tabindex=\"0\">\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3EZDA8E611JS6J3ZXZ01K.jpg\" alt=\"שלושה חברים עם תגי שם בהפסקת קפה במפגש\" width=\"1600\" height=\"900\" loading=\"lazy\" decoding=\"async\"/></figure>\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3F2M7BJ4QA2HQM6D78PWN.jpg\" alt=\"סלפי של שלושה חברים עם תגי שם, במינגלינג\" width=\"1600\" height=\"900\" loading=\"lazy\" decoding=\"async\"/></figure>\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3EW9G7J12HH6PKMDG5SYH.jpg\" alt=\"שני חברי קבוצה עם תגי שם של BNI אדירים, בחדר ישיבות\" width=\"1200\" height=\"1600\" loading=\"lazy\" decoding=\"async\"/></figure>\n</div>\n<div class=\"gal-nav\"><button class=\"gal-prev\" type=\"button\" aria-label=\"התמונה הקודמת\">→</button><button class=\"gal-next\" type=\"button\" aria-label=\"התמונה הבאה\">←</button></div>\n</div>\n</div>\n</section>"
+       "html": "<section aria-labelledby=\"look-h\" class=\"section soft\">\n<div class=\"wrap\">\n<div class=\"sec-head\"><div><p class=\"kicker\">מהמפגשים</p><h2 id=\"look-h\">ככה זה נראה מקרוב.</h2></div><p>תגי שם, קפה ושיחות לפני שהמפגש נפתח.</p></div>\n<div class=\"gal\">\n<div class=\"gal-track\" role=\"region\" aria-label=\"ככה זה נראה מקרוב.\" tabindex=\"0\">\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3EZDA8E611JS6J3ZXZ01K.jpg\" alt=\"שלושה חברים עם תגי שם בהפסקת קפה במפגש\" width=\"1600\" height=\"900\" loading=\"lazy\" decoding=\"async\"/></figure>\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3F2M7BJ4QA2HQM6D78PWN.jpg\" alt=\"סלפי של שלושה חברים עם תגי שם, במינגלינג\" width=\"1600\" height=\"900\" loading=\"lazy\" decoding=\"async\"/></figure>\n</div>\n<div class=\"gal-nav\"><button class=\"gal-prev\" type=\"button\" aria-label=\"התמונה הקודמת\">→</button><button class=\"gal-next\" type=\"button\" aria-label=\"התמונה הבאה\">←</button></div>\n</div>\n</div>\n</section>"
       },
       {
        "_type": "htmlBlock",
@@ -6063,11 +6108,6 @@
        "_type": "htmlBlock",
        "_key": "890961d84b83",
        "html": "<section aria-labelledby=\"ww-h\" class=\"blk\" id=\"ww\">\n<div class=\"sec-head\"><div><p class=\"kicker\">מי זה מי</p><h2 id=\"ww-h\">ההנהגה והצוותים</h2></div><p>התפקידים בקבוצה השנה, ולמי פונים בכל נושא.</p></div>\n<div class=\"lead-grid\" id=\"leaders\"></div>\n<ul class=\"teams\" id=\"teams\"></ul>\n</section>"
-      },
-      {
-       "_type": "htmlBlock",
-       "_key": "gallery-club",
-       "html": "<section aria-labelledby=\"gal-h\" class=\"blk\">\n<div class=\"sec-head\"><div><p class=\"kicker\">אדירים</p><h2 id=\"gal-h\">מהמפגשים האחרונים</h2></div><p>תעודות הוקרה לצוות ההנהגה, וקבלת פנים לחברות חדשות.</p></div>\n<div class=\"gal\">\n<div class=\"gal-track\" role=\"region\" aria-label=\"מהמפגשים האחרונים\" tabindex=\"0\">\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3ED7GF1F3V6X6DGRZEPWZ.jpg\" alt=\"חלוקת תעודות הוקרה לצוות ההנהגה במפגש\" width=\"1200\" height=\"1600\" loading=\"lazy\" decoding=\"async\"/></figure>\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3EKCF2PVX0VN363ZMTVZP.jpg\" alt=\"קבלת פנים לחברה חדשה בקבוצה, ליד מסך Welcome\" width=\"720\" height=\"1600\" loading=\"lazy\" decoding=\"async\"/></figure>\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3FFRZNEJ4BQB0D40X55YQ.jpg\" alt=\"קבלת פנים לחברה חדשה, עם מתנה מהקבוצה\" width=\"1200\" height=\"1600\" loading=\"lazy\" decoding=\"async\"/></figure>\n</div>\n<div class=\"gal-nav\"><button class=\"gal-prev\" type=\"button\" aria-label=\"התמונה הקודמת\">→</button><button class=\"gal-next\" type=\"button\" aria-label=\"התמונה הבאה\">←</button></div>\n</div>\n</section>"
       }
      ],
      "noindex": 1
