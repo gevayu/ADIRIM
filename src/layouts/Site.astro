@@ -56,6 +56,7 @@ const pageCtx = createPublicPageContext({
 <Footer />
 <script is:inline src="/shared/data.js"></script>
 {m.directory && <script is:inline src="/shared/directory.js"></script>}
+<script is:inline src="/shared/gallery.js" defer></script>
 {js[`../page-assets/${slug}.js`] && <script is:inline set:html={js[`../page-assets/${slug}.js`]} />}
 <EmDashBodyEnd page={pageCtx} />
 </body>

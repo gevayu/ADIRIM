@@ -1715,6 +1715,11 @@
       },
       {
        "_type": "htmlBlock",
+       "_key": "gallery-what-we-are-not",
+       "html": "<section aria-labelledby=\"out-h\" class=\"section\">\n<div class=\"wrap\">\n<div class=\"sec-head\"><div><p class=\"kicker\">מחוץ לחמישי בבוקר</p><h2 id=\"out-h\">גם בלי שולחן ומצגת.</h2></div><p>סיור בדרום וארוחה אחריו, עם חברי הקבוצה.</p></div>\n<div class=\"gal\">\n<div class=\"gal-track\" role=\"region\" aria-label=\"גם בלי שולחן ומצגת.\" tabindex=\"0\">\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3F800VMS1B77XBAP5VHQG.jpg\" alt=\"חברי הקבוצה בסיור בדרום\" width=\"1200\" height=\"1600\" loading=\"lazy\" decoding=\"async\"/></figure>\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3FHRG8VTXPBB343JZ4SF5.jpg\" alt=\"חברי הקבוצה מקשיבים להסבר בסיור בדרום\" width=\"1600\" height=\"1200\" loading=\"lazy\" decoding=\"async\"/></figure>\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3FKRJXXZ6C81E5SNP81JN.jpg\" alt=\"חברת קבוצה מביטה במשקפת בסיור בדרום\" width=\"1200\" height=\"1600\" loading=\"lazy\" decoding=\"async\"/></figure>\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3FNS5SRWBRC1059B7VG4Y.jpg\" alt=\"ארבעה חברים מצטלמים בסיור בדרום\" width=\"1200\" height=\"1600\" loading=\"lazy\" decoding=\"async\"/></figure>\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3FQYF5PK28ZPPHR6N0V3S.jpg\" alt=\"חברי הקבוצה סביב שולחן בארוחה אחרי הסיור\" width=\"1600\" height=\"1200\" loading=\"lazy\" decoding=\"async\"/></figure>\n</div>\n<div class=\"gal-nav\"><button class=\"gal-prev\" type=\"button\" aria-label=\"התמונה הקודמת\">→</button><button class=\"gal-next\" type=\"button\" aria-label=\"התמונה הבאה\">←</button></div>\n</div>\n</div>\n</section>"
+      },
+      {
+       "_type": "htmlBlock",
        "_key": "b808e4ae220f",
        "html": "<section aria-labelledby=\"creed-h\" class=\"section dark creed\">\n<div class=\"wrap\">\n<p>עסקים עושים עם אנשים.</p>\n<p>עם בני אדם, בגובה העיניים.</p>\n<p>במפגשים פרקטיים, על קרקע מציאות.</p>\n<p>עם <b data-members=\"\"></b> אנשים שאתה מכיר בשמם הפרטי.</p>\n<h2 id=\"creed-h\">זה מי שאנחנו.</h2>\n</div>\n</section>"
       },
@@ -4250,6 +4255,11 @@
        "html": "<div class=\"expect\"><p class=\"lbl\">ציפיות ריאליות</p><div class=\"row\"><div><small>הפניות שתתן</small><b>2-4</b></div><div><small>הפניות שתקבל</small><b>1-3</b></div><div><small>עסקאות שנסגרו</small><b>1 (ראשונה!)</b></div></div></div>\n<p class=\"feel\">תחושה: \"עכשיו אני מבין. זה לא קסם, זו תשומת לב. ואני מתחיל לראות תוצאות.\"</p>"
       },
       {
+       "_type": "htmlBlock",
+       "_key": "gallery-guide-timeline-first-year",
+       "html": "<figure class=\"gal-fig\">\n<div class=\"gal\">\n<div class=\"gal-track\" role=\"region\" aria-label=\"חברים בקבוצה, בין המפגשים.\" tabindex=\"0\">\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3EPC6PE17RKKY1W8A1NWR.jpg\" alt=\"שני חברי קבוצה בסלפי במשרד\" width=\"1600\" height=\"900\" loading=\"lazy\" decoding=\"async\"/></figure>\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3ESAZR47BQWVB3VM4NJV5.jpg\" alt=\"שתי חברות קבוצה בסלפי\" width=\"1224\" height=\"1600\" loading=\"lazy\" decoding=\"async\"/></figure>\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3EGBR7S50YA4WGM5H3A7A.jpg\" alt=\"שלושה חברי קבוצה בסלפי במרכז קניות\" width=\"1200\" height=\"1600\" loading=\"lazy\" decoding=\"async\"/></figure>\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3F9YJ4YG7CKPA66JS4F0V.jpg\" alt=\"שתי חברות קבוצה בארוחת צהריים\" width=\"1600\" height=\"901\" loading=\"lazy\" decoding=\"async\"/></figure>\n</div>\n<div class=\"gal-nav\"><button class=\"gal-prev\" type=\"button\" aria-label=\"התמונה הקודמת\">→</button><button class=\"gal-next\" type=\"button\" aria-label=\"התמונה הבאה\">←</button></div>\n</div>\n<figcaption class=\"gal-cap\">חברים בקבוצה, בין המפגשים.</figcaption>\n</figure>"
+      },
+      {
        "_type": "block",
        "_key": "b37f99e2263c",
        "style": "h2",
@@ -5614,6 +5624,11 @@
       },
       {
        "_type": "htmlBlock",
+       "_key": "gallery-guide-behind-the-scenes",
+       "html": "<figure class=\"gal-fig\">\n<div class=\"gal\">\n<div class=\"gal-track\" role=\"region\" aria-label=\"רגעים מהקבוצה, גם מחוץ לבוקר של חמישי.\" tabindex=\"0\">\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3F61250J6H9NZP9RQ36HW.jpg\" alt=\"שני חברים מול הקבוצה, אחד מהם מחזיק פסלון הוקרה\" width=\"1200\" height=\"1600\" loading=\"lazy\" decoding=\"async\"/></figure>\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3FBZ8H17BVXSX1WYH869H.jpg\" alt=\"שלושה חברים בתחפושות צבעוניות במסיבה על גג\" width=\"1122\" height=\"1402\" loading=\"lazy\" decoding=\"async\"/></figure>\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3FDVCKKX83A3E4JDXNV9M.jpg\" alt=\"חבר קבוצה יושב לצד מופע דראג במסיבה על גג\" width=\"1122\" height=\"1402\" loading=\"lazy\" decoding=\"async\"/></figure>\n</div>\n<div class=\"gal-nav\"><button class=\"gal-prev\" type=\"button\" aria-label=\"התמונה הקודמת\">→</button><button class=\"gal-next\" type=\"button\" aria-label=\"התמונה הבאה\">←</button></div>\n</div>\n<figcaption class=\"gal-cap\">רגעים מהקבוצה, גם מחוץ לבוקר של חמישי.</figcaption>\n</figure>"
+      },
+      {
+       "_type": "htmlBlock",
        "_key": "c4d5f2f539ab",
        "html": "<div class=\"pending\"><span class=\"tag\">ממתין לתוכן</span><p>תמונות אמיתיות מבוקר רגיל באדירים, אחת לכל רגע ברשימה. בלי סטוק.</p></div>"
       },
@@ -5953,6 +5968,11 @@
       },
       {
        "_type": "htmlBlock",
+       "_key": "gallery-first-meeting",
+       "html": "<section aria-labelledby=\"look-h\" class=\"section soft\">\n<div class=\"wrap\">\n<div class=\"sec-head\"><div><p class=\"kicker\">מהמפגשים</p><h2 id=\"look-h\">ככה זה נראה מקרוב.</h2></div><p>תגי שם, קפה ושיחות לפני שהמפגש נפתח.</p></div>\n<div class=\"gal\">\n<div class=\"gal-track\" role=\"region\" aria-label=\"ככה זה נראה מקרוב.\" tabindex=\"0\">\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3EZDA8E611JS6J3ZXZ01K.jpg\" alt=\"שלושה חברים עם תגי שם בהפסקת קפה במפגש\" width=\"1600\" height=\"900\" loading=\"lazy\" decoding=\"async\"/></figure>\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3F2M7BJ4QA2HQM6D78PWN.jpg\" alt=\"סלפי של שלושה חברים עם תגי שם, במינגלינג\" width=\"1600\" height=\"900\" loading=\"lazy\" decoding=\"async\"/></figure>\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3EW9G7J12HH6PKMDG5SYH.jpg\" alt=\"שני חברי קבוצה עם תגי שם של BNI אדירים, בחדר ישיבות\" width=\"1200\" height=\"1600\" loading=\"lazy\" decoding=\"async\"/></figure>\n</div>\n<div class=\"gal-nav\"><button class=\"gal-prev\" type=\"button\" aria-label=\"התמונה הקודמת\">→</button><button class=\"gal-next\" type=\"button\" aria-label=\"התמונה הבאה\">←</button></div>\n</div>\n</div>\n</section>"
+      },
+      {
+       "_type": "htmlBlock",
        "_key": "dc8c5437b735",
        "html": "<section aria-labelledby=\"gp-h\" class=\"section dark guide-promo\">\n<div class=\"wrap\">\n<div>\n<p class=\"kicker\">רוצה להגיע מוכן?</p>\n<h2 class=\"title\" id=\"gp-h\">נעזור לך לתכנן את הבוקר, צעד אחר צעד.</h2>\n</div>\n<div>\n<p>הכנו מדריך קצר לאורח שמלווה אותך מהרגע שאתה יוצא מהבית ועד שאתה חוזר לאוטו. מה להביא, מה להגיד, איך להציג את עצמך ואיך מגיעים.</p>\n<a class=\"btn white\" href=\"/guest-guide\">קרא את מדריך האורח</a>\n<small>קריאה של כ-5 דקות</small>\n</div>\n</div>\n</section>"
       },
@@ -6043,6 +6063,11 @@
        "_type": "htmlBlock",
        "_key": "890961d84b83",
        "html": "<section aria-labelledby=\"ww-h\" class=\"blk\" id=\"ww\">\n<div class=\"sec-head\"><div><p class=\"kicker\">מי זה מי</p><h2 id=\"ww-h\">ההנהגה והצוותים</h2></div><p>התפקידים בקבוצה השנה, ולמי פונים בכל נושא.</p></div>\n<div class=\"lead-grid\" id=\"leaders\"></div>\n<ul class=\"teams\" id=\"teams\"></ul>\n</section>"
+      },
+      {
+       "_type": "htmlBlock",
+       "_key": "gallery-club",
+       "html": "<section aria-labelledby=\"gal-h\" class=\"blk\">\n<div class=\"sec-head\"><div><p class=\"kicker\">אדירים</p><h2 id=\"gal-h\">מהמפגשים האחרונים</h2></div><p>תעודות הוקרה לצוות ההנהגה, וקבלת פנים לחברות חדשות.</p></div>\n<div class=\"gal\">\n<div class=\"gal-track\" role=\"region\" aria-label=\"מהמפגשים האחרונים\" tabindex=\"0\">\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3ED7GF1F3V6X6DGRZEPWZ.jpg\" alt=\"חלוקת תעודות הוקרה לצוות ההנהגה במפגש\" width=\"1200\" height=\"1600\" loading=\"lazy\" decoding=\"async\"/></figure>\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3EKCF2PVX0VN363ZMTVZP.jpg\" alt=\"קבלת פנים לחברה חדשה בקבוצה, ליד מסך Welcome\" width=\"720\" height=\"1600\" loading=\"lazy\" decoding=\"async\"/></figure>\n<figure class=\"gal-item\"><img src=\"/_emdash/api/media/file/01M5Q3FFRZNEJ4BQB0D40X55YQ.jpg\" alt=\"קבלת פנים לחברה חדשה, עם מתנה מהקבוצה\" width=\"1200\" height=\"1600\" loading=\"lazy\" decoding=\"async\"/></figure>\n</div>\n<div class=\"gal-nav\"><button class=\"gal-prev\" type=\"button\" aria-label=\"התמונה הקודמת\">→</button><button class=\"gal-next\" type=\"button\" aria-label=\"התמונה הבאה\">←</button></div>\n</div>\n</section>"
       }
      ],
      "noindex": 1
