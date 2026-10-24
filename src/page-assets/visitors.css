@@ -1,0 +1,30 @@
+.small { font-size: 15px; }
+  .week { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; margin-top: 8px; }
+  .week label { font-weight: 600; }
+  .week select { font: 400 17px var(--sans); padding: 10px 14px; border: 1px solid var(--ink); border-radius: 2px; background: #fff; }
+  .note { background: var(--soft); border-radius: var(--radius); padding: 14px 18px; margin: 0; font-size: 16px; }
+  .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .tiles .tile { min-height: 160px; }
+  .tiles .tile span { font-size: 16px; }
+  .tile.line { border: 1px solid var(--line); }
+  .rank { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+  .rank a { display: grid; grid-template-columns: 44px 72px 1fr; gap: 14px; align-items: center; padding: 12px; border: 1px solid var(--line); border-radius: var(--radius); text-decoration: none; }
+  .rank a:hover { border-color: var(--ink); }
+  .rank .pos { font: 300 40px/1 var(--display); color: var(--red); text-align: center; }
+  .rank .p { width: 72px; height: 72px; border-radius: 12px; }
+  .rank .p .ini { font-size: 26px; }
+  .rank b { display: block; font: 600 20px/1.25 var(--display); }
+  .rank small { color: var(--muted); font-size: 15px; }
+  .table-wrap { overflow-x: auto; border-top: 1px solid var(--ink); }
+  table.guests { width: 100%; border-collapse: collapse; font-size: 16px; min-width: 760px; }
+  table.guests th { text-align: start; font-weight: 600; padding: 14px 10px; border-bottom: 1px solid var(--ink); white-space: nowrap; }
+  table.guests td { padding: 0; }
+  table.guests td .pending { margin: 16px 0; }
+  .bar { display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+  .bar h3 { margin: 0; font: 600 22px var(--display); }
+  .foot { margin-top: 16px; }
+  .editor ul { margin: 10px 0 18px; padding-inline-start: 1.2em; display: grid; gap: 6px; }
+  .editor li::marker { color: var(--red); }
+  .pending p { margin: 0; }
+  .pending p + p { margin-top: .6em; }
+  @media (max-width: 860px) { .tiles { grid-template-columns: repeat(2, 1fr); } }

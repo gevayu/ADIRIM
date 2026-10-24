@@ -1,0 +1,26 @@
+---
+// Site header. Links come from the "primary" and "cta" menus (admin: Menus).
+import { getMenu } from "emdash";
+const { current } = Astro.props; // path this page counts as, e.g. "/guide" for every chapter
+const [nav, cta] = await Promise.all([getMenu("primary"), getMenu("cta")]);
+const button = cta?.items[0];
+const isCurrent = (url: string) => !url.includes("#") && url === current;
+---
+<header class="site-header">
+  <a class="skip" href="#main">דילוג לתוכן</a>
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="BNI אדירים, לעמוד הבית"><img src="/assets/logo-adirim.png" alt="BNI אדירים"></a>
+    <nav aria-label="ראשי" id="site-nav">{nav?.items.map((i) => <a href={i.url} aria-current={isCurrent(i.url) ? "page" : undefined}>{i.label}</a>)}</nav>
+    {button && <a class="btn red cta" href={button.url}>{button.label}</a>}
+    <button class="menu-btn" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="תפריט"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<script is:inline>
+(function () {
+  const header = document.querySelector(".site-header"), btn = header.querySelector(".menu-btn");
+  btn.addEventListener("click", () => btn.setAttribute("aria-expanded", header.classList.toggle("open")));
+  header.querySelectorAll("nav a").forEach(a => a.addEventListener("click", () => {
+    header.classList.remove("open"); btn.setAttribute("aria-expanded", "false");
+  }));
+})();
+</script>

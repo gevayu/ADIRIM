@@ -1,0 +1,8 @@
+---
+// HTML blocks render as written, with no wrapper and no sanitizing, so a page keeps its exact markup
+// (forms, buttons, details, aria and style attributes that EmDash's default renderer strips).
+// ponytail: only trusted admins can edit content here. If untrusted authors are ever added,
+// switch back to EmDash's HtmlBlock (sanitized) for their collections.
+const { node } = Astro.props;
+---
+<Fragment set:html={node?.html ?? ""} />

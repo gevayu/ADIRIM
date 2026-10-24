@@ -1,0 +1,62 @@
+---
+// Every page: head, header, footer and the scripts the static site loaded, in the same order.
+// Design lives in code: public/shared/site.css plus src/page-assets/<slug>.css|.js per page.
+import { getSiteSettings } from "emdash";
+import { EmDashHead, EmDashBodyStart, EmDashBodyEnd } from "emdash/ui";
+import { createPublicPageContext } from "emdash/page";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import JsonLd from "../components/JsonLd.astro";
+import manifest from "../page-assets/manifest.json";
+
+const css = import.meta.glob("../page-assets/*.css", { query: "?raw", import: "default", eager: true }) as Record<string, string>;
+const js = import.meta.glob("../page-assets/*.js", { query: "?raw", import: "default", eager: true }) as Record<string, string>;
+
+// `override` lets a route that renders one record (the member card) set its own title and description.
+const { page, override = {} } = Astro.props;
+const d = { ...page.data, ...override };
+const slug: string = page.id;
+const m = (manifest as Record<string, { directory: boolean; body: Record<string, string> }>)[slug] ?? { directory: false, body: {} };
+const { "data-page": claimed, ...bodyAttrs } = m.body;
+const current = claimed || Astro.url.pathname;
+const title = d.seo_title || `${d.title} · BNI אדירים`;
+
+// Absolute URLs: the "Site URL" setting once the site is live, otherwise the request's origin.
+const origin = ((await getSiteSettings()).url || Astro.url.origin).replace(/\/$/, "");
+const canonical = d.canonical ?? origin + (slug === "home" ? "/" : Astro.url.pathname + (override.canonicalQuery ?? ""));
+
+const pageCtx = createPublicPageContext({
+	Astro, kind: d.id ? "content" : "custom", pageType: "website", title, pageTitle: d.title,
+	description: d.description, content: d.id ? { collection: "pages", id: d.id, slug } : undefined, siteName: "BNI אדירים",
+	canonical: page.id === "404" ? null : canonical,
+	image: d.image ?? `${origin}/assets/og.jpg`,
+	seo: d.noindex || page.id === "404" ? { robots: "noindex, follow" } : undefined,
+});
+---
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{title}</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#CF2030">
+<JsonLd slug={slug} origin={origin} />
+<EmDashHead page={pageCtx} />
+<link rel="stylesheet" href="/shared/site.css">
+{css[`../page-assets/${slug}.css`] && <style is:inline set:html={css[`../page-assets/${slug}.css`]} />}
+</head>
+<body {...bodyAttrs}>
+<EmDashBodyStart page={pageCtx} />
+<div class="aurora-bg" aria-hidden="true"></div>
+<Header current={current} />
+<main id="main"><slot /></main>
+<Footer />
+<script is:inline src="/shared/data.js"></script>
+{m.directory && <script is:inline src="/shared/directory.js"></script>}
+{js[`../page-assets/${slug}.js`] && <script is:inline set:html={js[`../page-assets/${slug}.js`]} />}
+<EmDashBodyEnd page={pageCtx} />
+</body>
+</html>

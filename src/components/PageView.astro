@@ -1,0 +1,85 @@
+---
+// One page entry, laid out by its template. Lists that depend on other pages
+// (chapter list, chapter pager, club side menu) are built here from the CMS, so reordering
+// or renaming a page in the admin updates them everywhere.
+import Site from "../layouts/Site.astro";
+import Hero from "./Hero.astro";
+import Content from "./Content.astro";
+import { getPagesByTemplate, pagePath } from "../lib/site";
+
+const { page, member = null, override = {} } = Astro.props;
+const d = page.data;
+const t = d.template;
+const pad = (n: number) => String(n).padStart(2, "0");
+
+let chapters: any[] = [], club: any[] = [];
+if (t === "guide_chapter") chapters = await getPagesByTemplate("guide_chapter");
+if (t === "club") club = await getPagesByTemplate("club");
+const ci = chapters.findIndex((c) => c.id === page.id);
+const prev = chapters[ci - 1], next = chapters[ci + 1];
+const label = (p: any) => p.data.nav_label || p.data.title;
+const groups = [...new Set(club.map((p) => p.data.nav_group).filter(Boolean))];
+const hasHero = !!d.hero_wrap;
+---
+<Site page={page} override={override}>
+  {hasHero && <Hero page={page} kicker={t === "guide_chapter" ? `פרק ${pad(ci + 1)} מתוך ${chapters.length}` : undefined} />}
+
+  {t === "legal" && (
+    <article class="legal"><div class="narrow prose"><Content value={d.content} /></div></article>
+  )}
+
+  {t === "guide_chapter" && (
+    <section class="ch-body">
+      <div class="wrap ch-grid">
+        <aside class="toc" aria-label="פרקי המדריך"><h2>פרקי המדריך</h2><ol>
+          {chapters.map((c, i) => <li><a href={pagePath(c.id)} aria-current={c.id === page.id ? "page" : undefined}><span>{pad(i + 1)}</span>{label(c)}</a></li>)}
+        </ol><a class="all" href="/guide">לתוכן המדריך</a></aside>
+        <article class="prose">
+          <Content value={d.content} />
+          <nav aria-label="ניווט בין פרקים" class="pager">
+            {prev ? <a class="prev" href={pagePath(prev.id)}><small>→ הפרק הקודם · {pad(ci)}</small><b>{label(prev)}</b></a>
+                  : <a class="prev" href="/guide"><small>→ חזרה</small><b>תוכן המדריך</b></a>}
+            {next ? <a class="next" href={pagePath(next.id)}><small>הפרק הבא · {pad(ci + 2)} ←</small><b>{label(next)}</b></a>
+                  : <a class="next" href="/invite"><small>סיימת את המדריך ←</small><b>שמרו לי מקום במפגש</b></a>}
+          </nav>
+        </article>
+      </div>
+    </section>
+  )}
+
+  {t === "club" && (
+    <section class="club-body">
+      <div class="wrap">
+        <div class="doc">
+          <div class="doc-main">
+            <Content value={d.intro} />
+            {d.prose_wrap === false ? <Content value={d.content} /> : <div class="prose"><Content value={d.content} /></div>}
+          </div>
+          <nav class="side" aria-label="עמודי המועדון"><a class="side-home" href="/club">דף המועדון</a>
+            {groups.map((g) => (
+              <Fragment><p class="side-k">{g}</p><ul>
+                {club.filter((p) => p.data.nav_group === g).map((p) => <li><a href={pagePath(p.id)} aria-current={p.id === page.id ? "page" : undefined}>{label(p)}</a></li>)}
+              </ul></Fragment>
+            ))}
+          </nav>
+        </div>
+      </div>
+    </section>
+  )}
+
+  {t === "club_home" && (
+    <section class="club-body"><div class="wrap"><Content value={d.content} /></div></section>
+  )}
+
+  {member && (
+    <section class="page-hero"><div class="wrap"><div class="member"><div>
+      <h1>{member.name}</h1>
+      <p class="role">{member.role}</p>
+      {member.business && member.business !== member.name && <p class="biz">{member.business}</p>}
+      {member.bio && <p class="bio">{member.bio}</p>}
+    </div></div></div></section>
+  )}
+  {t === "landing" && <Content value={d.content} />}
+
+  <Content value={d.after} />
+</Site>

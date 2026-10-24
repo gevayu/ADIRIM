@@ -1,0 +1,46 @@
+/* member page: one template for every member, filled from window.MEMBERS by ?m=<slug> */
+  .p .ini { font-size: clamp(56px, 9vw, 120px); }
+  .page-hero .member { display: grid; grid-template-columns: 1.35fr 1fr; gap: 56px; align-items: start; }
+  .member .portrait { aspect-ratio: 4 / 5; width: min(100%, 440px); justify-self: center; }
+  .member h1 { margin-bottom: 14px; }
+  .member .role { font: 400 clamp(22px, 2.2vw, 28px)/1.3 var(--display); margin: 0 0 4px; }
+  .member .biz { margin: 0 0 18px; color: var(--muted); font-size: 18px; }
+  .member .bio { margin: 22px 0 0; max-width: 46ch; font-size: 20px; line-height: 1.6; }
+  a.chip { display: inline-block; text-decoration: none; }
+  a.chip:hover { border-color: var(--ink); }
+  .member .actions { margin-top: 28px; }
+  .member .actions .btn svg { flex: none; }
+  .member .ltr { direction: ltr; unicode-bidi: isolate; }
+  .talk { margin-top: 28px; border-inline-start: 4px solid var(--red); }
+  .talk .kicker { margin-bottom: 6px; }
+  .talk b { display: block; font: 600 22px/1.3 var(--display); }
+  .talk p { margin: 6px 0 0; color: var(--muted); font-size: 16px; }
+  .talk a { font-weight: 600; text-underline-offset: 4px; }
+  .member .pending { margin-top: 28px; }
+  .member .pending p { margin: 0; }
+
+  .circle { padding: 0 0 96px; }
+  .circle .sec-head h2 { font-size: clamp(32px, 3.8vw, 54px); line-height: 1.02; }
+  .mates { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 36px 18px; }
+  .mate { position: relative; }
+  .mate .p { aspect-ratio: 4 / 5; }
+  .mate .p .ini { font-size: clamp(40px, 5vw, 64px); }
+  .mate h3 { font: 600 21px/1.2 var(--display); margin: 14px 0 2px; }
+  .mate h3 a { text-decoration: none; }
+  .mate h3 a::after { content: ""; position: absolute; inset: 0; }
+  .mate:hover h3 { color: var(--red); }
+  .mate p { margin: 0; font-size: 15px; color: var(--muted); line-height: 1.4; }
+  .circle .all { margin-top: 40px; }
+
+  .missing { padding-bottom: 96px; }
+  .missing .actions { margin-top: 8px; }
+
+  @media (max-width: 980px) { .mates { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 760px) {
+    .page-hero .member { grid-template-columns: 1fr; gap: 28px; }
+    .member .portrait { order: -1; width: min(70%, 260px); justify-self: start; }
+    .mates { grid-template-columns: repeat(2, 1fr); gap: 28px 12px; }
+    .mate h3 { font-size: 18px; }
+    .circle { padding-bottom: 64px; }
+    .member .actions .btn { flex: 1 1 100%; }
+  }

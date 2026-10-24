@@ -1,0 +1,25 @@
+---
+// Site footer. Each column is a menu (admin: Menus); the menu's name is the column heading.
+import { getMenu } from "emdash";
+import { getGroup } from "../lib/site";
+const COLUMNS = ["footer_site", "footer_invite", "footer_club", "footer_contact"];
+const [g, legal, ...cols] = await Promise.all([getGroup(), getMenu("footer_legal"), ...COLUMNS.map((n) => getMenu(n))]);
+const ext = (t?: string) => (t === "_blank" ? { target: "_blank", rel: "noopener" } : {});
+---
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div class="brand">
+        <img src="/assets/logo-adirim.png" alt="BNI אדירים">
+        <p>{g.footer_about}</p>
+      </div>
+      {cols.filter(Boolean).map((m) => (
+        <div><h2>{m!.label}</h2><ul>{m!.items.map((i) => <li><a href={i.url} {...ext(i.target)}>{i.label}</a></li>)}</ul></div>
+      ))}
+    </div>
+    <div class="base">
+      <span>{g.footer_base}</span>
+      <span>{legal?.items.map((i, n) => <Fragment>{n > 0 && " · "}<a href={i.url}>{i.label}</a></Fragment>)}</span>
+    </div>
+  </div>
+</footer>

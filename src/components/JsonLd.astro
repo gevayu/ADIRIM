@@ -1,0 +1,29 @@
+---
+// Structured data for search engines: the group (home page) and the next meeting (invite page).
+// Built from "פרטי הקבוצה" and the meetings collection, so it stays in step with the page.
+import { getGroup, getMeetings } from "../lib/site";
+const { slug, origin } = Astro.props;
+const g = await getGroup();
+const address = { "@type": "PostalAddress", streetAddress: "השלושה 2", addressLocality: "תל אביב", addressCountry: "IL" };
+const org = {
+	"@type": "Organization", "@id": `${origin}/#org`, name: "BNI אדירים", url: `${origin}/`, logo: `${origin}/assets/logo-adirim.png`,
+	description: g.footer_about, address, sameAs: [g.link_facebook, g.link_instagram].filter(Boolean),
+	parentOrganization: { "@type": "Organization", name: "BNI ישראל", url: "https://www.bni.co.il" },
+};
+let data: any = null;
+if (slug === "home") data = { "@context": "https://schema.org", ...org };
+if (slug === "invite") {
+	const next = (await getMeetings()).map((e: any) => e.data).find((m: any) => new Date(m.ends_at).getTime() > Date.now());
+	if (next) data = {
+		"@context": "https://schema.org", "@type": "Event",
+		name: next.talk_title ? `BNI אדירים: ${next.talk_title}` : `מפגש BNI אדירים, מציג: ${next.speaker}`,
+		startDate: new Date(next.starts_at).toISOString(), endDate: new Date(next.ends_at).toISOString(),
+		eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode", eventStatus: "https://schema.org/EventScheduled",
+		location: { "@type": "Place", name: g.place, address: { ...address, streetAddress: next.place } },
+		organizer: { "@type": "Organization", name: "BNI אדירים", url: `${origin}/` },
+		offers: { "@type": "Offer", price: g.price, priceCurrency: "ILS", url: `${origin}/invite`, availability: "https://schema.org/InStock" },
+		description: `מפגש נטוורקינג עסקי בוקר, ${g.hours}. ${next.topic ? `המצגת המרכזית: ${next.speaker}, ${next.topic}.` : ""}`.trim(),
+	};
+}
+---
+{data && <script type="application/ld+json" set:html={JSON.stringify(data)} />}

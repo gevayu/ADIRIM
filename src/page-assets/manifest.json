@@ -1,0 +1,190 @@
+{
+ "accessibility": {
+  "directory": false,
+  "body": {}
+ },
+ "club-commitment": {
+  "directory": false,
+  "body": {}
+ },
+ "club-connect": {
+  "directory": false,
+  "body": {}
+ },
+ "club-deck": {
+  "directory": false,
+  "body": {}
+ },
+ "club-ethics": {
+  "directory": false,
+  "body": {}
+ },
+ "club-gantt": {
+  "directory": false,
+  "body": {}
+ },
+ "club-glossary": {
+  "directory": false,
+  "body": {}
+ },
+ "club-guests": {
+  "directory": false,
+  "body": {}
+ },
+ "club-guide": {
+  "directory": false,
+  "body": {}
+ },
+ "club-handbook": {
+  "directory": false,
+  "body": {}
+ },
+ "club-media": {
+  "directory": false,
+  "body": {}
+ },
+ "club-meetings": {
+  "directory": false,
+  "body": {}
+ },
+ "club-one-on-one": {
+  "directory": false,
+  "body": {}
+ },
+ "club-presentation": {
+  "directory": false,
+  "body": {}
+ },
+ "club-report": {
+  "directory": false,
+  "body": {}
+ },
+ "club-resources": {
+  "directory": false,
+  "body": {}
+ },
+ "club-trainings": {
+  "directory": false,
+  "body": {}
+ },
+ "club-whatsapp": {
+  "directory": false,
+  "body": {}
+ },
+ "club": {
+  "directory": false,
+  "body": {}
+ },
+ "first-meeting": {
+  "directory": false,
+  "body": {}
+ },
+ "guest-guide": {
+  "directory": true,
+  "body": {}
+ },
+ "guide-before-you-decide": {
+  "directory": false,
+  "body": {
+   "data-page": "/guide"
+  }
+ },
+ "guide-behind-the-scenes": {
+  "directory": false,
+  "body": {
+   "data-page": "/guide"
+  }
+ },
+ "guide-first-visit-visual": {
+  "directory": false,
+  "body": {
+   "data-page": "/guide"
+  }
+ },
+ "guide-glossary": {
+  "directory": false,
+  "body": {
+   "data-page": "/guide"
+  }
+ },
+ "guide-how-it-works": {
+  "directory": false,
+  "body": {
+   "data-page": "/guide"
+  }
+ },
+ "guide-not-networking-but": {
+  "directory": false,
+  "body": {
+   "data-page": "/guide"
+  }
+ },
+ "guide-small-business-primer": {
+  "directory": false,
+  "body": {
+   "data-page": "/guide"
+  }
+ },
+ "guide-timeline-first-year": {
+  "directory": false,
+  "body": {
+   "data-page": "/guide"
+  }
+ },
+ "guide-what-is-bni": {
+  "directory": false,
+  "body": {
+   "data-page": "/guide"
+  }
+ },
+ "guide-why-it-works": {
+  "directory": false,
+  "body": {
+   "data-page": "/guide"
+  }
+ },
+ "guide": {
+  "directory": false,
+  "body": {
+   "data-page": "/guide"
+  }
+ },
+ "index-tunnel": {
+  "directory": true,
+  "body": {}
+ },
+ "home": {
+  "directory": true,
+  "body": {}
+ },
+ "invite": {
+  "directory": true,
+  "body": {}
+ },
+ "member": {
+  "directory": false,
+  "body": {
+   "data-page": "/member"
+  }
+ },
+ "privacy": {
+  "directory": false,
+  "body": {}
+ },
+ "questions": {
+  "directory": false,
+  "body": {}
+ },
+ "terms": {
+  "directory": false,
+  "body": {}
+ },
+ "visitors": {
+  "directory": false,
+  "body": {}
+ },
+ "what-we-are-not": {
+  "directory": false,
+  "body": {}
+ }
+}

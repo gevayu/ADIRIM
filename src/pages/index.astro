@@ -1,0 +1,8 @@
+---
+import { getEmDashEntry } from "emdash";
+import PageView from "../components/PageView.astro";
+const { entry, cacheHint } = await getEmDashEntry("pages", "home");
+if (!entry) return Astro.rewrite("/404");
+if (Astro.cache?.enabled) Astro.cache.set(cacheHint);
+---
+<PageView page={entry} />

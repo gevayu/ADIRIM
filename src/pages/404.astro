@@ -1,0 +1,13 @@
+---
+import { getEmDashEntry } from "emdash";
+import Site from "../layouts/Site.astro";
+const fallback = { id: "404", data: { title: "העמוד לא נמצא", seo_title: "העמוד לא נמצא · BNI אדירים" } };
+Astro.response.status = 404;
+---
+<Site page={fallback}>
+  <section class="page-hero"><div class="wrap">
+    <p class="kicker">404</p>
+    <h1>העמוד לא נמצא</h1>
+    <p class="lede">אולי הקישור השתנה. <a href="/">לעמוד הבית</a> או <a href="/invite">למפגש הקרוב</a>.</p>
+  </div></section>
+</Site>

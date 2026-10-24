@@ -1,0 +1,16 @@
+node_modules
+dist
+.astro
+.emdash/migrations.json
+uploads
+data.db
+data.db-*
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# tools scratch
+tools/.*.json
+.claude/settings.local.json

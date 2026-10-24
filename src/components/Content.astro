@@ -1,0 +1,6 @@
+---
+import { PortableText } from "emdash/ui";
+import Raw from "./Raw.astro";
+const { value } = Astro.props;
+---
+{Array.isArray(value) && value.length > 0 && <PortableText value={value} components={{ type: { htmlBlock: Raw } }} />}

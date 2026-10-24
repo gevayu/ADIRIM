@@ -1,0 +1,24 @@
+.page-hero h1 { max-width: 18ch; }
+.page-hero .meta span + span::before { content: "·"; margin-inline-end: 24px; color: #B9B3AA; }
+.cta-band h2 { font-size: clamp(40px, 5.4vw, 76px); }
+.cta-band .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.cta-band .btn.ghost { background: transparent; color: #fff; border-color: #fff; }
+.cta-band .btn.ghost:hover { background: #fff; color: var(--ink); }
+@media (max-width: 640px) { .page-hero .meta span + span::before { margin-inline-end: 10px; } }
+
+.chapters { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 12px; }
+.chapters a { display: grid; grid-template-columns: 64px 1fr; grid-template-rows: auto 1fr auto; gap: 4px 18px; height: 100%; padding: 24px; border: 1px solid var(--line); border-radius: var(--radius); text-decoration: none; background: #fff; }
+.chapters a:hover { border-color: var(--ink); }
+.chapters a:hover h3 { color: var(--red); }
+.chapters .n { grid-row: span 3; font: 300 52px/.9 var(--display); color: var(--red); }
+.chapters h3 { margin: 0; font: 600 22px/1.25 var(--display); }
+.chapters p { margin: 0; color: var(--muted); font-size: 17px; line-height: 1.5; }
+.chapters .t { font-size: 14px; font-weight: 600; margin-top: 10px; }
+.paths { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.path h3 { font-size: 22px; }
+.path .chips { display: grid; gap: 6px; margin-top: 18px; }
+.path .chips a { display: grid; grid-template-columns: 30px 1fr; gap: 6px; font-size: 16px; line-height: 1.35; text-decoration: none; padding: 8px 0; border-top: 1px solid var(--line); }
+.path .chips a span { color: var(--red); font-weight: 600; }
+.path .chips a:hover { color: var(--red); }
+@media (max-width: 900px) { .paths { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .chapters a { grid-template-columns: 1fr; } .chapters .n { grid-row: auto; font-size: 40px; } }

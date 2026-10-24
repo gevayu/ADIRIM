@@ -1,0 +1,15 @@
+---
+// The standard page hero. Pages with a hero of their own keep it inside their content.
+const { page } = Astro.props;
+const d = page.data;
+const kicker = Astro.props.kicker ?? d.kicker;
+---
+<section class="page-hero" aria-labelledby={d.hero_aria ? "h1" : undefined}>
+  <div class={d.hero_wrap || "wrap"}>
+    {d.crumbs && <p class="crumbs" set:html={d.crumbs} />}
+    {kicker && <p class="kicker" set:html={kicker} />}
+    <h1 id={d.hero_aria ? "h1" : undefined} set:html={d.title} />
+    {d.lede && <p class="lede" set:html={d.lede} />}
+    {d.meta && <p class="meta" set:html={d.meta} />}
+  </div>
+</section>

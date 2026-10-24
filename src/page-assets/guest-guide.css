@@ -1,0 +1,68 @@
+.chap { font: 300 15px var(--sans); color: var(--muted); margin: 0 0 6px; }
+
+  /* intro builder */
+  .build { display: grid; grid-template-columns: 1fr 1.1fr; gap: 40px; align-items: start; }
+  .fields { display: grid; gap: 18px; }
+  .fields label { display: grid; gap: 6px; font-weight: 600; font-size: 16px; }
+  .fields label small { font-weight: 400; color: var(--muted); font-size: 14px; }
+  .fields input, .fields textarea { font: 17px/1.5 var(--sans); padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; background: #fff; color: var(--ink); width: 100%; }
+  .fields textarea { min-height: 88px; resize: vertical; }
+  .fields input:focus, .fields textarea:focus { border-color: var(--ink); outline: none; }
+  .private { font-size: 14px; color: var(--muted); margin: 0; }
+  .script { margin: 0; padding: 30px; border: 1px solid var(--ink); border-radius: var(--radius); background: #fff; font: 600 clamp(19px, 1.8vw, 22px)/1.8 var(--sans); }
+  .script p { margin: 0 0 .7em; }
+  .script p:last-child { margin: 0; }
+  .script mark { background: #F6D9DC; color: var(--ink); padding: 0 4px; border-radius: 4px; }
+  .script .fill { color: var(--muted); font-size: 15px; margin-inline-start: 8px; }
+  .tip { margin-top: 14px; }
+  .tip b { display: block; margin-bottom: 4px; }
+
+  /* goals + directory */
+  .think { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 28px; }
+  .think ul { margin: 10px 0 0; padding-inline-start: 1.2em; display: grid; gap: 4px; color: var(--muted); }
+  .think li::marker { color: var(--red); }
+  .tools { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; margin: 28px 0 18px; }
+  .groups { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tools input { font: 16px var(--sans); padding: 10px 14px; border: 1px solid var(--line); border-radius: 999px; background: #fff; width: min(280px, 100%); }
+  .roster { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 10px; }
+  .mcard { display: grid; grid-template-columns: 64px 1fr; gap: 14px; align-items: center; background: #fff; border-radius: var(--radius); padding: 12px; text-decoration: none; border: 1px solid transparent; }
+  .mcard:hover { border-color: var(--ink); }
+  .mcard .p { width: 64px; height: 64px; border-radius: 12px; }
+  .mcard .ini { font-size: 24px; }
+  .mcard h3 { margin: 0; font: 600 17px/1.3 var(--display); }
+  .mcard p { margin: 0; font-size: 14px; color: var(--muted); line-height: 1.4; }
+  .mcard .g { color: var(--red); font-weight: 600; }
+  .empty { grid-column: 1 / -1; padding: 30px; background: #fff; border-radius: var(--radius); color: var(--muted); }
+
+  /* arrival */
+  .routes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .routes .card ul { margin: 0; padding-inline-start: 1.2em; display: grid; gap: 6px; color: var(--muted); }
+  .routes .card li::marker { color: var(--red); }
+  .where { display: grid; grid-template-columns: 1fr 1fr auto; gap: 24px; align-items: end; padding-bottom: 24px; margin-bottom: 24px; border-bottom: 1px solid var(--line); }
+  .where p { margin: 0; }
+  .where b { display: block; font-size: 15px; }
+  .row { display: flex; flex-wrap: wrap; gap: 10px; }
+
+
+  /* checklist */
+  .check { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+  .check li { border-bottom: 1px solid var(--line); }
+  .check label { display: flex; gap: 14px; align-items: center; padding: 16px 0; cursor: pointer; font-size: 19px; }
+  .check input { width: 22px; height: 22px; accent-color: var(--red); flex: none; }
+  .check input:checked + span { color: var(--muted); text-decoration: line-through; }
+
+  .cta-band .row .btn { min-width: 160px; }
+
+  @media (max-width: 900px) {
+    .build, .think, .routes, .where { grid-template-columns: 1fr; gap: 20px; }
+  }
+  @media (max-width: 760px) {
+    .roster { grid-template-columns: 1fr; }
+    .script { padding: 22px; }
+  }
+  @media print {
+    .site-header, .site-footer, .no-print, .tools, .roster, .cta-band .row { display: none !important; }
+    .section { padding: 28px 0; }
+    .section.soft { background: none; }
+    .cta-band { background: none; color: var(--ink); padding: 20px 0; }
+  }

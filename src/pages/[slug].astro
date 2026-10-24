@@ -1,0 +1,38 @@
+---
+import { getEmDashEntry } from "emdash";
+import PageView from "../components/PageView.astro";
+import { getMembers } from "../lib/site";
+
+const { slug = "" } = Astro.params;
+// Links from the old static site ("guide.html", "index.html") keep working.
+if (slug.endsWith(".html")) {
+	const name = slug.slice(0, -5);
+	return Astro.redirect((name === "index" ? "/" : `/${name}`) + Astro.url.search, 301);
+}
+if (slug === "home") return Astro.redirect("/", 301);
+const { entry, cacheHint } = await getEmDashEntry("pages", slug);
+if (!entry) return Astro.rewrite("/404");
+if (Astro.cache?.enabled) Astro.cache.set(cacheHint);
+
+// The member card is drawn by its page script; the server still sends the title, description,
+// canonical URL and the card's text, so search engines and link previews get each member.
+// Search-result snippet: the bio when there is one, cut at a word near 155 characters;
+// short bios get a line about the group so the snippet isn't thin.
+const describe = (m: any) => {
+	let d = m.bio || `${m.name}, ${m.role.split(" · ").pop()}${m.business && m.business !== m.name ? `, ${m.business}` : ""}.`;
+	if (d.length < 90) d += " חבר ב-BNI אדירים, קבוצת נטוורקינג עסקית שנפגשת כל חמישי בתל אביב.";
+	return d.length <= 158 ? d : d.slice(0, d.lastIndexOf(" ", 155)).replace(/[,:]$/, "") + "…";
+};
+let member: any = null, override: Record<string, unknown> = {};
+if (slug === "member") {
+	const m = Astro.url.searchParams.get("m") ?? "";
+	const slugOf = (n: string) => n.replace(/[׳״']/g, "").replace(/ /g, "-");
+	member = (await getMembers()).map((e: any) => e.data).find((x: any) => slugOf(x.name) === m) ?? null;
+	override = member
+		? { seo_title: `${member.name}, ${member.role.split(" · ").pop()} · BNI אדירים`,
+			description: describe(member),
+			title: member.name, canonicalQuery: `?m=${encodeURIComponent(m)}` }
+		: { noindex: true };
+}
+---
+<PageView page={entry} member={member} override={override} />
