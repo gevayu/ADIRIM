@@ -36,6 +36,22 @@ The page scripts from the static site run unchanged. They read the same globals 
 The chapter list and pager in the guide, the club side menu and "פרק NN מתוך N" are built from the
 pages' `sort`, `nav_label` and `nav_group` fields, so reordering in the admin updates them everywhere.
 
+## Guest matcher (מדריך לאורח, פרק 02)
+
+The guest answers a few questions (trade, goals, ideal client, who refers work to them) and gets 3 members to meet,
+each with "why this one" and a question to ask, plus up to 2 members from the trade that refers work to them.
+
+- `src/pages/api/match.ts`: sends the answers and the member list (bios + hidden tags) to Claude (`claude-opus-5-5`,
+  low effort, JSON schema, server-side refusal fallback). Unknown ids are dropped. If the API fails, a keyword match
+  on the tags answers instead.
+- Needs `ANTHROPIC_API_KEY` in `.env` (server only). Limits: 5 requests per IP per 10 minutes, 400 a day, a honeypot field.
+- `src/page-assets/guest-guide.js|.css`: the form and the result cards. The last result is kept in the browser.
+
+## Home page
+
+`/` is the card-tunnel version since 2026-10-24 (`/index-tunnel` redirects there). The previous home page is kept as
+the hidden page `home-classic` (noindex) with its own `src/page-assets/home-classic.*`.
+
 ## The seed
 
 `seed/seed.json` is a snapshot of the CMS (schema, menus and all content except photos). Refresh it before committing content changes:

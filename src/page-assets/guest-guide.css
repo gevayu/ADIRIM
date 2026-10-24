@@ -66,3 +66,34 @@
     .section.soft { background: none; }
     .cta-band { background: none; color: var(--ink); padding: 20px 0; }
   }
+
+/* guest matcher: goals + trade -> 3 members via /api/match */
+.goals { border: 0; margin: 12px 0 0; padding: 0; display: grid; gap: 6px; }
+.goals label { display: flex; gap: 10px; align-items: flex-start; font-size: 16px; line-height: 1.45; cursor: pointer; padding: 6px 0; }
+.goals input { width: 20px; height: 20px; margin-top: 1px; accent-color: var(--red); flex: none; }
+.goals input:disabled + * , .goals label:has(input:disabled) { color: #B9B3AA; cursor: not-allowed; }
+.think .fields { display: grid; gap: 14px; align-content: start; }
+.think .fields h3 { margin: 0; }
+.think .fields .btn { justify-self: start; }
+.think .fields .btn[disabled] { opacity: .55; cursor: progress; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.status { margin: 0; font-size: 15px; color: var(--muted); min-height: 1.4em; }
+.status.err { color: var(--red); }
+.matches { margin: 0 0 28px; }
+.matches h3.mh { font: 700 clamp(24px, 2.6vw, 32px)/1.2 var(--display); margin: 8px 0 4px; }
+.matches > p { color: var(--muted); margin: 0 0 16px; }
+.matches ol { list-style: none; margin: 0 0 28px; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.matches ol.two { grid-template-columns: repeat(2, 1fr); }
+.match { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; display: grid; gap: 12px; align-content: start; }
+.match .who { display: grid; grid-template-columns: 64px 1fr; gap: 12px; align-items: center; text-decoration: none; }
+.match .who .p { width: 64px; height: 64px; border-radius: 12px; overflow: hidden; background: var(--tone, #EEE); display: grid; place-items: center; }
+.match .who img { width: 100%; height: 100%; object-fit: cover; }
+.match .who b { display: block; font: 600 19px/1.25 var(--display); }
+.match .who span { color: var(--muted); font-size: 14px; line-height: 1.35; display: block; }
+.match .who:hover b { color: var(--red); }
+.match .lbl { font-size: 13px; font-weight: 600; color: var(--muted); margin: 0 0 2px; }
+.match p { margin: 0; font-size: 16px; line-height: 1.6; }
+.match blockquote { margin: 0; padding-inline-start: 12px; border-inline-start: 3px solid var(--red); font-size: 16px; line-height: 1.6; }
+.matches .again { font-size: 15px; background: none; border: 0; padding: 6px 0; color: var(--muted); text-decoration: underline; cursor: pointer; }
+@media (max-width: 980px) { .matches ol, .matches ol.two { grid-template-columns: 1fr; } }
+@media print { .think { display: none !important; } .matches { break-inside: avoid; } }

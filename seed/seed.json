@@ -1635,6 +1635,60 @@
   ],
   "pages": [
    {
+    "id": "pages:home-classic",
+    "slug": "home-classic",
+    "status": "published",
+    "data": {
+     "title": "עמוד הבית (הגרסה הקודמת)",
+     "seo_title": "BNI אדירים · קבוצת נטוורקינג עסקי בתל אביב",
+     "description": "קבוצת BNI אדירים בתל אביב: בעלי עסקים, אחד לכל מקצוע, שמעבירים זה לזה לקוחות. נפגשים כל חמישי ב-7:30 במגדל אדגר 360. אפשר לבוא כאורחים.",
+     "template": "landing",
+     "content": [
+      {
+       "_type": "htmlBlock",
+       "_key": "30f42a38fa75",
+       "html": "<section class=\"hero\">\n<div class=\"wrap\">\n<div>\n<h1>עסקים<br/>עושים עם<br/><em>אנשים.</em></h1>\n<p><span data-members=\"\"></span> בעלי עסקים מתל אביב שנפגשים כל חמישי ב-07:30, מכירים אחד את השני לעומק, ומעבירים עבודה רק למי שהם סומכים עליו.</p>\n<a class=\"btn\" href=\"#invite\">להגיע לבוקר אחד ←</a>\n<div class=\"meta\">\n<div><b>כל חמישי</b>7:30 עד 9:30</div>\n<div><b>מגדל אדגר 360</b>השלושה 2, תל אביב</div>\n<div><b>70 ₪</b>לאורח, כולל ארוחת בוקר</div>\n</div>\n</div>\n<figure aria-label=\"חברי הקבוצה\" aria-roledescription=\"carousel\" class=\"rotator\" id=\"rotator\">\n<img alt=\"\"/><img alt=\"\"/>\n<span aria-hidden=\"true\" class=\"dots\" dir=\"ltr\"></span>\n<figcaption><span class=\"tag\">חבר בקבוצה</span><b></b><span class=\"role\"></span></figcaption>\n</figure>\n</div>\n</section>"
+      },
+      {
+       "_type": "htmlBlock",
+       "_key": "9ea1752ad25b",
+       "html": "<section aria-labelledby=\"about-h\" class=\"about\" id=\"about\">\n<div class=\"wrap\">\n<div class=\"sec-head\">\n<div><p class=\"kicker\">// מי אנחנו</p><h2 id=\"about-h\">לפני שסוגרים עסקה, מכירים את האדם.</h2></div>\n<p>אדירים היא קבוצה שהחליטה שלפני שסוגרים עסקה, מכירים את האדם שמאחורי החתימה. נפגשים פעם בשבוע, בלב תל אביב, לפני שהעיר מתחילה לרוץ.</p>\n</div>\n<ol class=\"pillars\">\n<li><span class=\"n\">01</span><h3>בוקר אחד בשבוע</h3><p>חמישי, 7:30, אדגר 360. קפה על השולחן, שעתיים ממוקדות. מתחילים ומסיימים בזמן.</p></li>\n<li><span class=\"n\">02</span><h3>מקצוע אחד לכל חבר</h3><p>אין שני רואי חשבון, אין שני מפיקי אירועים. לכל תחום עיסוק יש נציג בלעדי בקבוצה.</p></li>\n<li><span class=\"n\">03</span><h3>הפניות, לא לידים</h3><p>פה לא סוגרים עסקאות. בונים אותן. כל חבר מעביר לקוח חם עם המלצה אישית, לא רשימה.</p></li>\n</ol>\n</div>\n</section>"
+      },
+      {
+       "_type": "htmlBlock",
+       "_key": "7a4584ce5f00",
+       "html": "<section aria-labelledby=\"guide-h\" class=\"guide\" id=\"guide\">\n<div class=\"wrap\">\n<div>\n<p class=\"kicker\">// מעולם לא שמעת על BNI?</p>\n<h2 id=\"guide-h\">מדריך מלא למי שמתחיל מאפס.</h2>\n<p class=\"lead\">עשרה פרקים קצרים שמסבירים מה זה BNI, איך זה עובד, למה זה עובד, ומה לצפות בשנה הראשונה. ללא ז'רגון, ללא הבטחות, רק מה שצריך לדעת לפני שמחליטים.</p>\n<a class=\"btn\" href=\"/guide\">קראו את המדריך ←</a>\n<p class=\"meta-line\">כ-61 דקות קריאה · התחלה חופשית מכל פרק</p>\n</div>\n<div>\n<ol class=\"chapters\" id=\"chapters\">\n<li><a href=\"/guide-what-is-bni\"><span class=\"n\">01</span><b>מה זה BNI, במשפט אחד</b><span class=\"t\">4 דק׳</span><small>ההסבר הפשוט ביותר. בלי ז'רגון, בלי קיצורים, בלי הבטחות.</small></a></li>\n<li><a href=\"/guide-how-it-works\"><span class=\"n\">02</span><b>איך עובד נטוורקינג מובנה</b><span class=\"t\">7 דק׳</span><small>המכניקה הפנימית, ב-5 שלבים, עם דוגמה להמחשה.</small></a></li>\n<li><a href=\"/guide-why-it-works\"><span class=\"n\">03</span><b>הפסיכולוגיה והסטטיסטיקה</b><span class=\"t\">9 דק׳</span><small>שלושה טיעונים: סטטיסטיקה, פסיכולוגיה, מבנה. למי שצריך הוכחה לפני שמחליט.</small></a></li>\n<li><a href=\"/guide-not-networking-but\"><span class=\"n\">04</span><b>זה לא נטוורקינג. זה משהו אחר.</b><span class=\"t\">5 דק׳</span><small>המילה 'נטוורקינג' מטושטשת. שלוש מטאפורות מדויקות יותר.</small></a></li>\n<li><a href=\"/guide-first-visit-visual\"><span class=\"n\">05</span><b>סיור וירטואלי במפגש</b><span class=\"t\">4 דק׳</span><small>בדיוק איפה תהיה, מה תראה, מי יקבל אותך. לפני שהגעת.</small></a></li>\n<li class=\"more\"><a href=\"/guide-small-business-primer\"><span class=\"n\">06</span><b>בעל עסק קטן? למה זה רלוונטי לך</b><span class=\"t\">7 דק׳</span><small>אם חשבת ש-BNI 'לגדולים', קרא את זה. דווקא עסק קטן מקבל ערך גבוה.</small></a></li>\n<li class=\"more\"><a href=\"/guide-glossary\"><span class=\"n\">07</span><b>מילון מונחים</b><span class=\"t\">6 דק׳</span><small>כל מונחי BNI בעברית. עם הגדרה, דוגמה, וקישורים פנימיים.</small></a></li>\n<li class=\"more\"><a href=\"/guide-timeline-first-year\"><span class=\"n\">08</span><b>השנה הראשונה שלך, חודש אחר חודש</b><span class=\"t\">8 דק׳</span><small>מה קורה בחודש 1, 3, 6, 9, 12. ציפיות ריאליות, לא הבטחות.</small></a></li>\n<li class=\"more\"><a href=\"/guide-before-you-decide\"><span class=\"n\">09</span><b>רשימת בדיקה לפני שמחליטים</b><span class=\"t\">6 דק׳</span><small>7 שאלות לעצמך, 5 שאלות אלינו, 3 סימנים שאולי לא הזמן.</small></a></li>\n<li class=\"more\"><a href=\"/guide-behind-the-scenes\"><span class=\"n\">10</span><b>מאחורי הקלעים, בלי פילטר</b><span class=\"t\">5 דק׳</span><small>אנשים אמיתיים, בוקר אמיתי, גם הטעויות. בלי סטוק.</small></a></li>\n</ol>\n<button aria-controls=\"chapters\" aria-expanded=\"false\" class=\"more-btn\" onclick=\"this.closest('div').querySelector('.chapters').classList.add('open'); this.hidden = true;\" type=\"button\">לעוד מדריכים ↓</button>\n</div>\n</div>\n</section>"
+      },
+      {
+       "_type": "htmlBlock",
+       "_key": "a3c588936c54",
+       "html": "<section aria-labelledby=\"people-h\" class=\"people\" id=\"people\">\n<div class=\"wrap\" id=\"dir\">\n<div class=\"sec-head\">\n<h2 id=\"people-h\">הפנים של<br/>הקבוצה</h2>\n<p>לכל מקצוע יש כאן אדם אחד. כשמישהו בחדר צריך רואה חשבון, הוא לא מחפש בגוגל. הוא פונה לאריאל.</p>\n</div>\n<div class=\"tools\">\n<div aria-label=\"סינון לפי תחום\" class=\"groups\" data-groups=\"\" role=\"group\"></div>\n<label class=\"sr\" for=\"q\">חיפוש חבר</label>\n<input data-q=\"\" id=\"q\" placeholder=\"חיפוש לפי שם או מקצוע\" type=\"search\"/>\n</div>\n<p aria-live=\"polite\" class=\"sr\"><span data-count=\"\"></span> חברים</p>\n<ul class=\"gallery\" data-list=\"\"></ul>\n</div>\n</section>"
+      },
+      {
+       "_type": "htmlBlock",
+       "_key": "0bf90046a741",
+       "html": "<section aria-labelledby=\"year-h\" class=\"year\" id=\"year\">\n<div class=\"wrap\">\n<div class=\"sec-head\">\n<h2 id=\"year-h\">הקדנציה, במספרים</h2>\n<p>הנתונים נאספים ונמדדים בכל מפגש: כל הפניה שעוברת, כל פגישה וכל עסקה שנסגרה.</p>\n</div>\n<div class=\"bento\" id=\"bento\"></div>\n</div>\n</section>"
+      },
+      {
+       "_type": "htmlBlock",
+       "_key": "90585307ae86",
+       "html": "<section aria-labelledby=\"morning-h\" class=\"morning\" id=\"morning\">\n<div class=\"wrap\">\n<div class=\"sec-head\">\n<h2 id=\"morning-h\">הבוקר,<br/>שעה אחר שעה</h2>\n<p>אותו סדר בכל שבוע. מתחילים בזמן ומסיימים בזמן, כי כולם צריכים להגיע לעבודה.</p>\n</div>\n<ol class=\"agenda\" id=\"agenda\"></ol>\n</div>\n</section>"
+      },
+      {
+       "_type": "htmlBlock",
+       "_key": "6caf9a5dc772",
+       "html": "<section aria-labelledby=\"qa-h\" class=\"qa\" id=\"qa\">\n<div class=\"wrap\">\n<div><p class=\"kicker\">// לפני חמישי</p><h2 id=\"qa-h\">ככה זה עובד כאן.</h2></div>\n<dl class=\"qa-list\">\n<div><dt>מי מנהל את הקבוצה?</dt><dd>החברים עצמם, בהתנדבות. ה-70 ש״ח שאורח משלם הולכים לאולם ולארוחת הבוקר. וכן, גם החברים משלמים 70 ש״ח.</dd></div>\n<div><dt>מה לוקחים מהבוקר הזה?</dt><dd>קשרים. <span data-members=\"\"></span> בעלי עסקים ישמעו מי אתם ומה אתם מחפשים, ואתם תדעו מי הם. גם אם לא תצטרפו, תצאו עם יותר ממה שבאתם.</dd></div>\n<div><dt>למה דווקא 7:30?</dt><dd>כי כיסא כאן שווה בממוצע קרוב לרבע מיליון ש״ח בשנה. בקדנציה הקודמת נסגרו בין החברים עסקאות של <span data-term=\"previous\"></span> מהפניות. בשביל זה שווה לקום מוקדם פעם אחת.</dd></div>\n<div><dt>מה הרעיון כאן?</dt><dd>הנותן מקבל. כל אחד כאן עובד בשביל העסק שלו, וגם בשביל העסק של מי שיושב לידו. מי שמביא עבודה לאחרים, מקבל עבודה בחזרה. סדר הבוקר כתוב כאן למעלה, והוא זהה בכל יום חמישי.</dd></div>\n<div><dt>ומה קורה בסוף?</dt><dd>ב-9:30 כולם הולכים לעבודה. מי שרוצה לשמוע עוד נשאר לכמה דקות. ואפשר לבוא לביקור שני לפני שמחליטים.</dd></div>\n</dl>\n</div>\n</section>"
+      },
+      {
+       "_type": "htmlBlock",
+       "_key": "cb66f9bc6972",
+       "html": "<section aria-labelledby=\"invite-h\" class=\"invite\" id=\"invite\">\n<div class=\"wrap\">\n<h2 id=\"invite-h\">חמישי הבא.<br/>07:30.</h2>\n<div>\n<p>תביאו כרטיסי ביקור ותשובה קצרה לשאלה \"איזה לקוח טוב בשבילך?\". את השאר נעשה אנחנו.</p>\n<a class=\"btn\" href=\"/invite\">שמרו לי מקום ←</a>\n</div>\n</div>\n</section>"
+      }
+     ],
+     "noindex": 1
+    }
+   },
+   {
     "id": "pages:what-we-are-not",
     "slug": "what-we-are-not",
     "status": "published",
@@ -3438,6 +3492,13 @@
        "_key": "167104c53e7b",
        "html": "<section aria-labelledby=\"links-h\" class=\"links\" id=\"links\">\n<div class=\"wrap\">\n<h2 class=\"title\" id=\"links-h\">קישורים</h2>\n<div class=\"link-grid\" id=\"link-grid\"></div>\n</div>\n</section>"
       }
+     ],
+     "after": [
+      {
+       "_type": "htmlBlock",
+       "_key": "invite-dialog",
+       "html": "<dialog aria-labelledby=\"inv-h\" id=\"invite\">\n<form class=\"dlg\" method=\"dialog\">\n<h2 id=\"inv-h\">הזמנת אורח למפגש</h2>\n<p>זו ההודעה שתישלח. אפשר לערוך אותה לפני השליחה.</p>\n<label for=\"inv-text\">נוסח ההזמנה</label>\n<textarea id=\"inv-text\"></textarea>\n<div class=\"row\">\n<a class=\"btn wa-btn\" href=\"#\" id=\"inv-wa\" rel=\"noopener\" target=\"_blank\">WhatsApp</a>\n<button class=\"btn line\" id=\"inv-copy\" type=\"button\">העתקה</button>\n<button class=\"btn line\" value=\"close\">סגירה</button>\n<span class=\"copied\" id=\"inv-copied\" role=\"status\"></span>\n</div>\n</form>\n</dialog>"
+      }
      ]
     }
    },
@@ -3453,42 +3514,42 @@
      "content": [
       {
        "_type": "htmlBlock",
-       "_key": "30f42a38fa75",
-       "html": "<section class=\"hero\">\n<div class=\"wrap\">\n<div>\n<h1>עסקים<br/>עושים עם<br/><em>אנשים.</em></h1>\n<p><span data-members=\"\"></span> בעלי עסקים מתל אביב שנפגשים כל חמישי ב-07:30, מכירים אחד את השני לעומק, ומעבירים עבודה רק למי שהם סומכים עליו.</p>\n<a class=\"btn\" href=\"#invite\">להגיע לבוקר אחד ←</a>\n<div class=\"meta\">\n<div><b>כל חמישי</b>7:30 עד 9:30</div>\n<div><b>מגדל אדגר 360</b>השלושה 2, תל אביב</div>\n<div><b>70 ₪</b>לאורח, כולל ארוחת בוקר</div>\n</div>\n</div>\n<figure aria-label=\"חברי הקבוצה\" aria-roledescription=\"carousel\" class=\"rotator\" id=\"rotator\">\n<img alt=\"\"/><img alt=\"\"/>\n<span aria-hidden=\"true\" class=\"dots\" dir=\"ltr\"></span>\n<figcaption><span class=\"tag\">חבר בקבוצה</span><b></b><span class=\"role\"></span></figcaption>\n</figure>\n</div>\n</section>"
+       "_key": "c098a7241c8b",
+       "html": "<section aria-label=\"חברי הקבוצה\" class=\"tunnel\" id=\"tunnel\">\n<div aria-hidden=\"true\" class=\"t-dots\"></div>\n<div aria-hidden=\"true\" class=\"t-glow\"></div>\n<div aria-hidden=\"true\" class=\"t-ring\"></div>\n<div aria-hidden=\"true\" class=\"t-ring dashed\"></div>\n<div class=\"t-title\">\n<p class=\"t-kicker\">BNI אדירים · תל אביב · כל חמישי 7:30</p>\n<h1>עסקים עושים<br/>עם <em>אנשים.</em></h1>\n<p class=\"t-lede\"><span data-members=\"\"></span> בעלי עסקים, נציג אחד לכל מקצוע. גללו כדי לעבור ביניהם.</p>\n<a class=\"btn red\" href=\"/invite#join\">להגיע לבוקר אחד ←</a>\n</div>\n<div aria-hidden=\"true\" class=\"t-prompt\"><span>גללו</span><i></i></div>\n<div class=\"t-plane\"></div>\n</section>"
       },
       {
        "_type": "htmlBlock",
-       "_key": "9ea1752ad25b",
+       "_key": "8d6b75e1ac69",
        "html": "<section aria-labelledby=\"about-h\" class=\"about\" id=\"about\">\n<div class=\"wrap\">\n<div class=\"sec-head\">\n<div><p class=\"kicker\">// מי אנחנו</p><h2 id=\"about-h\">לפני שסוגרים עסקה, מכירים את האדם.</h2></div>\n<p>אדירים היא קבוצה שהחליטה שלפני שסוגרים עסקה, מכירים את האדם שמאחורי החתימה. נפגשים פעם בשבוע, בלב תל אביב, לפני שהעיר מתחילה לרוץ.</p>\n</div>\n<ol class=\"pillars\">\n<li><span class=\"n\">01</span><h3>בוקר אחד בשבוע</h3><p>חמישי, 7:30, אדגר 360. קפה על השולחן, שעתיים ממוקדות. מתחילים ומסיימים בזמן.</p></li>\n<li><span class=\"n\">02</span><h3>מקצוע אחד לכל חבר</h3><p>אין שני רואי חשבון, אין שני מפיקי אירועים. לכל תחום עיסוק יש נציג בלעדי בקבוצה.</p></li>\n<li><span class=\"n\">03</span><h3>הפניות, לא לידים</h3><p>פה לא סוגרים עסקאות. בונים אותן. כל חבר מעביר לקוח חם עם המלצה אישית, לא רשימה.</p></li>\n</ol>\n</div>\n</section>"
       },
       {
        "_type": "htmlBlock",
-       "_key": "7a4584ce5f00",
+       "_key": "06c4a5c75ee4",
        "html": "<section aria-labelledby=\"guide-h\" class=\"guide\" id=\"guide\">\n<div class=\"wrap\">\n<div>\n<p class=\"kicker\">// מעולם לא שמעת על BNI?</p>\n<h2 id=\"guide-h\">מדריך מלא למי שמתחיל מאפס.</h2>\n<p class=\"lead\">עשרה פרקים קצרים שמסבירים מה זה BNI, איך זה עובד, למה זה עובד, ומה לצפות בשנה הראשונה. ללא ז'רגון, ללא הבטחות, רק מה שצריך לדעת לפני שמחליטים.</p>\n<a class=\"btn\" href=\"/guide\">קראו את המדריך ←</a>\n<p class=\"meta-line\">כ-61 דקות קריאה · התחלה חופשית מכל פרק</p>\n</div>\n<div>\n<ol class=\"chapters\" id=\"chapters\">\n<li><a href=\"/guide-what-is-bni\"><span class=\"n\">01</span><b>מה זה BNI, במשפט אחד</b><span class=\"t\">4 דק׳</span><small>ההסבר הפשוט ביותר. בלי ז'רגון, בלי קיצורים, בלי הבטחות.</small></a></li>\n<li><a href=\"/guide-how-it-works\"><span class=\"n\">02</span><b>איך עובד נטוורקינג מובנה</b><span class=\"t\">7 דק׳</span><small>המכניקה הפנימית, ב-5 שלבים, עם דוגמה להמחשה.</small></a></li>\n<li><a href=\"/guide-why-it-works\"><span class=\"n\">03</span><b>הפסיכולוגיה והסטטיסטיקה</b><span class=\"t\">9 דק׳</span><small>שלושה טיעונים: סטטיסטיקה, פסיכולוגיה, מבנה. למי שצריך הוכחה לפני שמחליט.</small></a></li>\n<li><a href=\"/guide-not-networking-but\"><span class=\"n\">04</span><b>זה לא נטוורקינג. זה משהו אחר.</b><span class=\"t\">5 דק׳</span><small>המילה 'נטוורקינג' מטושטשת. שלוש מטאפורות מדויקות יותר.</small></a></li>\n<li><a href=\"/guide-first-visit-visual\"><span class=\"n\">05</span><b>סיור וירטואלי במפגש</b><span class=\"t\">4 דק׳</span><small>בדיוק איפה תהיה, מה תראה, מי יקבל אותך. לפני שהגעת.</small></a></li>\n<li class=\"more\"><a href=\"/guide-small-business-primer\"><span class=\"n\">06</span><b>בעל עסק קטן? למה זה רלוונטי לך</b><span class=\"t\">7 דק׳</span><small>אם חשבת ש-BNI 'לגדולים', קרא את זה. דווקא עסק קטן מקבל ערך גבוה.</small></a></li>\n<li class=\"more\"><a href=\"/guide-glossary\"><span class=\"n\">07</span><b>מילון מונחים</b><span class=\"t\">6 דק׳</span><small>כל מונחי BNI בעברית. עם הגדרה, דוגמה, וקישורים פנימיים.</small></a></li>\n<li class=\"more\"><a href=\"/guide-timeline-first-year\"><span class=\"n\">08</span><b>השנה הראשונה שלך, חודש אחר חודש</b><span class=\"t\">8 דק׳</span><small>מה קורה בחודש 1, 3, 6, 9, 12. ציפיות ריאליות, לא הבטחות.</small></a></li>\n<li class=\"more\"><a href=\"/guide-before-you-decide\"><span class=\"n\">09</span><b>רשימת בדיקה לפני שמחליטים</b><span class=\"t\">6 דק׳</span><small>7 שאלות לעצמך, 5 שאלות אלינו, 3 סימנים שאולי לא הזמן.</small></a></li>\n<li class=\"more\"><a href=\"/guide-behind-the-scenes\"><span class=\"n\">10</span><b>מאחורי הקלעים, בלי פילטר</b><span class=\"t\">5 דק׳</span><small>אנשים אמיתיים, בוקר אמיתי, גם הטעויות. בלי סטוק.</small></a></li>\n</ol>\n<button aria-controls=\"chapters\" aria-expanded=\"false\" class=\"more-btn\" onclick=\"this.closest('div').querySelector('.chapters').classList.add('open'); this.hidden = true;\" type=\"button\">לעוד מדריכים ↓</button>\n</div>\n</div>\n</section>"
       },
       {
        "_type": "htmlBlock",
-       "_key": "a3c588936c54",
+       "_key": "7b094dd3cb20",
        "html": "<section aria-labelledby=\"people-h\" class=\"people\" id=\"people\">\n<div class=\"wrap\" id=\"dir\">\n<div class=\"sec-head\">\n<h2 id=\"people-h\">הפנים של<br/>הקבוצה</h2>\n<p>לכל מקצוע יש כאן אדם אחד. כשמישהו בחדר צריך רואה חשבון, הוא לא מחפש בגוגל. הוא פונה לאריאל.</p>\n</div>\n<div class=\"tools\">\n<div aria-label=\"סינון לפי תחום\" class=\"groups\" data-groups=\"\" role=\"group\"></div>\n<label class=\"sr\" for=\"q\">חיפוש חבר</label>\n<input data-q=\"\" id=\"q\" placeholder=\"חיפוש לפי שם או מקצוע\" type=\"search\"/>\n</div>\n<p aria-live=\"polite\" class=\"sr\"><span data-count=\"\"></span> חברים</p>\n<ul class=\"gallery\" data-list=\"\"></ul>\n</div>\n</section>"
       },
       {
        "_type": "htmlBlock",
-       "_key": "0bf90046a741",
+       "_key": "0e0e91651c9a",
        "html": "<section aria-labelledby=\"year-h\" class=\"year\" id=\"year\">\n<div class=\"wrap\">\n<div class=\"sec-head\">\n<h2 id=\"year-h\">הקדנציה, במספרים</h2>\n<p>הנתונים נאספים ונמדדים בכל מפגש: כל הפניה שעוברת, כל פגישה וכל עסקה שנסגרה.</p>\n</div>\n<div class=\"bento\" id=\"bento\"></div>\n</div>\n</section>"
       },
       {
        "_type": "htmlBlock",
-       "_key": "90585307ae86",
+       "_key": "ae38dbeb32e0",
        "html": "<section aria-labelledby=\"morning-h\" class=\"morning\" id=\"morning\">\n<div class=\"wrap\">\n<div class=\"sec-head\">\n<h2 id=\"morning-h\">הבוקר,<br/>שעה אחר שעה</h2>\n<p>אותו סדר בכל שבוע. מתחילים בזמן ומסיימים בזמן, כי כולם צריכים להגיע לעבודה.</p>\n</div>\n<ol class=\"agenda\" id=\"agenda\"></ol>\n</div>\n</section>"
       },
       {
        "_type": "htmlBlock",
-       "_key": "6caf9a5dc772",
+       "_key": "2e0d45396427",
        "html": "<section aria-labelledby=\"qa-h\" class=\"qa\" id=\"qa\">\n<div class=\"wrap\">\n<div><p class=\"kicker\">// לפני חמישי</p><h2 id=\"qa-h\">ככה זה עובד כאן.</h2></div>\n<dl class=\"qa-list\">\n<div><dt>מי מנהל את הקבוצה?</dt><dd>החברים עצמם, בהתנדבות. ה-70 ש״ח שאורח משלם הולכים לאולם ולארוחת הבוקר. וכן, גם החברים משלמים 70 ש״ח.</dd></div>\n<div><dt>מה לוקחים מהבוקר הזה?</dt><dd>קשרים. <span data-members=\"\"></span> בעלי עסקים ישמעו מי אתם ומה אתם מחפשים, ואתם תדעו מי הם. גם אם לא תצטרפו, תצאו עם יותר ממה שבאתם.</dd></div>\n<div><dt>למה דווקא 7:30?</dt><dd>כי כיסא כאן שווה בממוצע קרוב לרבע מיליון ש״ח בשנה. בקדנציה הקודמת נסגרו בין החברים עסקאות של <span data-term=\"previous\"></span> מהפניות. בשביל זה שווה לקום מוקדם פעם אחת.</dd></div>\n<div><dt>מה הרעיון כאן?</dt><dd>הנותן מקבל. כל אחד כאן עובד בשביל העסק שלו, וגם בשביל העסק של מי שיושב לידו. מי שמביא עבודה לאחרים, מקבל עבודה בחזרה. סדר הבוקר כתוב כאן למעלה, והוא זהה בכל יום חמישי.</dd></div>\n<div><dt>ומה קורה בסוף?</dt><dd>ב-9:30 כולם הולכים לעבודה. מי שרוצה לשמוע עוד נשאר לכמה דקות. ואפשר לבוא לביקור שני לפני שמחליטים.</dd></div>\n</dl>\n</div>\n</section>"
       },
       {
        "_type": "htmlBlock",
-       "_key": "cb66f9bc6972",
+       "_key": "7dc0c4d3ea7b",
        "html": "<section aria-labelledby=\"invite-h\" class=\"invite\" id=\"invite\">\n<div class=\"wrap\">\n<h2 id=\"invite-h\">חמישי הבא.<br/>07:30.</h2>\n<div>\n<p>תביאו כרטיסי ביקור ותשובה קצרה לשאלה \"איזה לקוח טוב בשבילך?\". את השאר נעשה אנחנו.</p>\n<a class=\"btn\" href=\"/invite\">שמרו לי מקום ←</a>\n</div>\n</div>\n</section>"
       }
      ]
@@ -5830,12 +5891,12 @@
       {
        "_type": "htmlBlock",
        "_key": "06fb1e15a60b",
-       "html": "<section aria-labelledby=\"pitch-h\" class=\"section soft\" id=\"pitch\">\n<div class=\"wrap\">\n<div class=\"sec-head\">\n<div><p class=\"chap\">01</p><h2 id=\"pitch-h\">הרגע שלך להציג את עצמך, כבר התחלנו.</h2></div>\n<p>אל תחשוב על זה כעל pitch. חשוב על זה כעל לחיצת יד מילולית.</p>\n</div>\n<div class=\"build\">\n<form class=\"fields no-print\" id=\"f\" onsubmit=\"return false\">\n<label>שם פרטי<input autocomplete=\"given-name\" name=\"firstName\" placeholder=\"איך לקרוא לך?\"/></label>\n<label>מה אתה עושה, במשפט אחד? <small>איך תסביר למישהו שפגשת בבר</small>\n<textarea name=\"oneLiner\" placeholder=\"לדוגמה: עוזר לסטארטאפים לבנות מערכות פיננסיות שעומדות בקצב הגיוס\"></textarea></label>\n<label>הלקוח האידיאלי שלך <small>משפט אחד, לדוגמה: \"מנכ\"ל של סטארטאפ בצמיחה\"</small>\n<input name=\"idealClient\" placeholder=\"מי הלקוח שאתה הכי שמח לעבוד איתו?\"/></label>\n<p class=\"private\">הפרטים נשארים בדפדפן שלך. שום דבר לא נשלח לאף אחד.</p>\n</form>\n<div>\n<div aria-live=\"polite\" class=\"script\" id=\"script\"></div>\n<div class=\"callout tip\">\n<b>עצה מהקבוצה</b>\n            השורה של \"מה אני מחפש\" היא הכי חשובה. אל תכתוב שם \"לידים\" או \"לקוחות\". כתוב משהו ספציפי. \"חברות פינטק בירושלים שגייסו Seed בחצי שנה האחרונה\" יוצר זיכרון. \"לידים\" נשכח ברגע שאמרת.\n          </div>\n</div>\n</div>\n</div>\n</section>"
+       "html": "<section aria-labelledby=\"pitch-h\" class=\"section soft\" id=\"pitch\">\n<div class=\"wrap\">\n<div class=\"sec-head\">\n<div><p class=\"chap\">01</p><h2 id=\"pitch-h\">הרגע שלך להציג את עצמך, כבר התחלנו.</h2></div>\n<p>אל תחשוב על זה כעל pitch. חשוב על זה כעל לחיצת יד מילולית.</p>\n</div>\n<div class=\"build\">\n<form class=\"fields no-print\" id=\"f\" onsubmit=\"return false\">\n<label>שם פרטי<input autocomplete=\"given-name\" name=\"firstName\" placeholder=\"איך לקרוא לך?\"/></label>\n<label>מה אתה עושה, במשפט אחד? <small>איך תסביר למישהו שפגשת בבר</small>\n<textarea name=\"oneLiner\" placeholder=\"לדוגמה: עוזר לסטארטאפים לבנות מערכות פיננסיות שעומדות בקצב הגיוס\"></textarea></label>\n<label>הלקוח האידיאלי שלך <small>משפט אחד, לדוגמה: \"מנכ\"ל של סטארטאפ בצמיחה\"</small>\n<input name=\"idealClient\" placeholder=\"מי הלקוח שאתה הכי שמח לעבוד איתו?\"/></label>\n<p class=\"private\">הפרטים נשארים בדפדפן שלך, עד שתבקש בפרק הבא שנמצא לך אנשים להכיר.</p>\n</form>\n<div>\n<div aria-live=\"polite\" class=\"script\" id=\"script\"></div>\n<div class=\"callout tip\">\n<b>עצה מהקבוצה</b>\n            השורה של \"מה אני מחפש\" היא הכי חשובה. אל תכתוב שם \"לידים\" או \"לקוחות\". כתוב משהו ספציפי. \"חברות פינטק בירושלים שגייסו Seed בחצי שנה האחרונה\" יוצר זיכרון. \"לידים\" נשכח ברגע שאמרת.\n          </div>\n</div>\n</div>\n</div>\n</section>"
       },
       {
        "_type": "htmlBlock",
        "_key": "319ab2058727",
-       "html": "<section aria-labelledby=\"people-h\" class=\"section\" id=\"people\">\n<div class=\"wrap\" id=\"dir\">\n<div class=\"sec-head\">\n<div><p class=\"chap\">02</p><h2 id=\"people-h\">אנשים שכדאי שתכיר.</h2></div>\n<p>נציג אותך אליהם בלובי או במינגלינג. לא חובה לדבר עם כולם, זו הזמנה, לא משימה.</p>\n</div>\n<div class=\"think\">\n<div class=\"card\">\n<h3>מה הכי חשוב לך לקחת מהמפגש?</h3>\n<p>לא חובה להחליט. זה רק כדי שנוכל להצמיד אותך לאנשים הנכונים בבוקר. בחר עד 3:</p>\n<ul>\n<li>להבין אם נטוורקינג עסקי רלוונטי לי</li>\n<li>להכיר בעלי עסקים בתחומים ספציפיים</li>\n<li>לבדוק אם הקבוצה הזו היא הכתובת</li>\n<li>לקבל הפניות לקוחות</li>\n<li>לקבל ייעוץ על אתגר ספציפי בעסק</li>\n<li>פשוט להיות באווירה עסקית אחרת</li>\n</ul>\n</div>\n<div class=\"card\">\n<h3>ומי יכול להפנות אליך עבודה?</h3>\n<p>איזה בעל מקצוע יכול להפנות אליך הכי הרבה עבודה? לדוגמה: \"רואה חשבון\", \"אדריכל\", \"סוכן ביטוח\". מי שפוגש את הלקוחות שלך לפניך. חפש אותו ברשימה למטה.</p>\n<div class=\"pending\" style=\"margin-top:16px\"><span class=\"tag\">ממתין לתוכן</span><p>באתר הקודם המדריך בחר לכל אורח 3 חברים מתאימים, עם \"למה דווקא הוא\" ושאלה שאפשר לשאול. ההתאמה האישית עוד לא הועברה.</p></div>\n</div>\n</div>\n<div class=\"tools no-print\">\n<div aria-label=\"סינון לפי מעגל\" class=\"groups\" data-groups=\"\" role=\"group\"></div>\n<label class=\"sr\" for=\"q\">חיפוש חבר</label>\n<input data-q=\"\" id=\"q\" placeholder=\"חיפוש לפי שם או מקצוע\" type=\"search\"/>\n</div>\n<p class=\"muted no-print\" style=\"font-size:15px;margin:0 0 12px\"><span data-members=\"\"></span> חברים · מציג <span data-count=\"\"></span></p>\n<ul class=\"roster\" data-list=\"\"></ul>\n</div>\n</section>"
+       "html": "<section aria-labelledby=\"people-h\" class=\"section\" id=\"people\">\n<div class=\"wrap\" id=\"dir\">\n<div class=\"sec-head\">\n<div><p class=\"chap\">02</p><h2 id=\"people-h\">אנשים שכדאי שתכיר.</h2></div>\n<p>נציג אותך אליהם בלובי או במינגלינג. לא חובה לדבר עם כולם, זו הזמנה, לא משימה.</p>\n</div>\n<form class=\"think\" id=\"match-form\" onsubmit=\"return false\">\n<div class=\"card\">\n<h3>מה הכי חשוב לך לקחת מהמפגש?</h3>\n<p>לא חובה להחליט. זה רק כדי שנוכל להצמיד אותך לאנשים הנכונים בבוקר. בחר עד 3:</p>\n<fieldset class=\"goals\"><legend class=\"sr\">מטרות למפגש, עד 3</legend>\n<label><input type=\"checkbox\" name=\"goals\" value=\"להבין אם נטוורקינג עסקי רלוונטי לי\"/>להבין אם נטוורקינג עסקי רלוונטי לי</label>\n<label><input type=\"checkbox\" name=\"goals\" value=\"להכיר בעלי עסקים בתחומים ספציפיים\"/>להכיר בעלי עסקים בתחומים ספציפיים</label>\n<label><input type=\"checkbox\" name=\"goals\" value=\"לבדוק אם הקבוצה הזו היא הכתובת\"/>לבדוק אם הקבוצה הזו היא הכתובת</label>\n<label><input type=\"checkbox\" name=\"goals\" value=\"לקבל הפניות לקוחות\"/>לקבל הפניות לקוחות</label>\n<label><input type=\"checkbox\" name=\"goals\" value=\"לקבל ייעוץ על אתגר ספציפי בעסק\"/>לקבל ייעוץ על אתגר ספציפי בעסק</label>\n<label><input type=\"checkbox\" name=\"goals\" value=\"פשוט להיות באווירה עסקית אחרת\"/>פשוט להיות באווירה עסקית אחרת</label>\n</fieldset>\n</div>\n<div class=\"card fields\">\n<h3>ומי יכול להפנות אליך עבודה?</h3>\n<label>תחום העיסוק שלך<input name=\"profession\" placeholder=\"לדוגמה: ייעוץ מס, עיצוב פנים, ביטוח\"/></label>\n<label>איזה בעל מקצוע יכול להפנות אליך הכי הרבה עבודה? <small>מי שפוגש את הלקוחות שלך לפניך. לדוגמה: רואה חשבון, אדריכל, סוכן ביטוח</small>\n<input name=\"referralSource\" placeholder=\"התחום שמביא לך הכי הרבה הפניות\"/></label>\n<input class=\"hp\" name=\"website\" tabindex=\"-1\" autocomplete=\"off\" aria-hidden=\"true\"/>\n<button class=\"btn red\" id=\"match-go\" type=\"submit\">מצאו לי את האנשים ←</button>\n<p class=\"private\">כשתלחץ, התשובות שלך כאן ובפרק 01 נשלחות ל-Claude של Anthropic, שבוחר מתוך רשימת החברים. אנחנו לא שומרים אותן.</p>\n<p class=\"status\" id=\"match-status\" role=\"status\" aria-live=\"polite\"></p>\n</div>\n</form>\n<div class=\"matches\" id=\"matches\" hidden></div>\n<div class=\"tools no-print\">\n<div aria-label=\"סינון לפי מעגל\" class=\"groups\" data-groups=\"\" role=\"group\"></div>\n<label class=\"sr\" for=\"q\">חיפוש חבר</label>\n<input data-q=\"\" id=\"q\" placeholder=\"חיפוש לפי שם או מקצוע\" type=\"search\"/>\n</div>\n<p class=\"muted no-print\" style=\"font-size:15px;margin:0 0 12px\"><span data-members=\"\"></span> חברים · מציג <span data-count=\"\"></span></p>\n<ul class=\"roster\" data-list=\"\"></ul>\n</div>\n</section>"
       },
       {
        "_type": "htmlBlock",
@@ -9417,6 +9478,178 @@
       },
       {
        "_type": "block",
+       "_key": "e667349aa6dd",
+       "style": "h2",
+       "markDefs": [],
+       "children": [
+        {
+         "_type": "span",
+         "_key": "0f7508fc7015",
+         "text": "נגישות המקום שבו אנחנו נפגשים",
+         "marks": []
+        }
+       ]
+      },
+      {
+       "_type": "block",
+       "_key": "c059cf4d2454",
+       "style": "normal",
+       "markDefs": [],
+       "children": [
+        {
+         "_type": "span",
+         "_key": "a6705e467047",
+         "text": "המפגשים מתקיימים במגדל אדגר 360, רחוב השלושה 2 בתל אביב. רוב המפגשים בקומה 17, במתחם Brain Embassy (כניסה C). חלק מהמפגשים באולם מרצדס בקומת הקרקע (כניסה A). בכל הזמנה כתוב איפה בדיוק.",
+         "marks": []
+        }
+       ]
+      },
+      {
+       "_type": "block",
+       "_key": "06f39e550a5e",
+       "style": "normal",
+       "markDefs": [],
+       "children": [
+        {
+         "_type": "span",
+         "_key": "2717fc5fef2f",
+         "text": "הבניין: ",
+         "marks": [
+          "strong"
+         ]
+        },
+        {
+         "_type": "span",
+         "_key": "094de3db9253",
+         "text": "לפי בעלי הבניין, במגדל יש כניסה נגישה, חניה נגישה, שירותים נגישים ודלפק קבלה עם מערכת עזר לשמיעה.",
+         "marks": []
+        }
+       ],
+       "listItem": "bullet",
+       "level": 1
+      },
+      {
+       "_type": "block",
+       "_key": "06f39e550a5e",
+       "style": "normal",
+       "markDefs": [],
+       "children": [
+        {
+         "_type": "span",
+         "_key": "2717fc5fef2f",
+         "text": "קומה 17: ",
+         "marks": [
+          "strong"
+         ]
+        },
+        {
+         "_type": "span",
+         "_key": "094de3db9253",
+         "text": "מגיעים במעלית. Brain Embassy מציינים שהמתחם מונגש לאנשים עם מוגבלות.",
+         "marks": []
+        }
+       ],
+       "listItem": "bullet",
+       "level": 1
+      },
+      {
+       "_type": "block",
+       "_key": "06f39e550a5e",
+       "style": "normal",
+       "markDefs": [],
+       "children": [
+        {
+         "_type": "span",
+         "_key": "2717fc5fef2f",
+         "text": "כניסה C: ",
+         "marks": [
+          "strong"
+         ]
+        },
+        {
+         "_type": "span",
+         "_key": "094de3db9253",
+         "text": "יש רמפה לכיסאות גלגלים, ואפשר להגיע בלי מדרגות גם דרך החניון התת קרקעי והמעלית שלו.",
+         "marks": []
+        }
+       ],
+       "listItem": "bullet",
+       "level": 1
+      },
+      {
+       "_type": "block",
+       "_key": "06f39e550a5e",
+       "style": "normal",
+       "markDefs": [],
+       "children": [
+        {
+         "_type": "span",
+         "_key": "2717fc5fef2f",
+         "text": "חניה: ",
+         "marks": [
+          "strong"
+         ]
+        },
+        {
+         "_type": "span",
+         "_key": "094de3db9253",
+         "text": "בחניוני מנורה מבטחים הצמודים לבניין יש 67 מקומות חניה לבעלי תו נכה, ויש חניה נגישה גם בחניון הבניין.",
+         "marks": []
+        }
+       ],
+       "listItem": "bullet",
+       "level": 1
+      },
+      {
+       "_type": "block",
+       "_key": "06f39e550a5e",
+       "style": "normal",
+       "markDefs": [],
+       "children": [
+        {
+         "_type": "span",
+         "_key": "2717fc5fef2f",
+         "text": "תחבורה ציבורית: ",
+         "marks": [
+          "strong"
+         ]
+        },
+        {
+         "_type": "span",
+         "_key": "094de3db9253",
+         "text": "מתחנת רכבת השלום יוצאת הסעה חינם אל הבניין.",
+         "marks": []
+        }
+       ],
+       "listItem": "bullet",
+       "level": 1
+      },
+      {
+       "_type": "block",
+       "_key": "06f39e550a5e",
+       "style": "normal",
+       "markDefs": [],
+       "children": [
+        {
+         "_type": "span",
+         "_key": "2717fc5fef2f",
+         "text": "עוד לא בדקנו: ",
+         "marks": [
+          "strong"
+         ]
+        },
+        {
+         "_type": "span",
+         "_key": "094de3db9253",
+         "text": "שירותים נגישים בקומה 17, הנגישות של אולם מרצדס, ומערכת עזר לשמיעה בחדר המפגש עצמו. צריכים התאמה? כתבו לנו מראש בטופס, ונבדוק אותה מול הבניין לפני המפגש.",
+         "marks": []
+        }
+       ],
+       "listItem": "bullet",
+       "level": 1
+      },
+      {
+       "_type": "block",
        "_key": "70840115b4a9",
        "style": "h2",
        "markDefs": [],
@@ -9570,7 +9803,7 @@
       {
        "_type": "htmlBlock",
        "_key": "55aca679c60e",
-       "html": "<p class=\"updated\">עודכן לאחרונה: 18 באפריל 2026</p>"
+       "html": "<p class=\"updated\">עודכן לאחרונה: 24 באוקטובר 2026</p>"
       }
      ]
     }

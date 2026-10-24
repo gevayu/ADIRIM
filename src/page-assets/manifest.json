@@ -186,5 +186,9 @@
  "what-we-are-not": {
   "directory": false,
   "body": {}
+ },
+ "home-classic": {
+  "directory": true,
+  "body": {}
  }
 }
