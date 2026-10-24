@@ -11,8 +11,8 @@ def get(u):
     except urllib.error.HTTPError as e: return e.code, ""
 _, sm = get(BASE + "/sitemap.xml")
 urls = [re.sub(r"^https?://[^/]+", BASE, u) for u in re.findall(r"<loc>([^<]+)</loc>", sm)]
-seed = json.load(open("seed/seed.json", encoding="utf-8"))
-urls += [BASE + "/" + e["slug"] for e in seed["content"]["pages"] if e["slug"].startswith("club") or e["slug"] in ("visitors", "index-tunnel")]
+seed = json.load(open("seed/snapshot.json", encoding="utf-8"))
+urls += [BASE + "/" + e["slug"] for e in seed["content"]["pages"] if e["slug"].startswith("club") or e["slug"] in ("visitors", "home-classic")]
 titles, descs, issues, linkcache = collections.defaultdict(list), collections.defaultdict(list), collections.defaultdict(list), {}
 for u in urls:
     st, html = get(u)

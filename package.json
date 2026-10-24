@@ -4,26 +4,29 @@
   "private": true,
   "type": "module",
   "emdash": {
-    "label": "Starter",
-    "seed": "seed/seed.json"
+    "label": "BNI Adirim"
   },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "start": "node ./dist/server/entry.mjs",
-    "typecheck": "astro check"
+    "typecheck": "astro check",
+    "deploy": "astro build && wrangler deploy"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.3.0",
-    "@astrojs/node": "^11.1.5",
+    "@astrojs/cloudflare": "^14.4.2",
     "@astrojs/react": "^7.0.0",
+    "@emdash-cms/cloudflare": "^1.3.1",
     "astro": "^7.3.2",
     "emdash": "^1.3.0",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.10"
+    "@astrojs/check": "^0.9.10",
+    "@cloudflare/workers-types": "^5.20261024.1",
+    "wrangler": "^4.152.0"
   }
 }

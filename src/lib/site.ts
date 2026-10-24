@@ -1,6 +1,6 @@
 // Content queries shared by the layout, the pages and /shared/data.js.
 import { getEmDashCollection, getEmDashEntry } from "emdash";
-import seed from "../../seed/seed.json";
+import seed from "../../seed/snapshot.json";
 
 const all = { limit: 500 } as const;
 

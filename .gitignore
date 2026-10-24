@@ -17,3 +17,7 @@ tools/.*.json
 
 # site exports (content + media), kept out of git
 backups/
+
+# local Workers runtime state (local D1, R2, KV)
+.wrangler/
+.dev.vars

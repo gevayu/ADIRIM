@@ -4,6 +4,9 @@ The BNI Adirim site (the design from `../redesign`), with every page and every p
 
 ## Run locally
 
+Runs on Cloudflare Workers (D1 for content, R2 for media). `npm run dev` runs the same Worker locally
+in workerd, with a local D1 and R2 under `.wrangler/state`.
+
 ```bash
 npm install
 npm run dev
@@ -11,9 +14,36 @@ npm run dev
 
 - Site: http://localhost:4321
 - Admin: http://localhost:4321/_emdash/admin
+- Secrets for local runs come from `.env` (`EMDASH_ENCRYPTION_KEY`, `ANTHROPIC_API_KEY`).
+
+A fresh local database is empty. Load the content with the latest export:
+`npx emdash site import backups/<file>.emdash --analyze -u http://localhost:4321`, then the same with
+`--plan <digest> --confirm`.
 
 On a machine low on memory, the bundler can crash during "bundling dependencies". Running with fewer bundler threads helps:
 `RAYON_NUM_THREADS=2 npx astro dev`.
+
+## Deploy (Cloudflare)
+
+One-time, in the Cloudflare account: enable R2 (Dashboard › R2; free tier, asks for a payment method). The Workers
+Paid plan ($5/month) is recommended: the free plan allows 10 ms of CPU per request, which server rendering, the
+first-request migrations and the import are likely to exceed. Not measured yet; check `wrangler tail` after deploy.
+
+```bash
+npx wrangler login
+npx wrangler secret put EMDASH_ENCRYPTION_KEY   # the same value as in .env
+npx wrangler secret put ANTHROPIC_API_KEY
+npm run deploy                                  # build + wrangler deploy; creates D1, R2 and KV on the first run
+npx emdash doctor --url https://<worker>.workers.dev
+```
+
+Then, before anyone sets up the admin: set `EMDASH_SITE_URL` in `wrangler.jsonc` to the final domain
+(passkeys bind to the address where setup runs) and deploy again. In the admin's first-run setup choose
+"Import an existing EmDash site" and upload the newest `backups/*.emdash`, or run `emdash site import`
+against the live URL with an API token.
+
+Custom domain: the domain must be on Cloudflare in the same account; add
+`"routes": [{ "pattern": "example.com", "custom_domain": true }]` to `wrangler.jsonc` and deploy.
 
 ## Where things live
 
@@ -44,7 +74,9 @@ each with "why this one" and a question to ask, plus up to 2 members from the tr
 - `src/pages/api/match.ts`: sends the answers and the member list (bios + hidden tags) to Claude (`claude-opus-5-5`,
   low effort, JSON schema, server-side refusal fallback). Unknown ids are dropped. If the API fails, a keyword match
   on the tags answers instead.
-- Needs `ANTHROPIC_API_KEY` in `.env` (server only). Limits: 5 requests per IP per 10 minutes, 400 a day, a honeypot field.
+- Needs the `ANTHROPIC_API_KEY` Worker secret (`.env` locally). Limits: 3 requests per visitor address per minute
+  (Cloudflare rate limiting binding `MATCH_LIMIT`, not enforced in local dev) and a honeypot field. Set a monthly
+  spend limit on the key in the Anthropic console as the overall cap.
 - `src/page-assets/guest-guide.js|.css`: the form and the result cards. The last result is kept in the browser.
 
 ## Home page
@@ -52,15 +84,14 @@ each with "why this one" and a question to ask, plus up to 2 members from the tr
 `/` is the card-tunnel version since 2026-10-24 (`/index-tunnel` redirects there). The previous home page is kept as
 the hidden page `home-classic` (noindex) with its own `src/page-assets/home-classic.*`.
 
-## The seed
+## Backups and the content snapshot
 
-`seed/seed.json` is a snapshot of the CMS (schema, menus and all content except photos). Refresh it before committing content changes:
-
-```bash
-npx emdash export-seed --with-content=all > seed/seed.json   # then drop members' "photo" values: local media URLs don't carry over
-```
-
-A fresh copy: `npm install`, `npx emdash seed seed/seed.json --database ./data.db`, `npm run dev`, then `python tools/upload_photos.py ../redesign`.
+- `backups/*.emdash` (not in git): the whole site, content and media, from
+  `npx emdash site export -o backups/<date>.emdash -u <site url>`. This is what moves the site between
+  servers. Make one before every deploy that changes the schema.
+- `seed/snapshot.json` (in git): schema, menus and content as JSON, for reading diffs. Not loaded
+  automatically (an import needs an empty site). Refresh with
+  `npx emdash export-seed --with-content=all > seed/snapshot.json`, then drop members' `photo` values.
 
 ## Original migration from the static site
 
@@ -69,7 +100,6 @@ The one-time conversion from `../redesign`, kept for reference:
 ```bash
 node tools/dump_data.mjs ../redesign > tools/data.json
 python tools/build_seed.py ../redesign     # add --assets to also rewrite src/page-assets (overwrites edits made since)
-npx emdash seed seed/seed.json --database ./data.db
 python tools/upload_photos.py ../redesign   # with the dev server running
 python tools/compare.py                     # every page vs. the static site (both servers running)
 ```

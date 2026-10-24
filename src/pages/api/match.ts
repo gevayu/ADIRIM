@@ -1,26 +1,22 @@
 // POST /api/match: a guest's answers in, the members worth meeting out.
 // Claude picks from the member list in the CMS; if the API is down or over its limit,
 // a keyword match on the members' hidden tags answers instead, so the guest always gets a result.
-// The API key stays on the server (.env ANTHROPIC_API_KEY). Answers aren't stored.
+// The API key is a Worker secret (ANTHROPIC_API_KEY). Answers aren't stored.
 import type { APIRoute } from "astro";
 import Anthropic from "@anthropic-ai/sdk";
+import { env } from "cloudflare:workers";
 import { getMembers } from "../../lib/site";
 
 const MODEL = "claude-opus-5-5";
 const MAX = { firstName: 40, profession: 120, oneLiner: 300, goal: 120, idealClient: 200, referralSource: 120 };
 
-// ponytail: in-memory limits, per server process. Enough for one Node instance;
-// behind several instances or serverless, move these counters to the database.
-const PER_IP = 5, WINDOW_MS = 10 * 60_000, PER_DAY = 400;
-const hits = new Map<string, number[]>();
-let day = "", today = 0;
-function allowed(ip: string) {
-	const now = Date.now(), d = new Date().toISOString().slice(0, 10);
-	if (d !== day) { day = d; today = 0; hits.clear(); }
-	const recent = (hits.get(ip) ?? []).filter((t) => now - t < WINDOW_MS);
-	if (recent.length >= PER_IP || today >= PER_DAY) return false;
-	hits.set(ip, [...recent, now]); today++;
-	return true;
+// Per-visitor limit: Cloudflare's rate limiting binding (MATCH_LIMIT in wrangler.jsonc), shared across
+// every Worker instance. ponytail: no daily cap here; set a monthly spend limit on the Anthropic key instead.
+async function allowed(ip: string) {
+	const limiter = (env as any).MATCH_LIMIT;
+	if (!limiter) { console.warn("match: MATCH_LIMIT binding missing, no rate limit"); return true; } // don't block guests
+	const { success } = await limiter.limit({ key: ip });
+	return success;
 }
 
 const clip = (v: unknown, n: number) => (typeof v === "string" ? v.replace(/\s+/g, " ").trim().slice(0, n) : "");
@@ -101,13 +97,13 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
 		idealClient: clip(g.idealClient, MAX.idealClient), referralSource: clip(g.referralSource, MAX.referralSource),
 	};
 	if (guest.profession.length < 2) return json({ error: "חסר תחום העיסוק" }, 400);
-	if (!allowed(clientAddress ?? "unknown")) return json({ error: "יותר מדי בקשות. נסו שוב בעוד כמה דקות." }, 429);
+	if (!(await allowed(clientAddress ?? "unknown"))) return json({ error: "יותר מדי בקשות. נסו שוב בעוד כמה דקות." }, 429);
 
 	const members: Member[] = (await getMembers()).map((e: any) => ({ id: e.id, ...e.data }));
 	const byId = new Map(members.map((m) => [m.id, m]));
 	let result: { primary: Pick[]; referral: Pick[] } | null = null, source = "claude";
 
-	const apiKey = import.meta.env.ANTHROPIC_API_KEY ?? process.env.ANTHROPIC_API_KEY;
+	const apiKey = (env as any).ANTHROPIC_API_KEY as string | undefined; // a Worker secret, never import.meta.env
 	if (apiKey) {
 		try {
 			const client = new Anthropic({ apiKey, timeout: 45_000, maxRetries: 1 });

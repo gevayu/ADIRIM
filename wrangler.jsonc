@@ -1,0 +1,20 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "bni-adirim",
+	"main": "./src/worker.ts",
+	"compatibility_date": "2026-10-01",
+	"compatibility_flags": ["nodejs_compat"],
+	"observability": { "enabled": true },
+	// The site's content (EmDash creates its tables on the first request).
+	"d1_databases": [{ "binding": "DB", "database_name": "bni-adirim" }],
+	// Member photos and gallery images.
+	"r2_buckets": [{ "binding": "MEDIA", "bucket_name": "bni-adirim-media" }],
+	// Guest matcher: requests per visitor address per minute (Cloudflare's rate limiting binding).
+	"ratelimits": [{ "name": "MATCH_LIMIT", "namespace_id": "4321", "simple": { "limit": 3, "period": 60 } }],
+	// Scheduled publishing and maintenance.
+	"triggers": { "crons": ["* * * * *"] },
+	// Secrets, set once with `npx wrangler secret put <NAME>` (never in this file):
+	//   EMDASH_ENCRYPTION_KEY, ANTHROPIC_API_KEY
+	// The public address, before the first admin setup (passkeys bind to it):
+	// "vars": { "EMDASH_SITE_URL": "https://bni-adirim.co.il" }
+}

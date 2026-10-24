@@ -4,11 +4,7 @@ import PageView from "../components/PageView.astro";
 import { getMembers, publicRole } from "../lib/site";
 
 const { slug = "" } = Astro.params;
-// Links from the old static site ("guide.html", "index.html") keep working.
-if (slug.endsWith(".html")) {
-	const name = slug.slice(0, -5);
-	return Astro.redirect((name === "index" ? "/" : `/${name}`) + Astro.url.search, 301);
-}
+// ".html" names and the previous site's addresses are redirected in src/middleware.ts.
 // The card-tunnel page became the home page (2026-10-24); its old address points there.
 if (slug === "home" || slug === "index-tunnel") return Astro.redirect("/", 301);
 const { entry, cacheHint } = await getEmDashEntry("pages", slug);
