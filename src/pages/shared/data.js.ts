@@ -2,10 +2,11 @@
 // built from the CMS. Same names and shapes as the static site's shared/data.js, so the page
 // scripts run unchanged.
 import type { APIRoute } from "astro";
-import { circleOrder, getFaqs, getGroup, getMeetings, getMembers } from "../../lib/site";
+import { circleOrder, getFaqs, getGroup, getMeetings, getMembers, publicRole } from "../../lib/site";
 
 const digits = (s: string) => s.replace(/\D/g, "");
 const slugOf = (name: string) => name.replace(/[׳״']/g, "").replace(/ /g, "-");
+
 
 export const GET: APIRoute = async ({ locals }) => {
 	const [members, meetings, faqs, g] = await Promise.all([getMembers(), getMeetings(), getFaqs(), getGroup()]);
@@ -16,7 +17,7 @@ export const GET: APIRoute = async ({ locals }) => {
 	};
 
 	const MEMBERS = members.map(({ data: m }: any) => ({
-		name: m.name, role: m.role ?? "", biz: m.business ?? null, cat: m.category ?? null, site: m.website || null,
+		name: m.name, role: publicRole(m.role ?? ""), fullRole: m.role ?? "", biz: m.business ?? null, cat: m.category ?? null, site: m.website || null,
 		phone: m.phone || null,
 		wa: m.phone ? "972" + digits(m.phone).slice(1) : m.whatsapp || null,
 		group: m.circle || undefined,

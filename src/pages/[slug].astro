@@ -1,7 +1,7 @@
 ---
 import { getEmDashEntry } from "emdash";
 import PageView from "../components/PageView.astro";
-import { getMembers } from "../lib/site";
+import { getMembers, publicRole } from "../lib/site";
 
 const { slug = "" } = Astro.params;
 // Links from the old static site ("guide.html", "index.html") keep working.
@@ -28,7 +28,7 @@ let member: any = null, override: Record<string, unknown> = {};
 if (slug === "member") {
 	const m = Astro.url.searchParams.get("m") ?? "";
 	const slugOf = (n: string) => n.replace(/[׳״']/g, "").replace(/ /g, "-");
-	member = (await getMembers()).map((e: any) => e.data).find((x: any) => slugOf(x.name) === m) ?? null;
+	member = (await getMembers()).map((e: any) => ({ ...e.data, role: publicRole(e.data.role ?? "") })).find((x: any) => slugOf(x.name) === m) ?? null;
 	override = member
 		? { seo_title: `${member.name}, ${member.role.split(" · ").pop()} · BNI אדירים`,
 			description: describe(member),

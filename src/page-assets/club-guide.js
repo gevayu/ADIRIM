@@ -7,8 +7,8 @@
   const byName = n => M.find(m => m.name === n);
   // data.js puts a group role before " · " ("יו״ר · חוקר פרטי"); other " · " roles are just trade details.
   const ROLE = /^(יו״ר|סגנ|גזבר|ועדת|חונכות|צוות|תיאום|אחראי)/;
-  const title = m => { const t = (m.role || "").split(" · ")[0]; return (m.role || "").includes(" · ") && ROLE.test(t) ? t : null; };
-  const trade = m => title(m) ? m.role.split(" · ").slice(1).join(" · ") : m.role;
+  const title = m => { const r = m.fullRole || m.role || "", t = r.split(" · ")[0]; return r.includes(" · ") && ROLE.test(t) ? t : null; };
+  const trade = m => title(m) ? (m.fullRole || m.role).split(" · ").slice(1).join(" · ") : m.role;
 
   const GUESTS = "אחראי קשר עם האורחים";
   const LEAD = /^(יו״ר|סגנית יו״ר|גזברית|אחראי קשר עם האורחים)$/;

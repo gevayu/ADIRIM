@@ -39,3 +39,12 @@ export function circleOrder(used: string[]) {
 
 // The "home" page entry is served at "/".
 export const pagePath = (slug: string) => (slug === "home" ? "/" : `/${slug}`);
+
+// A role may start with a chapter title before " · " ("צוות אירוח · יחסי ציבור"). Public listings show
+// only the leadership titles (chair, vice chair, treasurer); other titles stay in fullRole for the club pages.
+const CHAPTER_TITLE = /^(יו״ר|סגנ|גזבר|ועדת|חונכות|צוות|תיאום|אחראי|אוריינטציה)/;
+const SHOWN_TITLE = /^(יו״ר|סגנ\S* יו״ר|גזבר)/;
+export const publicRole = (role: string) => {
+	const [first, ...rest] = role.split(" · ");
+	return rest.length && CHAPTER_TITLE.test(first) && !SHOWN_TITLE.test(first) ? rest.join(" · ") : role;
+};
