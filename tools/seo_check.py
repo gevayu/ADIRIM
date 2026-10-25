@@ -7,7 +7,9 @@ sys.stdout.reconfigure(encoding="utf-8")
 BASE = (sys.argv[1] if len(sys.argv) > 1 else "http://localhost:4321").rstrip("/")
 def get(u):
     try:
-        with urllib.request.urlopen(u, timeout=120) as r: return r.status, r.read().decode("utf-8", "replace")
+        # A browser user agent: Cloudflare's bot protection answers 403 to Python's default one.
+        req = urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36 adirim-seo-check"})
+        with urllib.request.urlopen(req, timeout=120) as r: return r.status, r.read().decode("utf-8", "replace")
     except urllib.error.HTTPError as e: return e.code, ""
 _, sm = get(BASE + "/sitemap.xml")
 urls = [re.sub(r"^https?://[^/]+", BASE, u) for u in re.findall(r"<loc>([^<]+)</loc>", sm)]
@@ -18,6 +20,7 @@ for u in urls:
     st, html = get(u)
     if st != 200: issues[u].append(f"status {st}"); continue
     s = BeautifulSoup(html, "html.parser")
+    if not s.html: issues[u].append("not an HTML page: " + " ".join(html[:80].split())); continue
     for sc in s.find_all("script"): sc.decompose()
     t = s.title.get_text(strip=True) if s.title else ""
     d = [m.get("content", "") for m in s.find_all("meta", attrs={"name": "description"})]

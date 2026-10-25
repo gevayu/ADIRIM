@@ -76,7 +76,8 @@
 .think .fields h3 { margin: 0; }
 .think .fields .btn { justify-self: start; }
 .think .fields .btn[disabled] { opacity: .55; cursor: progress; }
-.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+/* Honeypot, hidden in place: an offset to the left widens an RTL page, and `.fields input` would size it to 100% */
+.fields input.hp { position: absolute; inset-inline-start: 0; width: 1px; min-width: 0; height: 1px; margin: 0; padding: 0; border: 0; overflow: hidden; clip-path: inset(50%); opacity: 0; }
 .status { margin: 0; font-size: 15px; color: var(--muted); min-height: 1.4em; }
 .status.err { color: var(--red); }
 .matches { margin: 0 0 28px; }

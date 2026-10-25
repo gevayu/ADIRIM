@@ -2,6 +2,8 @@
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "bni-adirim",
 	"main": "./src/worker.ts",
+	// Keep the *.workers.dev address alongside the domain (for checks that bypass the domain's routing).
+	"workers_dev": true,
 	"compatibility_date": "2026-10-01",
 	"compatibility_flags": ["nodejs_compat"],
 	"observability": { "enabled": true },
@@ -18,6 +20,10 @@
 	// The public address. Set before the first admin setup: passkeys bind to it, and canonical links,
 	// the sitemap and structured data use it.
 	"vars": { "EMDASH_SITE_URL": "https://bni-adirim.co.il" },
-	// Serve the site on the domain. Replaces the current site on bni-adirim.co.il, so enable only when switching:
-	// "routes": [{ "pattern": "bni-adirim.co.il", "custom_domain": true }]
+	// The site's domain (switched from the previous Lovable site on 2026-10-24; that site was at 185.158.133.1
+	// for both names). www redirects to the bare domain in src/middleware.ts.
+	"routes": [
+		{ "pattern": "bni-adirim.co.il", "custom_domain": true },
+		{ "pattern": "www.bni-adirim.co.il", "custom_domain": true }
+	]
 }

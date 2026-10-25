@@ -49,8 +49,13 @@ back to http://localhost:4321. In the admin's first-run setup choose
 "Import an existing EmDash site" and upload the newest `backups/*.emdash`, or run `emdash site import`
 against the live URL with an API token.
 
-Custom domain: the domain must be on Cloudflare in the same account; add
-`"routes": [{ "pattern": "example.com", "custom_domain": true }]` to `wrangler.jsonc` and deploy.
+Live since 2026-10-25 on https://bni-adirim.co.il (Cloudflare account "Gevayu@gmail.com's Account"); `www` redirects
+to the bare domain in `src/middleware.ts`, and https://bni-adirim.gevayu.workers.dev stays up for checks.
+To roll back to the previous (Lovable) site: remove the two custom domains from the Worker and re-add the DNS records
+`bni-adirim.co.il A 185.158.133.1` and `www.bni-adirim.co.il A 185.158.133.1` (DNS only). The `_lovable` TXT
+records and `visitors.bni-adirim.co.il` were left in place.
+
+Check after any change: `python tools/seo_check.py https://bni-adirim.co.il` and `npx wrangler tail bni-adirim`.
 
 ## Where things live
 
