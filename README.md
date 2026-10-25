@@ -55,7 +55,9 @@ To roll back to the previous (Lovable) site: remove the two custom domains from 
 `bni-adirim.co.il A 185.158.133.1` and `www.bni-adirim.co.il A 185.158.133.1` (DNS only). The `_lovable` TXT
 records and `visitors.bni-adirim.co.il` were left in place.
 
-Check after any change: `python tools/seo_check.py https://bni-adirim.co.il` and `npx wrangler tail bni-adirim`.
+Check after any change: `python tools/seo_check.py https://bni-adirim.co.il` and `node tools/health_check.mjs`
+(every page twice while listening to the Worker's logs: failed requests, CPU per request, exceptions). On the free
+plan's 10 ms CPU limit, an occasional `exceededCpu` is expected; a rising count means it's time for Workers Paid.
 
 ## Where things live
 
