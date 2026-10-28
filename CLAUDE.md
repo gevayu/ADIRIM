@@ -47,32 +47,35 @@ Import (paste/CSV/Excel) ──parse──> Review grid (edit every field) ─�
 - **Data flow is server → client.** `app/page.tsx` is a server component that reads the
   current week via `lib/repo.ts` and hands it to `components/GuestsApp.tsx` (client), which
   toggles between the board and the import/edit panel.
-- **`lib/repo.ts` is the only data-access layer.** `getCurrentWeek` = latest `meeting_date`.
-  `saveWeek` is an **upsert by date**: saving a date that already exists replaces that week's
-  visitors (delete + insert), so re-importing the same week overwrites rather than duplicates.
-- **API routes** (`app/api/weeks/…`) are thin wrappers over `repo.ts`. `POST /api/weeks`
-  validates the date shape and returns the saved week; the client swaps it into state.
+- **`lib/repo.ts` is the only data-access layer.** `getCurrentWeek` = the meeting whose date is
+  **closest to today** (not the furthest-future one, so a stray future-dated week no longer
+  hijacks the board). `page.tsx` reads `?date` to show any saved meeting; a week picker
+  navigates by URL. `saveWeek` is an **upsert by date**: saving a date that already exists
+  replaces that week's visitors (delete + insert). `deleteWeek` removes a meeting + its visitors.
+- **API routes** (`app/api/weeks/…`) are thin wrappers over `repo.ts`. `POST` saves (admin only),
+  `DELETE ?date=` removes (admin only), `GET` lists weeks.
 
-### Database (libSQL / Turso, via Drizzle)
+### Database (Postgres / Supabase, via Drizzle)
 
-- `lib/db/index.ts` creates a libSQL client from `DATABASE_URL` (+ `DATABASE_AUTH_TOKEN`).
-  Local dev uses `file:./data/local.db` (gitignored); Vercel uses a Turso URL + token.
+- `lib/db/index.ts` creates a `postgres-js` client from `DATABASE_URL` (Supabase transaction
+  pooler, port 6543, `prepare:false`). The client inits lazily so importing the module never
+  throws during build; a missing `DATABASE_URL` surfaces at request time from `ensureSchema()`.
 - **No migration step.** `ensureSchema()` runs idempotent `CREATE TABLE IF NOT EXISTS` and is
-  awaited by every repo call. If you change `lib/db/schema.ts`, update the raw DDL in
-  `ensureSchema()` too — they are two hand-kept copies of the same schema.
-- Schema: `weeks (id, meeting_date UNIQUE, created_at)` and `visitors (…, position, type,
-  gender, bni_member)`. `bni_member` is stored `0/1`; `repo.ts` maps it to the boolean
-  `bniMember`. Visitor order is preserved via `position`.
+  awaited by every repo call. If you change `lib/db/schema.ts` (drizzle `pg-core`), update the
+  raw DDL in `ensureSchema()` too — they are two hand-kept copies of the same schema.
+- Tables: `weeks (meeting_date UNIQUE, created_at)`, `visitors (…, position, type, gender,
+  bni_member BOOLEAN)`, `admins (email, token)`. Visitor order is preserved via `position`.
 
-### Editor gate (`lib/auth.ts`)
+### Editor gate (`lib/auth.ts`, DB-backed)
 
-Editing is password-gated; the public view is read-only. Login (`/login` → `POST
-/api/login`) checks `ADMIN_USER` (case-insensitive) + `ADMIN_PASSWORD` and sets an httpOnly
-cookie holding `sessionToken()` — a SHA-256 of `user:password`, not the raw password.
-`isAdmin()` (used by `app/page.tsx` and guarding `POST /api/weeks`) recomputes that token and
-compares. **If either env var is unset, editing is locked for everyone** (fail-safe). Changing
-either env value rotates the token and invalidates existing sessions. The gate is enforced
-server-side on the write API, so hiding the button is not the security boundary.
+Editing is gated by the **`admins` table**; the public view is read-only. A row is
+`{ email, token }` where `token = sha256(lower(email) + ":" + password)`. Login (`/login` →
+`POST /api/login`) computes the token from the submitted credentials and looks it up; a match
+sets an httpOnly cookie holding that token. `isAdmin()` (async; used by `app/page.tsx` and
+guarding `POST`/`DELETE /api/weeks`) looks the cookie's token up in `admins`. **Empty table =
+editing locked for everyone** (fail-safe). Add/remove an editor by a DB row, no redeploy and no
+env vars. The gate is enforced server-side on the write API, so hiding the button is not the
+security boundary.
 
 ### Domain logic (ported from the skill, shared client/server)
 
@@ -98,12 +101,14 @@ is a variable font capped at weight 700, so `font-weight: 900` (e.g. `.bni-logo`
 700. The paste `<textarea>` stays monospace on purpose (column alignment while pasting).
 `xlsx` is dynamically imported in the export handler to keep it out of the initial bundle.
 
-## Deployment (GitHub + Vercel)
+## Deployment (GitHub + Vercel + Supabase)
 
-`data/local.db` is gitignored and won't deploy. On Vercel, set `DATABASE_URL` (Turso
-`libsql://…`), `DATABASE_AUTH_TOKEN`, and the editor login `ADMIN_USER` + `ADMIN_PASSWORD`;
-the app starts with an empty-state and the first import creates the first week. To preload the
-sample week against a remote DB, run `npm run seed` with those env vars set. See `README.md`.
+Set one env var on Vercel: `DATABASE_URL` (Supabase transaction-pooler `postgresql://…:6543/…`).
+The schema auto-creates on first request; the app starts empty and the first import creates the
+first week. Editors are rows in the `admins` table, not env vars — seed at least one (see
+`README.md` for the token one-liner + SQL) or no one can log in. Standing up a fresh instance in
+another account is the same three steps (Supabase → `DATABASE_URL` → first admin row); `README.md`
+has the walkthrough.
 
 ## The original skill (offline verification)
 
